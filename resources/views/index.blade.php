@@ -17,12 +17,11 @@
     <!-- CSS Libraries -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -31,34 +30,32 @@
     <!-- Nav Bar Start -->
     <div class="navbar navbar-expand-lg bg-light navbar-light">
         <div class="container-fluid">
-            <a href="/index" class="navbar-brand">Morocco <span>Munch</span></a>
+            <a href="index.html" class="navbar-brand">Morocco <span>Munch</span></a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
-                    <a href="/index" class="nav-item nav-link active">Home</a>
-                    <a href="/about" class="nav-item nav-link">About</a>
-                    <a href="/feature" class="nav-item nav-link">Feature</a>
-                    <a href="/team" class="nav-item nav-link">Chef</a>
-                    <a href="#" class="nav-item nav-link">Sign Up</a>
-                    <a href="#" class="nav-item nav-link">Log in</a>
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="feature.html" class="nav-item nav-link">Feature</a>
+                    <a href="team.html" class="nav-item nav-link">Chef</a>
+                    <a href="menu.html" class="nav-item nav-link">Menu</a>
+                    <a href="booking.html" class="nav-item nav-link">Booking</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu">
+                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
+                            <a href="single.html" class="dropdown-item">Blog Detail</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-
             </div>
         </div>
     </div>
     <!-- Nav Bar End -->
-
-
-
-
-
-
-
-
-
 
 
     <!-- Carousel Start -->
@@ -74,6 +71,10 @@
                         <p>
                             Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
                         </p>
+                        <!-- <div class="carousel-btn">
+                                <a class="btn custom-btn" href="">View Menu</a>
+                                <a class="btn custom-btn" href="">Book Table</a>
+                            </div> -->
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -81,10 +82,14 @@
                         <img src="img/carousel-2.jpg" alt="Image">
                     </div>
                     <div class="carousel-text">
-                        <h1>Moroccan's <span>Best</span> Chef</h1>
+                        <h1>World’s <span>Best</span> Chef</h1>
                         <p>
                             Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
                         </p>
+                        <!-- <div class="carousel-btn">
+                                <a class="btn custom-btn" href="">View Menu</a>
+                                <a class="btn custom-btn" href="">Book Table</a>
+                            </div> -->
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -96,12 +101,111 @@
                         <p>
                             Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
                         </p>
+                        <!-- <div class="carousel-btn">
+                                <a class="btn custom-btn" href="">View Menu</a>
+                                <a class="btn custom-btn" href="">Book Table</a>
+                            </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Carousel End -->
+
+
+    <!-- Booking Start -->
+    <!-- <div class="booking">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="booking-content">
+                            <div class="section-header">
+                                <p>Book A Table</p>
+                                <h2>Book Your Table For Private Dinners & Happy Hours</h2>
+                            </div>
+                            <div class="about-text">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus. Aenean consectetur convallis porttitor. Aliquam interdum at lacus non blandit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="booking-form">
+                            <form>
+                                <div class="control-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Name" required="required" />
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><i class="far fa-user"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="Email" required="required" />
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><i class="far fa-envelope"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Mobile" required="required" />
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><i class="fa fa-mobile-alt"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="input-group date" id="date" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
+                                        <div class="input-group-append" data-target="#date" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="input-group time" id="time" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>
+                                        <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="input-group">
+                                        <select class="custom-select form-control">
+                                            <option selected>Guest</option>
+                                            <option value="1">1 Guest</option>
+                                            <option value="2">2 Guest</option>
+                                            <option value="3">3 Guest</option>
+                                            <option value="4">4 Guest</option>
+                                            <option value="5">5 Guest</option>
+                                            <option value="6">6 Guest</option>
+                                            <option value="7">7 Guest</option>
+                                            <option value="8">8 Guest</option>
+                                            <option value="9">9 Guest</option>
+                                            <option value="10">10 Guest</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="btn custom-btn" type="submit">Book Now</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    <!-- Booking End -->
 
 
     <!-- About Start -->
@@ -256,6 +360,48 @@
     <!-- Feature End -->
 
 
+    <!-- Food Start -->
+    <div class="food">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <div class="food-item">
+                        <i class="flaticon-burger"></i>
+                        <h2>Burgers</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem.
+                        </p>
+                        <a href="">View Menu</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="food-item">
+                        <i class="flaticon-snack"></i>
+                        <h2>Snacks</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem.
+                        </p>
+                        <a href="">View Menu</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="food-item">
+                        <i class="flaticon-cocktail"></i>
+                        <h2>Beverages</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet elit. Phasel nec pretium mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor auctor quis sem.
+                        </p>
+                        <a href="">View Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Food End -->
+
+
+
+
     <!-- Team Start -->
     <div class="team">
         <div class="container">
@@ -268,12 +414,12 @@
                     <div class="team-item">
                         <div class="team-img">
                             <img src="img/team-1.jpg" alt="Image">
-                            <!-- <div class="team-social">
+                            <div class="team-social">
                                 <a href=""><i class="fab fa-twitter"></i></a>
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
                                 <a href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="team-text">
                             <h2>Adam Phillips</h2>
@@ -285,12 +431,12 @@
                     <div class="team-item">
                         <div class="team-img">
                             <img src="img/team-2.jpg" alt="Image">
-                            <!-- <div class="team-social">
+                            <div class="team-social">
                                 <a href=""><i class="fab fa-twitter"></i></a>
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
                                 <a href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="team-text">
                             <h2>Dylan Adams</h2>
@@ -302,12 +448,12 @@
                     <div class="team-item">
                         <div class="team-img">
                             <img src="img/team-3.jpg" alt="Image">
-                            <!-- <div class="team-social">
+                            <div class="team-social">
                                 <a href=""><i class="fab fa-twitter"></i></a>
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
                                 <a href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="team-text">
                             <h2>Jhon Doe</h2>
@@ -319,12 +465,12 @@
                     <div class="team-item">
                         <div class="team-img">
                             <img src="img/team-4.jpg" alt="Image">
-                            <!-- <div class="team-social">
+                            <div class="team-social">
                                 <a href=""><i class="fab fa-twitter"></i></a>
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
                                 <a href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="team-text">
                             <h2>Josh Dunn</h2>
@@ -389,24 +535,6 @@
 
 
     <!-- Blog Start -->
-
-
-    <form action="" class=" max-w-2xl p-2 flex bg-white mx-auto border border-black rounded-xl">
-        <input type="search" name="" id="" class="w-full focus:outline-none px-2" placeholder="search ...">
-        <button class="bg-green-600 rounded-xl hover:bg-green-800 w-28 h-10 text-white py-2 px-2">
-            search
-        </button>
-    </form>
-    
-
-    <div class="d-flex flex-row justify-content-center gap-3   mt-5">
-        <button type="button" class="btn btn-outline-warning">Tajine</button>
-        <button type="button" class="btn btn-outline-warning">Couscous</button>
-        <button type="button" class="btn btn-outline-warning">Pastilla</button>
-        <button type="button" class="btn btn-outline-warning">Briouates</button>
-        <button type="button" class="btn btn-outline-warning">Rfissa</button>
-    </div>
-
     <div class="blog">
         <div class="container">
             <div class="section-header text-center">
@@ -416,7 +544,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="blog-item">
-                        <div class="blog-img h-64">
+                        <div class="blog-img">
                             <img src="img/blog-1.jpg" alt="Blog">
                         </div>
                         <div class="blog-content">
@@ -438,8 +566,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="blog-item">
-                        <div class="blog-img h-64">
-                            <img src="img/blog-3.jpg" alt="Blog">
+                        <div class="blog-img">
+                            <img src="img/blog-2.jpg" alt="Blog">
                         </div>
                         <div class="blog-content">
                             <h2 class="blog-title">Lorem ipsum dolor sit amet</h2>
@@ -469,8 +597,8 @@
 
         <div class="copyright">
             <div class="container">
-                <p>Copyright &copy; <a href="#">Morocco Munch</a>, All Right Reserved.</p>
-                <p>Designed By <a href="https://htmlcodex.com">Hamliri Sanae</a></p>
+                <p>Copyright &copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
+                <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
             </div>
         </div>
     </div>
@@ -493,9 +621,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-
-    <!-- tailwind script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 
 </html>
