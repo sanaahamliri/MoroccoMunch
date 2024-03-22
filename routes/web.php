@@ -36,3 +36,7 @@ Route::get('/booking', function () {
 Route::get('/client', function () {
     return view('client');
 });
+
+Route::get('/details', function () {
+    return view('details');
+});
