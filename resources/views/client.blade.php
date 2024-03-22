@@ -155,7 +155,7 @@
                                                 <p>
                                                     Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor...
                                                 </p>
-                                                <a class="btn custom-btn" href="">Read More</a>
+                                                <a class="btn custom-btn" href="/single">Read More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -177,7 +177,7 @@
                                                 <p>
                                                     Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor...
                                                 </p>
-                                                <a class="btn custom-btn" href="">Read More</a>
+                                                <a class="btn custom-btn" href="/single">Read More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -186,7 +186,7 @@
                         </div>
                     </div>
 
-                   
+
 
                 </div>
 
@@ -422,141 +422,137 @@
     </div>
     <!-- Single Post End-->
 
-     <!-- Team Start -->
-     <div class="team">
-                        <div class="container">
-                            <div class="section-header text-center">
-                                <p>Our Team</p>
-                                <h2>Our Master Chef</h2>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="team-item">
-                                        <div class="team-img">
-                                            <img src="img/team-1.jpg" alt="Image">
-                                            <!-- <div class="team-social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                            </div> -->
-                                        </div>
-                                        <div class="team-text">
-                                            <h2>Adam Phillips</h2>
-                                            <p>CEO, Co Founder</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="team-item">
-                                        <div class="team-img">
-                                            <img src="img/team-2.jpg" alt="Image">
-                                            <!-- <div class="team-social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                            </div> -->
-                                        </div>
-                                        <div class="team-text">
-                                            <h2>Dylan Adams</h2>
-                                            <p>Master Chef</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="team-item">
-                                        <div class="team-img">
-                                            <img src="img/team-3.jpg" alt="Image">
-                                            <!-- <div class="team-social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                            </div> -->
-                                        </div>
-                                        <div class="team-text">
-                                            <h2>Jhon Doe</h2>
-                                            <p>Master Chef</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="team-item">
-                                        <div class="team-img">
-                                            <img src="img/team-4.jpg" alt="Image">
-                                            <!-- <div class="team-social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                            </div> -->
-                                        </div>
-                                        <div class="team-text">
-                                            <h2>Josh Dunn</h2>
-                                            <p>Master Chef</p>
-                                        </div>
-                                    </div>
-                                </div>
+    <!-- Team Start -->
+    <div class="team">
+        <div class="container">
+            <div class="section-header text-center">
+                <p>Our Team</p>
+                <h2>Our Master Chef</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="img/team-1.jpg" alt="Image">
+                            <div class="team-social">
+                               
+                                <a href="">-></i></a>
+                               
                             </div>
                         </div>
-                    </div>
-                    <!-- Team End -->
-
-
-                    <!-- Testimonial Start -->
-                    <div class="testimonial">
-                        <div class="container">
-                            <div class="owl-carousel testimonials-carousel">
-                                <div class="testimonial-item">
-                                    <div class="testimonial-img">
-                                        <img src="img/testimonial-1.jpg" alt="Image">
-                                    </div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
-                                    </p>
-                                    <h2>Client Name</h2>
-                                    <h3>Profession</h3>
-                                </div>
-                                <div class="testimonial-item">
-                                    <div class="testimonial-img">
-                                        <img src="img/testimonial-2.jpg" alt="Image">
-                                    </div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
-                                    </p>
-                                    <h2>Client Name</h2>
-                                    <h3>Profession</h3>
-                                </div>
-                                <div class="testimonial-item">
-                                    <div class="testimonial-img">
-                                        <img src="img/testimonial-3.jpg" alt="Image">
-                                    </div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
-                                    </p>
-                                    <h2>Client Name</h2>
-                                    <h3>Profession</h3>
-                                </div>
-                                <div class="testimonial-item">
-                                    <div class="testimonial-img">
-                                        <img src="img/testimonial-4.jpg" alt="Image">
-                                    </div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
-                                    </p>
-                                    <h2>Client Name</h2>
-                                    <h3>Profession</h3>
-                                </div>
-                            </div>
+                        <div class="team-text">
+                            <h2>Adam Phillips</h2>
+                            <p>CEO, Co Founder</p>
                         </div>
                     </div>
-                    <!-- Testimonial End -->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="img/team-2.jpg" alt="Image">
+                            <div class="team-social">
+                               
+                               <a href="">-></i></a>
+                              
+                           </div>
+                        </div>
+                        <div class="team-text">
+                            <h2>Dylan Adams</h2>
+                            <p>Master Chef</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="img/team-3.jpg" alt="Image">
+                            <div class="team-social">
+                               
+                               <a href="">-></i></a>
+                              
+                           </div>
+                        </div>
+                        <div class="team-text">
+                            <h2>Jhon Doe</h2>
+                            <p>Master Chef</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="img/team-4.jpg" alt="Image">
+                            <div class="team-social">
+                               
+                               <a href="">-></i></a>
+                              
+                           </div>
+                        </div>
+                        <div class="team-text">
+                            <h2>Josh Dunn</h2>
+                            <p>Master Chef</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="testimonial">
+        <div class="container">
+            <div class="owl-carousel testimonials-carousel">
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <img src="img/testimonial-1.jpg" alt="Image">
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
+                    </p>
+                    <h2>Client Name</h2>
+                    <h3>Profession</h3>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <img src="img/testimonial-2.jpg" alt="Image">
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
+                    </p>
+                    <h2>Client Name</h2>
+                    <h3>Profession</h3>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <img src="img/testimonial-3.jpg" alt="Image">
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
+                    </p>
+                    <h2>Client Name</h2>
+                    <h3>Profession</h3>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <img src="img/testimonial-4.jpg" alt="Image">
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
+                    </p>
+                    <h2>Client Name</h2>
+                    <h3>Profession</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
 
 
     <!-- Footer Start -->
     <div class="footer">
-       
+
         <div class="copyright">
             <div class="container">
                 <p>Copyright &copy; <a href="#">Morocco Munch</a>, All Right Reserved.</p>
