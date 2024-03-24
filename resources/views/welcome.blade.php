@@ -397,7 +397,6 @@
             search
         </button>
     </form>
-    
 
     <div class="d-flex flex-row justify-content-center gap-3   mt-5">
         <button type="button" class="btn btn-outline-warning">Tajine</button>

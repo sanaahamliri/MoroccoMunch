@@ -182,9 +182,8 @@
                 <button type="button" class="btn btn-outline-warning">Briouates</button>
                 <button type="button" class="btn btn-outline-warning">Rfissa</button>
                 <button type="button" class="btn btn-outline-warning">Pastilla</button>
-               
-           
             </div>
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="blog-item">

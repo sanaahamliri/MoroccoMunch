@@ -41,10 +41,8 @@
                     <a href="/about" class="nav-item nav-link">About</a>
                     <a href="/feature" class="nav-item nav-link">Feature</a>
                     <a href="/team" class="nav-item nav-link">Chef</a>
-                    <a href="#" class="nav-item nav-link">Sign Up</a>
-                    <a href="#" class="nav-item nav-link">Log in</a>
+                    <a href="#" class="nav-item nav-link">Log Out</a>
                 </div>
-
             </div>
         </div>
     </div>
@@ -124,8 +122,6 @@
                                     </form>
                                 </div>
                             </div>
-
-
 
                             <div class="single-tags">
                                 <a href="">National</a>

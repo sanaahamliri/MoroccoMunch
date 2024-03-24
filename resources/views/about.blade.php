@@ -130,8 +130,8 @@
             
             <div class="copyright">
                 <div class="container">
-                    <p>Copyright &copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
-                    <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                    <p>Copyright &copy; <a href="#">Morocco Munch</a>, All Right Reserved.</p>
+                    <p>Designed By <a href="https://htmlcodex.com">Hamliri Sanae</a></p>
                 </div>
             </div>
         </div>
