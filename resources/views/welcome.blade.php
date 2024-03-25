@@ -24,7 +24,7 @@
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -105,7 +105,7 @@
 
 
     <!-- About Start -->
-    <div class="about">
+    <div id="dd" class="about">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">

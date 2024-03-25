@@ -40,3 +40,8 @@ Route::get('/client', function () {
 Route::get('/details', function () {
     return view('details');
 });
+
+
+Route::get('/register', function () {
+    return view('register');
+});
