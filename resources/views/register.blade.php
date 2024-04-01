@@ -11,6 +11,8 @@
 </head>
 
 <body>
+
+
     <section class="bg-white dark:bg-gray-900">
         <div class="flex justify-center min-h-screen">
             <div class="hidden bg-cover lg:block lg:w-2/5" style="background-image: url('img/carousel-3.jpg')">

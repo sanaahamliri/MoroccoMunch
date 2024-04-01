@@ -45,3 +45,19 @@ Route::get('/details', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+Route::get('/admin', function () {
+    return view('admin/dashboard');
+});
+
+Route::get('/validateChef', function () {
+    return view('admin/validate');
+});
+
+Route::get('/validate', function () {
+    return view('admin/validateChef');
+});
+
+Route::get('/plate', function () {
+    return view('admin/plate');
+});
