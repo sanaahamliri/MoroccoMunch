@@ -127,10 +127,6 @@
                                 </div>
 
 
-                                <div>
-                                    <button onclick="openModal()" class='bg-blue-500 text-white p-2 rounded text-2xl font-bold'>Open Modal</button>
-                                </div>
-
                                 <div class="fixed inset-0 z-50 flex justify-center items-center animated fadeIn faster" style="background: rgba(0,0,0,.7);">
                                     <div class="border border-teal-500 shadow-lg modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
                                         <div class="modal-content py-4 text-left px-6">
@@ -145,26 +141,94 @@
                                                 </div>
                                             </div>
                                             <!--Body-->
-                                            <div class="my-5">
-                                                <p>Inliberali Persius Multi iustitia pronuntiaret expeteretur sanos didicisset laus angusti ferrentur arbitrium arbitramur huic desiderent.?</p>
+                                            <div class="col-span-2">
+                                                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category Name</label>
+                                                <input type="text" name="description" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nom" required="">
                                             </div>
                                             <!--Footer-->
                                             <div class="flex justify-end pt-2">
                                                 <button class="focus:outline-none modal-close px-4 bg-gray-400 p-3 rounded-lg text-black hover:bg-gray-300">Cancel</button>
-                                                <button class="focus:outline-none px-4 bg-teal-500 p-3 ml-3 rounded-lg text-white hover:bg-teal-400">Confirm</button>
+                                                <button class="focus:outline-none px-4 bg-teal-500 p-3 ml-3 bg-green-400 hover:bg-green-300 rounded-lg text-black hover:bg-teal-400">Confirm</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class=" p-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none">
-                                        <g id="Edit / Add_Plus">
-                                            <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </g>
-                                    </svg>
-                                    <p class="text-xs font-semibold text-gray-400">Add tag</p>
+                                <div class="p-4">
+                                    <div id="tagContainer" class="flex flex-wrap-reverse items-center"></div>
+                                    <div class="flex items-center mt-4">
+                                        <button id="openModalBtn" class="ml-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md">Ajouter un tag</button>
+                                    </div>
                                 </div>
+
+                                <!-- Modal -->
+
+
+                                <!-- Modal -->
+                                <div id="tagModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+                                    <div class="flex items-center justify-center min-h-screen">
+                                        <div class="relative bg-white w-96 rounded-lg p-8">
+                                            <div class="flex justify-between items-center mb-4">
+                                                <h3 class="text-lg font-semibold">Ajouter un tag</h3>
+                                                <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <input type="text" id="tagInput" class="border border-gray-300 rounded-md py-2 px-4 mb-4 w-full" placeholder="Nom du tag" />
+                                            <div id="tagContainer" class="flex flex-wrap items-center mb-4"></div> <!-- Déplacé ici -->
+                                            <div class="flex justify-end">
+                                                <button id="addTagBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md">Ajouter</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <script>
+                                    const tagContainer = document.getElementById('tagContainer');
+                                    const tagInput = document.getElementById('tagInput');
+                                    const addTagBtn = document.getElementById('addTagBtn');
+                                    const openModalBtn = document.getElementById('openModalBtn');
+                                    const closeModalBtn = document.getElementById('closeModalBtn');
+                                    const tagModal = document.getElementById('tagModal');
+
+                                    openModalBtn.addEventListener('click', function() {
+                                        tagModal.classList.remove('hidden');
+                                    });
+
+                                    closeModalBtn.addEventListener('click', function() {
+                                        tagModal.classList.add('hidden');
+                                    });
+
+                                    addTagBtn.addEventListener('click', function() {
+                                        const tagName = tagInput.value.trim();
+                                        if (tagName !== '') {
+                                            const tagElement = document.createElement('div');
+                                            tagElement.classList.add('flex', 'items-center', 'bg-gray-200', 'rounded-full', 'py-1', 'px-3', 'mr-2', 'mb-2');
+
+                                            const tagText = document.createElement('span');
+                                            tagText.textContent = tagName;
+                                            tagText.style.marginRight = '0.5rem'; // Ajout de style directement dans le JavaScript
+                                            tagElement.appendChild(tagText);
+
+                                            const removeBtn = document.createElement('button');
+                                            removeBtn.innerHTML = '&times;';
+                                            removeBtn.classList.add('ml-2', 'text-sm', 'font-semibold', 'focus:outline-none');
+                                            removeBtn.addEventListener('click', function() {
+                                                tagElement.remove();
+                                            });
+                                            tagElement.appendChild(removeBtn);
+
+                                            tagContainer.appendChild(tagElement);
+                                            tagInput.value = '';
+                                        }
+                                    });
+                                </script>
+
+
+
+
 
                             </div>
                         </div>

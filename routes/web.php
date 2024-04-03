@@ -61,3 +61,7 @@ Route::get('/validate', function () {
 Route::get('/plate', function () {
     return view('admin/plate');
 });
+
+Route::get('/plateAdd', function () {
+    return view('plateAdd');
+});
