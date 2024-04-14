@@ -1,0 +1,34 @@
+.box {
+    border-color: #fbaf32;
+    background-color: white;
+    color: #fbaf32;
+}
+.box:hover {
+    background-color: #fbaf32;
+    color: white;
+}
+
+.box1 {
+    border-color: #fbaf32;
+    background-color: white;
+    color: #fbaf32;
+}
+.box1:hover {
+    background-color: #fbaf32;
+    color: white;
+}
+.back {
+    width: 100px;
+    height: 40px;
+}
+
+.register {
+    background-color: #fbaf32;
+}
+
+.register:hover {
+    background-color: #fbae32b6;
+}
+.back {
+    width: 100px;
+}

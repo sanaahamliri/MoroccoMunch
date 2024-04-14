@@ -1958,23 +1958,3 @@ a:focus {
 .register:hover{
     background-color: #fbae32b0;
 }
-
-.box {
-   color: #fbaf32;
-   border-color: #fbaf32;
-}
-.box:hover{
-    background-color:#fbaf32;
-    color:white;
-}
-
-.box1 {
-    border-color: #fbaf32;
-    background-color: white;
-    color: #fbaf32;
-
- }
- .box1:hover{
-     background-color:#fbaf32;
-     color:white;
- }

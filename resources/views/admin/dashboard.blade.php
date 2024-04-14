@@ -44,36 +44,44 @@
                 <!--Start Sidebar for open menu -->
                 <div class="grid grid-cols-1 gap-4 grid-cols-2 mt-6">
                     <!-- Start Navitem -->
-                    <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                        <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                            <i class="fas fa-chart-pie fa-sm text-indigo-600"></i>
+                    <a href="/admin">
+                        <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                            <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
+                                <i class="fas fa-chart-pie fa-sm text-indigo-600"></i>
+                            </div>
+                            <p class="text-xs mt-1 text-center font-semibold">Dashboard</p>
                         </div>
-                        <p class="text-xs mt-1 text-center font-semibold">Dashboard</p>
-                    </div>
+                    </a>
                     <!-- End Navitem -->
                     <!-- Start Navitem -->
-                    <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                        <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                            <i class="fas fa-calculator fa-sm text-indigo-600"></i>
+                    <a href="/validate">
+                        <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                            <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
+                                <i class="fas fa-calculator fa-sm text-indigo-600"></i>
+                            </div>
+                            <p class="text-xs mt-1 text-center font-semibold">Clients Access</p>
                         </div>
-                        <p class="text-xs mt-1 text-center font-semibold">Clients Access</p>
-                    </div>
+                    </a>
                     <!-- End Navitem -->
                     <!-- Start Navitem -->
-                    <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                        <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                            <i class="fas fa-wallet fa-sm text-indigo-600"></i>
+                    <a href="/validateChef">
+                        <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                            <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
+                                <i class="fas fa-wallet fa-sm text-indigo-600"></i>
+                            </div>
+                            <p class="text-xs mt-1 text-center font-semibold">Chef Access</p>
                         </div>
-                        <p class="text-xs mt-1 text-center font-semibold">Chef Access</p>
-                    </div>
+                    </a>
                     <!-- End Navitem -->
                     <!-- Start Navitem -->
-                    <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                        <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                            <i class="fas fa-archive fa-sm text-indigo-600"></i>
+                    <a href="/plate">
+                        <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
+                            <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
+                                <i class="fas fa-archive fa-sm text-indigo-600"></i>
+                            </div>
+                            <p class="text-xs mt-1 text-center font-semibold">Plates Validate</p>
                         </div>
-                        <p class="text-xs mt-1 text-center font-semibold">Plates Validate</p>
-                    </div>
+                    </a>
                     <!-- End Navitem -->
                 </div>
                 <!--End Sidebar for open menu -->
@@ -154,12 +162,7 @@
                                     </div>
                                 </div>
 
-                                <div class="p-4">
-                                    <div id="tagContainer" class="flex flex-wrap-reverse items-center"></div>
-                                    <div class="flex items-center mt-4">
-                                        <button id="openModalBtn" class="ml-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md">Ajouter un tag</button>
-                                    </div>
-                                </div>
+
 
                                 <!-- Modal -->
 

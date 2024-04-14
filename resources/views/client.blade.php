@@ -13,7 +13,6 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet">
-
     <!-- CSS Libraries -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -47,9 +46,6 @@
         </div>
     </div>
     <!-- Nav Bar End -->
-
-
-
 
 
 
@@ -124,13 +120,12 @@
                             </div>
 
                             <div class="single-tags">
-                                <a href="">National</a>
-                                <a href="">International</a>
-                                <a href="">Economics</a>
-                                <a href="">Politics</a>
-                                <a href="">Lifestyle</a>
-                                <a href="">Technology</a>
-                                <a href="">Trades</a>
+                                <a href="">Couscous</a>
+                                <a href="">Briouate</a>
+                                <a href="">Bastilla</a>
+                                <a href="">Refissa</a>
+                                <a href="">Mechoui</a>
+
                             </div>
 
                             <div class="row">
@@ -174,6 +169,9 @@
                                                     Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor...
                                                 </p>
                                                 <a class="btn custom-btn" href="/single">Read More</a>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 48 48">
+                                                    <path fill="#f44336" d="M34 9c-4.2 0-7.9 2.1-10 5.4C21.9 11.1 18.2 9 14 9C7.4 9 2 14.4 2 21c0 11.9 22 24 22 24s22-12 22-24c0-6.6-5.4-12-12-12" />
+                                                </svg>
                                             </div>
                                         </div>
                                     </div>
@@ -207,61 +205,61 @@
                                     <div id="featured" class="container tab-pane active">
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-1.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-2.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-3.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-4.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-5.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -269,61 +267,61 @@
                                     <div id="popular" class="container tab-pane fade">
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-1.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-2.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-3.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
                                                     <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-4.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
                                                     <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-5.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">Sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -331,61 +329,61 @@
                                     <div id="latest" class="container tab-pane fade">
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-1.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">Sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-2.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">Sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-3.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">Sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-4.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">Sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/post-5.jpg" />
+                                                <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">Web Design</a></p>
+                                                    <p>By<a href="">Sanaa</a></p>
+                                                    <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -399,13 +397,12 @@
                             <h2 class="widget-title">Categories</h2>
                             <div class="category-widget">
                                 <ul>
-                                    <li><a href="">National</a><span>(98)</span></li>
-                                    <li><a href="">International</a><span>(87)</span></li>
-                                    <li><a href="">Economics</a><span>(76)</span></li>
-                                    <li><a href="">Politics</a><span>(65)</span></li>
-                                    <li><a href="">Lifestyle</a><span>(54)</span></li>
-                                    <li><a href="">Technology</a><span>(43)</span></li>
-                                    <li><a href="">Trades</a><span>(32)</span></li>
+                                    <li><a href="">Couscous</a><span>(98)</span></li>
+                                    <li><a href="">Briouate</a><span>(87)</span></li>
+                                    <li><a href="">Refissa</a><span>(76)</span></li>
+                                    <li><a href="">Bastilla</a><span>(65)</span></li>
+                                    <li><a href="">Tajine</a><span>(54)</span></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -431,9 +428,9 @@
                         <div class="team-img">
                             <img src="img/team-1.jpg" alt="Image">
                             <div class="team-social">
-                               
-                                <a href="">-></i></a>
-                               
+
+                                <a href="/details">-></i></a>
+
                             </div>
                         </div>
                         <div class="team-text">
@@ -447,10 +444,10 @@
                         <div class="team-img">
                             <img src="img/team-2.jpg" alt="Image">
                             <div class="team-social">
-                               
-                               <a href="">-></i></a>
-                              
-                           </div>
+
+                                <a href="/details">-></i></a>
+
+                            </div>
                         </div>
                         <div class="team-text">
                             <h2>Dylan Adams</h2>
@@ -463,10 +460,10 @@
                         <div class="team-img">
                             <img src="img/team-3.jpg" alt="Image">
                             <div class="team-social">
-                               
-                               <a href="">-></i></a>
-                              
-                           </div>
+
+                                <a href="/details">-></i></a>
+
+                            </div>
                         </div>
                         <div class="team-text">
                             <h2>Jhon Doe</h2>
@@ -479,10 +476,10 @@
                         <div class="team-img">
                             <img src="img/team-4.jpg" alt="Image">
                             <div class="team-social">
-                               
-                               <a href="">-></i></a>
-                              
-                           </div>
+
+                                <a href="/details">-></i></a>
+
+                            </div>
                         </div>
                         <div class="team-text">
                             <h2>Josh Dunn</h2>
@@ -512,7 +509,7 @@
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-2.jpg" alt="Image">
+                        <img src="img/testimonial-1.jpg" alt="Image">
                     </div>
                     <p>
                         Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
@@ -522,7 +519,7 @@
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-3.jpg" alt="Image">
+                        <img src="img/testimonial-1.jpg" alt="Image">
                     </div>
                     <p>
                         Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
@@ -532,7 +529,7 @@
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-4.jpg" alt="Image">
+                        <img src="img/testimonial-1.jpg" alt="Image">
                     </div>
                     <p>
                         Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput

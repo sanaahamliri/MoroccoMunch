@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -50,6 +51,10 @@ Route::get('/admin', function () {
     return view('admin/dashboard');
 });
 
+Route::get('/chef', function () {
+    return view('chef/dashboard');
+});
+
 Route::get('/validateChef', function () {
     return view('admin/validate');
 });
@@ -65,3 +70,12 @@ Route::get('/plate', function () {
 Route::get('/plateAdd', function () {
     return view('plateAdd');
 });
+
+
+
+Route::get('dashboard', [UserController::class, 'dashboard']); 
+Route::get('login', [UserController::class, 'index'])->name('login');
+Route::post('custom-login', [UserController::class, 'customLogin'])->name('login.custom'); 
+Route::get('registration', [UserController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [UserController::class, 'customRegistration'])->name('register.custom'); 
+Route::get('signout', [UserController::class, 'signOut'])->name('signout');

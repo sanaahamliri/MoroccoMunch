@@ -38,12 +38,12 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
-                    <a href="/index" class="nav-item nav-link active">Home</a>
+                    <a href="/" class="nav-item nav-link active">Home</a>
                     <a href="/about" class="nav-item nav-link">About</a>
                     <a href="/feature" class="nav-item nav-link">Feature</a>
                     <a href="/team" class="nav-item nav-link">Chef</a>
-                    <a href="#" class="nav-item nav-link">Sign Up</a>
-                    <a href="#" class="nav-item nav-link">Log in</a>
+                    <a href="/register" class="nav-item nav-link">Sign Up</a>
+                    <a href="/register" class="nav-item nav-link">Log in</a>
                 </div>
 
             </div>
@@ -193,7 +193,7 @@
                         <div class="col-sm-6">
                             <div class="feature-item">
                                 <i class="flaticon-cooking"></i>
-                                <h3>World’s best Chef</h3>
+                                <h3> best moroccan’s best Chef</h3>
                                 <p>
                                     Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
                                 </p>
@@ -268,16 +268,11 @@
                     <div class="team-item">
                         <div class="team-img">
                             <img src="img/team-1.jpg" alt="Image">
-                            <!-- <div class="team-social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                            </div> -->
+                           
                         </div>
                         <div class="team-text">
-                            <h2>Adam Phillips</h2>
-                            <p>CEO, Co Founder</p>
+                            <h2>Lorem, ipsum.</h2>
+                            <p>Lorem, ipsum dolor.</p>
                         </div>
                     </div>
                 </div>
@@ -293,8 +288,8 @@
                             </div> -->
                         </div>
                         <div class="team-text">
-                            <h2>Dylan Adams</h2>
-                            <p>Master Chef</p>
+                            <h2>Lorem, ipsum.</h2>
+                            <p>Lorem, ipsum dolor.</p>
                         </div>
                     </div>
                 </div>
@@ -310,8 +305,8 @@
                             </div> -->
                         </div>
                         <div class="team-text">
-                            <h2>Jhon Doe</h2>
-                            <p>Master Chef</p>
+                            <h2>Lorem, ipsum.</h2>
+                            <p>Lorem, ipsum dolor.</p>
                         </div>
                     </div>
                 </div>
@@ -327,8 +322,8 @@
                             </div> -->
                         </div>
                         <div class="team-text">
-                            <h2>Josh Dunn</h2>
-                            <p>Master Chef</p>
+                            <h2>Lorem, ipsum.</h2>
+                            <p>Lorem, ipsum dolor.</p>
                         </div>
                     </div>
                 </div>
@@ -354,7 +349,7 @@
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-2.jpg" alt="Image">
+                        <img src="img/testimonial-1.jpg" alt="Image">
                     </div>
                     <p>
                         Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
@@ -364,7 +359,7 @@
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-3.jpg" alt="Image">
+                        <img src="img/testimonial-1.jpg" alt="Image">
                     </div>
                     <p>
                         Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
@@ -374,7 +369,7 @@
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-img">
-                        <img src="img/testimonial-4.jpg" alt="Image">
+                        <img src="img/testimonial-1.jpg" alt="Image">
                     </div>
                     <p>
                         Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
@@ -430,7 +425,7 @@
                                 <p>
                                     Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor. Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte
                                 </p>
-                                <a class="btn custom-btn" href="">Read More</a>
+                                <a class="btn custom-btn" href="/register">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -452,7 +447,7 @@
                                 <p>
                                     Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor. Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte
                                 </p>
-                                <a class="btn custom-btn" href="">Read More</a>
+                                <a class="btn custom-btn" href="/register">Read More</a>
                             </div>
                         </div>
                     </div>
