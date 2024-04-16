@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('chefs', function (Blueprint $table) {
             $table->id();
+            $table->string('bio');
+            $table->string('description');
+            $table->integer('years_of_experience');
+            $table->integer('age');
             $table->timestamps();
             $table->foreignId('IdUser')->constrained('users');
         });

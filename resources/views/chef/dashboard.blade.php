@@ -53,7 +53,7 @@
                             <i class="fas fa-power-off fa-sm text-indigo-600"></i>
                         </li>
 
-                        
+
                     </ul>
                 </div>
                 <!--End NavItem -->
@@ -89,7 +89,7 @@
                     </div>
                     <!-- End Navitem -->
                     <!-- Start Navitem -->
-                   
+
                     <!-- End Navitem -->
                 </div>
                 <!--End Sidebar for open menu -->
@@ -121,11 +121,13 @@
 
                                 <div class=" p-4">
                                     <button class='bg-blue-500 text-white p-2 rounded text-2xl font-bold'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none">
-                                            <g id="Edit / Add_Plus">
-                                                <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </g>
-                                        </svg>
+                                        <a href="/plate">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none">
+                                                <g id="Edit / Add_Plus">
+                                                    <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                </g>
+                                            </svg>
+                                        </a>
                                     </button>
                                     <p class="text-xs font-semibold text-gray-400"></p>
                                 </div>
