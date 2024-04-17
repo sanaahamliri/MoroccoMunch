@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PlateController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,7 +50,6 @@ Route::get('/register', function () {
 });
 
 
-
 Route::get('/chef', function () {
     return view('chef/dashboard');
 });
@@ -82,7 +82,11 @@ Route::post('custom-login', [UserController::class, 'customLogin'])->name('login
 Route::get('registration', [UserController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [UserController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [UserController::class, 'signOut'])->name('signout');
+
 Route::resource('categories', CategoryController::class);
+
+Route::resource('plate', PlateController::class);
+
 
 
 

@@ -45,6 +45,7 @@ class UserController extends Controller
 
         $data = $request->all();
         $user = $this->create($data);
+        $user->chef()->create();
 
         Auth::login($user);
 

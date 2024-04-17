@@ -44,4 +44,21 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function chef()
+    {
+        return $this->hasOne(chef::class,'IdUser');
+
+    }
+
+    public function client()
+    {
+        return $this->hasOne(client::class,'IdUser');
+
+    }
+
+    public function admin()
+    {
+        return $this->hasOne(chef::class,'IdUser');
+
+    }
 }

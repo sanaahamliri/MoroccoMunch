@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class chef extends Model
 {
     use HasFactory;
+
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class,'IdUser');
+
+    }
 }

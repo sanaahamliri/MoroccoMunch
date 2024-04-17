@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('chefs', function (Blueprint $table) {
             $table->id();
-            $table->string('bio');
-            $table->string('description');
-            $table->integer('years_of_experience');
-            $table->integer('age');
-            $table->timestamps();
             $table->foreignId('IdUser')->constrained('users');
+            $table->string('bio')->nullable();
+            $table->string('description')->nullable();
+            $table->integer('years_of_experience')->nullable();
+            $table->integer('age')->nullable();
+            $table->timestamps();
         });
     }
 
