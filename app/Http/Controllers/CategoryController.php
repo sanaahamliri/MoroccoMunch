@@ -17,6 +17,10 @@ class CategoryController extends Controller
     {
         return view('admin.dashboard');
     }
+    
+    public function show()
+    {
+    }
 
     public function store(Request $request)
     {
@@ -49,9 +53,7 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-        $category->delete();
-
-        return redirect()->route('admin.dashboard')
-            ->with('success', 'Category deleted successfully');
+       $category->delete();
+        return redirect()->back()->with('success', 'Category deleted successfully');
     }
 }

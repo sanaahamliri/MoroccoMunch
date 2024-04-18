@@ -26,15 +26,15 @@
             <div class="flex items-center mt-4 gap-8 ml-[38vw]">
                 <a href="#" class="flex flex-col items-center mt-4 md:mt-0">
                     <img src="images/iconamoon_news-thin.png" alt="">
-                    <span class="text-black text-center hover:text-blue-500 px-3 py-2 border-b-2 border-transparent transition-all duration-300 md:border-none md:hover:border-blue-900">News</span>
+                    <span class="text-black text-center hover:text-blue-500 px-3 py-2 border-b-2 border-transparent transition-all duration-300 md:border-none md:hover:border-blue-900">dashboard</span>
                 </a>
-                <a href="learn.html" class="flex flex-col items-center mt-4 md:mt-0">
+                <a href="#" class="flex flex-col items-center mt-4 md:mt-0">
                     <img src="images/bi_book.png" alt="">
-                    <span class="text-black text-center hover:text-blue-500 px-3 py-2 border-b-2 border-transparent transition-all duration-300 md:border-none md:hover:border-blue-900">Learn</span>
+                    <span class="text-black text-center hover:text-blue-500 px-3 py-2 border-b-2 border-transparent transition-all duration-300 md:border-none md:hover:border-blue-900">All plates</span>
                 </a>
                 <a href="#" class="flex flex-col items-center mt-4 md:mt-0">
                     <img src="images/jam_write.png" alt="">
-                    <span class="text-black text-center hover:text-blue-500 px-3 py-2 border-b-2 border-transparent transition-all duration-300 md:border-none md:hover:border-blue-900">Complaint</span>
+                    <span class="text-black text-center hover:text-blue-500 px-3 py-2 border-b-2 border-transparent transition-all duration-300 md:border-none md:hover:border-blue-900">Reservation</span>
                 </a>
             </div>
         </div>
@@ -113,10 +113,9 @@
 
     <section class="bg-white dark:bg-gray-900 flex justify-between" style="background-image: url('storage/images/about.jpg'); background-size: cover; object-fit: cover; width: 100%;">
         <div class="py-8 mx-12 ">
-            <h1 class="mb-4 text-5xl font-extrabold text-white">Report Cyber Threats: Your Safety Matters</h1>
+            <h1 class="mb-4 text-5xl font-extrabold text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores, quis.</h1>
 
-            <p class="mb-8 mt-4 text-lg font-normal text-white">Search hundreds of walkthroughs and challenges by
-                security category or difficulty.</p>
+            <p class="mb-8 mt-4 text-lg font-normal text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
         <div class="flex items-center justify-end mx-12">
             <img src="images/none.svg.png" alt="">
@@ -130,7 +129,7 @@
                     <form method="POST" action="{{ route('plate.store') }}" enctype="multipart/form-data" class="border-2 border-black-300 p-4 m-4 rounded-lg">
                         @method('POST')
                         @csrf
-                        <h1 class="text-center font-bold text-3xl p-8">Complaint Submission Form</h1>
+                        <h1 class="text-center font-bold text-3xl p-8">Plate Submission Form</h1>
                         
                         <div class="mb-4 p-8">
                             <label class="text-xl text-gray-600">Choose category... <span class="text-red-500">*</span></label><br>
@@ -164,7 +163,7 @@
 
                         <div class="flex p-8">
                             <button type="submit" class="py-2 px-4 max-w-md  flex justify-center items-center bg-white text-[#79BF00] border-2 border-[#79BF00] rounded-lg w-full">
-                                Submit complaint..
+                                Add Plate..
                             </button>
                         </div>
                     </form>

@@ -20,6 +20,17 @@ class PlateController extends Controller
         return view('chef.plateAdd', compact('plates', 'categories'));
     }
 
+    public function showPlates()
+    {
+        $plates = Plate::all();
+        return view('chef.dashboard', compact('plates'));
+    }
+
+    public function showPlatesDetails(Plate $plate)
+    {
+        return view('chef.detailsPlate', compact('plate'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -49,9 +60,8 @@ class PlateController extends Controller
         $plate->description = $validatedData['description'];
         $plate->ingredients = $validatedData['ingredients'];
         $plate->IdCategory = $validatedData['IdCategory'];
-        $plate->IdChef = Auth::user()->chef->id; // Assurez-vous d'associer le chef
+        $plate->IdChef = Auth::user()->chef->id;
         
-        // Enregistrez le plat
         $plate->save();
         
         // Handle file uploads
@@ -67,7 +77,7 @@ class PlateController extends Controller
             }
         }
     
-        return redirect()->back()->with('success', 'Plate created successfully');
+        return redirect('/chef')->with('success', 'Plate created successfully');
     }
     
     private function storeImage($file)

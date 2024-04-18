@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link href="{{asset('css/register.css')}}" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
 <body>
@@ -24,20 +26,22 @@
                     <h1 class="text-2xl font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
                         Get your free account now.
                     </h1>
-                    <form action="{{ route('register.custom') }}" method="post">
+                    <form action="{{ route('register') }}" method="post">
+                        @csrf
+                        @method('POST')
                         <div class="mt-6">
                             <h1 class="text-gray-500 dark:text-gray-300">Select type of account</h1>
 
                             <div class="mt-3 md:flex md:items-center md:-mx-2">
-                                <button class=" box flex justify-center w-full px-6 py-3 text-white rounded-md md:w-auto md:mx-2 focus:outline-none">
+                                <!-- <div class=" box flex justify-center w-full px-6 py-3 text-white rounded-md md:w-auto md:mx-2 focus:outline-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
-
+                                <input type="checkbox" name="client" id="">
                                     <span class="mx-2">
                                         client
                                     </span>
-                                </button>
+                                </div>
 
                                 <button class=" box1 flex justify-center w-full px-6 py-3 mt-4 text-blue-500 border border-blue-500 rounded-md md:mt-0 md:w-auto md:mx-2 dark:border-blue-400 dark:text-blue-400 focus:outline-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -47,58 +51,82 @@
                                     <span class="mx-2">
                                         worker
                                     </span>
-                                </button>
+                                </button> -->
+                                <div class="flex space-x-2  rounded-xl select-none">
+                                    <label class="radio flex flex-grow items-center justify-center rounded-lg p-1 cursor-pointer">
+                                        <input type="radio" name="role" value="client" class="peer hidden"  />
+                                        <span class="tracking-widest peer-checked:bg-gradient-to-r peer-checked:from-[blueviolet] peer-checked:to-[violet] peer-checked:text-white text-gray-700 p-2 rounded-lg transition duration-150 ease-in-out">Client</span>
+                                    </label>
+
+                                    <label class="radio flex flex-grow items-center justify-center rounded-lg p-1 cursor-pointer">
+                                        <input type="radio" name="role" value="chef" class="peer hidden" />
+                                        <span class="tracking-widest peer-checked:bg-gradient-to-r peer-checked:from-[blueviolet] peer-checked:to-[violet] peer-checked:text-white text-gray-700 p-2 rounded-lg transition duration-150 ease-in-out">Chef</span>
+                                    </label>
+
+                                </div>
+
                             </div>
                         </div>
+                        <div class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
+                            <div>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
+                                <input type="text" placeholder="John" name="name" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                @if ($errors->has('name'))
+                                <span class="text-danger">{{ $errors->first('name') }}</span>
+                                @endif
+                            </div>
+
+                            <div>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Last name</label>
+                                <input type="text" placeholder="Snow" name="lastName" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                @if ($errors->has('lastName'))
+                                <span class="text-danger">{{ $errors->first('lastName') }}</span>
+                                @endif
+                            </div>
+
+                            <div>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
+                                <input type="email" name="email" placeholder="johnsnow@example.com" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                @if ($errors->has('email'))
+                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
+                            </div>
+
+                            <div>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label>
+                                <input type="password" name="password" placeholder="Enter your password" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                @if ($errors->has('password'))
+                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                @endif
+                            </div>
+
+                            <div>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Confirm password</label>
+                                <input type="password" name="password_confirmation" placeholder="Enter your password" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                @if ($errors->has('password_confirmation'))
+                                <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
+                                @endif
+                            </div>
+
+
+                            <a href="/" class=" back register flex items-center justify-around px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform  rounded-md  focus:outline-none focus:ring focus:ring-opacity-50">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
+                                    <path fill="currentColor" d="M198.84 35.77a14 14 0 0 0-14.21.37L62 112.83V40a6 6 0 0 0-12 0v176a6 6 0 0 0 12 0v-72.84l122.63 76.7a14 14 0 0 0 14.21.37a13.69 13.69 0 0 0 7.16-12.11V47.88a13.69 13.69 0 0 0-7.16-12.11M194 208.12a1.79 1.79 0 0 1-1 1.62a2 2 0 0 1-2-.05L62.88 129.56a1.82 1.82 0 0 1 0-3.12L191 46.31a2 2 0 0 1 1-.31a2.1 2.1 0 0 1 1 .26a1.79 1.79 0 0 1 1 1.62Z" />
+                                </svg>
+                                <span>Back</span>
+
+
+                            </a>
+                            <button type="submit" class="register flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform  rounded-md  focus:outline-none focus:ring focus:ring-opacity-50">
+                                <span>Sign Up </span>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
                     </form>
-                    <form action="{{ route('register.custom') }}" method="post" class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
-                        <div>
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
-                            <input type="text" placeholder="John" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                        </div>
 
-                        <div>
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Last name</label>
-                            <input type="text" placeholder="Snow" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                        </div>
-
-                        <div>
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Phone number</label>
-                            <input type="text" placeholder="XXX-XX-XXXX-XXX" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                        </div>
-
-                        <div>
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
-                            <input type="email" placeholder="johnsnow@example.com" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                        </div>
-
-                        <div>
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label>
-                            <input type="password" placeholder="Enter your password" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                        </div>
-
-                        <div>
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Confirm password</label>
-                            <input type="password" placeholder="Enter your password" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                        </div>
-
-
-                        <a href="/" class=" back register flex items-center justify-around px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform  rounded-md  focus:outline-none focus:ring focus:ring-opacity-50">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
-                                <path fill="currentColor" d="M198.84 35.77a14 14 0 0 0-14.21.37L62 112.83V40a6 6 0 0 0-12 0v176a6 6 0 0 0 12 0v-72.84l122.63 76.7a14 14 0 0 0 14.21.37a13.69 13.69 0 0 0 7.16-12.11V47.88a13.69 13.69 0 0 0-7.16-12.11M194 208.12a1.79 1.79 0 0 1-1 1.62a2 2 0 0 1-2-.05L62.88 129.56a1.82 1.82 0 0 1 0-3.12L191 46.31a2 2 0 0 1 1-.31a2.1 2.1 0 0 1 1 .26a1.79 1.79 0 0 1 1 1.62Z" />
-                            </svg>
-                            <span>Back</span>
-
-
-                        </a>
-                        <button class="register flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform  rounded-md  focus:outline-none focus:ring focus:ring-opacity-50">
-                            <span>Sign Up </span>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>

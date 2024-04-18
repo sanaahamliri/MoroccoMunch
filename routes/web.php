@@ -45,9 +45,7 @@ Route::get('/details', function () {
 });
 
 
-Route::get('/register', function () {
-    return view('register');
-});
+
 
 
 Route::get('/chef', function () {
@@ -74,18 +72,26 @@ Route::get('/plateAdd', function () {
 Route::get('/plate', function () {
     return view('chef.plateAdd');
 });
+Route::get('/plateDetails', function () {
+    return view('chef.detailsPlate');
+});
 
 
 Route::get('dashboard', [UserController::class, 'dashboard']); 
 Route::get('login', [UserController::class, 'index'])->name('login');
 Route::post('custom-login', [UserController::class, 'customLogin'])->name('login.custom'); 
-Route::get('registration', [UserController::class, 'registration'])->name('register-user');
-Route::post('custom-registration', [UserController::class, 'customRegistration'])->name('register.custom'); 
+Route::get('/register',[UserController::class,'create']);
+Route::post('register',[UserController::class,'store'])->name('register');
 Route::get('signout', [UserController::class, 'signOut'])->name('signout');
 
-Route::resource('categories', CategoryController::class);
+Route::resource('/categories', CategoryController::class);
 
 Route::resource('plate', PlateController::class);
+Route::get('chef', [PlateController::class, 'showPlates']);
+Route::get('detailsPlate/{plate}', [PlateController::class, 'showPlatesDetails'])->name('singlePage');
+
+
+
 
 
 

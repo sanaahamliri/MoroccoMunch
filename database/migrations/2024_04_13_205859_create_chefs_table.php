@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('chefs', function (Blueprint $table) {
             $table->id();
+            $table->boolean('status')->default('0');    
             $table->foreignId('IdUser')->constrained('users');
             $table->string('bio')->nullable();
             $table->string('description')->nullable();

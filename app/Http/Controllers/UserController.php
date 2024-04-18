@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\chef;
+use App\Models\client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
     public function index()
     {
         return view('auth.login');
+    }
+
+    public function create()
+    {
+        return view('register');
     }
 
     public function customLogin(Request $request)
@@ -35,41 +44,36 @@ class UserController extends Controller
         return view('auth.registration');
     }
 
-    public function customRegistration(Request $request)
+    
+
+    public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'role' => 'required|in:client,chef',
+            'lastName' => 'required|string',
+
         ]);
 
-        $data = $request->all();
-        $user = $this->create($data);
-        $user->chef()->create();
-
-        Auth::login($user);
-
-        return redirect("dashboard")->withSuccess('You have signed up successfully and logged in');
-    }
-
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $request->role,
+            'lastName' =>$request->lastName,
         ]);
-    }
-
-    public function dashboard()
-    {
-        if (Auth::check()) {
-            return view('dashboard');
+        if ($request->role == 'client') {
+            $user->client()->create();
+            Auth::login($user);
+            return redirect('/client');
+        } elseif ($request->role == 'chef') {
+            Auth::login($user);
+            $user->chef()->create();
+            return redirect('/chef');
         }
-
-        return redirect("login")->withSuccess('You are not allowed to access');
     }
-
     public function signOut()
     {
         Auth::logout();

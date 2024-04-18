@@ -184,10 +184,14 @@
                                   focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
                                             Edit
                                         </button>
-                                        <button class="block uppercase mx-auto shadow bg-indigo-800 hover:bg-indigo-700 focus:shadow-outline 
+                                        <form action="{{ route('categories.destroy', $category->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="block uppercase mx-auto shadow bg-indigo-800 hover:bg-indigo-700 focus:shadow-outline 
                                    focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
-                                            Delete
-                                        </button>
+                                                Delete
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
