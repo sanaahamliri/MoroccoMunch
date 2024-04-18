@@ -9,7 +9,123 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: "Quicksand", sans-serif;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            background: #7f7fd5;
+            background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin-block: 2rem;
+            gap: 2rem;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            width: clamp(20rem, calc(20rem + 2vw), 22rem);
+            overflow: hidden;
+            box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+            border-radius: 1em;
+            background: #ECE9E6;
+            background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+
+        }
+
+
+
+        .card__body {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+
+        .tag {
+            align-self: flex-start;
+            padding: .25em .75em;
+            border-radius: 1em;
+            font-size: .75rem;
+        }
+
+        .tag+.tag {
+            margin-left: .5em;
+        }
+
+        .tag-blue {
+            background: #56CCF2;
+            background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+            color: #fafafa;
+        }
+
+        .tag-brown {
+            background: #D1913C;
+            background: linear-gradient(to bottom, #FFD194, #D1913C);
+            color: #fafafa;
+        }
+
+        .tag-red {
+            background: #cb2d3e;
+            background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+            color: #fafafa;
+        }
+
+        .card__body h4 {
+            font-size: 1.5rem;
+            text-transform: capitalize;
+        }
+
+        .card__footer {
+            display: flex;
+            padding: 1rem;
+            margin-top: auto;
+        }
+
+        .user {
+            display: flex;
+            gap: .5rem;
+        }
+
+        .user__image {
+            border-radius: 50%;
+        }
+
+        .user__info>small {
+            color: #666;
+        }
+
+        .box{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+    </style>
 </head>
 
 <body>
@@ -141,37 +257,42 @@
 
 
 
-
-
-
                             </div>
                         </div>
 
                     </div>
-                    <div class="grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-3 ">
-
+                    <div class="container">
                         @foreach($plates as $plate)
 
-                        <div class="relative w-full h-52 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg transition duration-300 ease-in-out flex-col items-center " style="background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f868ecef-4b4a-4ddf-8239-83b2568b3a6b/de7hhu3-3eae646a-9b2e-4e42-84a4-532bff43f397.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y4NjhlY2VmLTRiNGEtNGRkZi04MjM5LTgzYjI1NjhiM2E2YlwvZGU3aGh1My0zZWFlNjQ2YS05YjJlLTRlNDItODRhNC01MzJiZmY0M2YzOTcuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.R0h-BS0osJSrsb1iws4-KE43bUXHMFvu5PvNfoaoi8o');">
-                            <div class="absolute inset-0 bg-yellow-600 bg-opacity-75 transition duration-300 ease-in-out"></div>
-                            <div class="relative w-full h-full px-4 sm:px-6 lg:px-4 flex items-center justify-center">
-                                <div>
-                                    <h3 class="text-center text-white text-lg">
-                                        {{$plate->name}}
-                                    </h3>
-                                    <h3 class="text-center text-white text-3xl mt-2 font-bold">
-                                        {{$plate->categories->name}}
-                                    </h3>
-                                    <div class="flex space-x-4 mt-4 ">
-                                        <a href="{{ route('singlePage', $plate->id) }}" class="block uppercase mx-auto shadow bg-white text-indigo-600 focus:shadow-outline 
-                                  focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
-                                                view details
-                                        </a>
-                                    </div>
+                        <div class="card">
+
+                            <div class="card__body">
+                                <div class="action">
+                                    <form action="{{ route('plate.destroy', $plate->id) }}" method="post">
+                                        <a href="{{ route('plate.edit', $plate->id) }}" class="tag tag-blue">Update</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="tag tag-blue">Delete</button>
                                 </div>
+                                </form>
+
+                                <h4>{{$plate->name}}</h4>
+                                <p> {{$plate->categories->name}}
+                                </p>
                             </div>
-                        </div>
+                            <a href="{{ route('singlePage', $plate->id) }}" class=" box tag tag-blue ml-5 mb-1">
+                                <p>view more</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor">
+                                    <circle cx="12" cy="12" r="3.5" />
+                                    <path d="M20.188 10.934c.388.472.582.707.582 1.066c0 .359-.194.594-.582 1.066C18.768 14.79 15.636 18 12 18c-3.636 0-6.768-3.21-8.188-4.934c-.388-.472-.582-.707-.582-1.066c0-.359.194-.594.582-1.066C5.232 9.21 8.364 6 12 6c3.636 0 6.768 3.21 8.188 4.934Z" />
+                                </g>
+                            </svg>
+                        </a>                        </div>
+                       
                         @endforeach
+
+
                     </div>
 
                     <!-- End Content-->

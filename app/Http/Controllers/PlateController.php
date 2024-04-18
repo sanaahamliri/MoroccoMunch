@@ -31,6 +31,8 @@ class PlateController extends Controller
         return view('chef.detailsPlate', compact('plate'));
     }
 
+    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -109,7 +111,9 @@ class PlateController extends Controller
      */
     public function edit(Plate $plate)
     {
-        return view('chef.plateAdd', compact('plate'));
+        $categories = Category::all();
+
+        return view('chef.plateEdit', compact('plate','categories'));
     }
 
     /**
@@ -122,12 +126,11 @@ class PlateController extends Controller
             'description' => 'required',
             'ingredients' => 'required',
             'IdCategory' => 'required',
-            'IdChef' => 'required',
         ]);
 
         $plate->update($validatedData);
 
-        return redirect()->route('chef.plateAdd')->with('success', 'Plate updated successfully');
+        return redirect('/chef');
     }
 
     /**
@@ -137,6 +140,6 @@ class PlateController extends Controller
     {
         $plate->delete();
 
-        return redirect()->route('chef.plateAdd')->with('success', 'Plate deleted successfully');
+        return redirect()->back()->with('success', 'Plate deleted successfully');
     }
 }

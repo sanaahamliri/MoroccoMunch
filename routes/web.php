@@ -76,6 +76,9 @@ Route::get('/plateDetails', function () {
     return view('chef.detailsPlate');
 });
 
+Route::get('/Edit', function () {
+    return view('chef.plateEdit');
+});
 
 Route::get('dashboard', [UserController::class, 'dashboard']); 
 Route::get('login', [UserController::class, 'index'])->name('login');
@@ -88,7 +91,9 @@ Route::resource('/categories', CategoryController::class);
 
 Route::resource('plate', PlateController::class);
 Route::get('chef', [PlateController::class, 'showPlates']);
+
 Route::get('detailsPlate/{plate}', [PlateController::class, 'showPlatesDetails'])->name('singlePage');
+
 
 
 
