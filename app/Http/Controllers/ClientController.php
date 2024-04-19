@@ -12,9 +12,38 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = client::all();
+        return view('admin.validate', compact('clients'));
     }
 
+
+    public function showBlockedClients()
+    {
+        $blockedClients = client::where('status', '0')->get();
+        return view('admin.validate', compact('blockedClients'));
+    }
+
+    public function showUnBlockedClients()
+    {
+        $UnblockedClients = client::where('status', '1')->get();
+
+        return view('admin.validate', compact('UnblockedUsers'));
+    }
+
+    public function ban(Request $request, client $client)
+    {
+        if (!$client->status) {
+            $client->update([
+                'status' => 1,
+            ]);
+            return redirect()->back()->with('success', 'user Banned!');
+        } else {
+            $client->update([
+                'status' => 0,
+            ]);
+            return redirect()->back()->with('success', 'user Unbanned!');
+        }
+    }
     /**
      * Show the form for creating a new resource.
      */

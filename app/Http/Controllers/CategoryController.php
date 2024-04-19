@@ -4,13 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\chef;
+use App\Models\client;
+use App\Models\plate;
+use App\Models\User;
 
 class CategoryController extends Controller
 {
     public function index()
     {
         $categories = Category::all();
-        return view('admin.dashboard', compact('categories'));
+        $categorieCount = Category::count();
+        $clientCount = client::count();
+        $chefCount = chef::count();
+        $plateCount = plate::count();
+        return view('admin.dashboard', compact('categories','categorieCount','clientCount','chefCount','plateCount'));
     }
 
     public function create()

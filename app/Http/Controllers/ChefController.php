@@ -12,9 +12,25 @@ class ChefController extends Controller
      */
     public function index()
     {
-        //
+        $chefs = chef::all();   
+        return view('admin.validateChef', compact('chefs'));
+    
     }
 
+    public function ban(chef $chef)
+    {
+        if (!$chef->status) {
+            $chef->update([
+                'status' => 1,
+            ]);
+            return redirect()->back()->with('success', 'user Banned!');
+        }else {
+            $chef->update([
+                'status' => 0,
+            ]);
+            return redirect()->back()->with('success', 'user Unbanned!');
+        }
+    }
     /**
      * Show the form for creating a new resource.
      */

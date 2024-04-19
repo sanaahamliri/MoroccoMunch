@@ -9,7 +9,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-
+<style>
+    .action{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
 </head>
 
 <body>
@@ -125,14 +132,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($clients as $c)
                         <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Clients name</span>
-                                Sanaa Hamliri
+                                {{$c->user->name}}
                             </td>
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Client Email</span>
-                                sanae@gmail.com
+                                {{$c->user->email}}
                             </td>
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
@@ -140,30 +148,21 @@
                             </td>
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
-                                <a href="#" class="text-blue-400 hover:text-blue-600 underline">Block</a>
-                                <a href="#" class="text-blue-400 hover:text-blue-600 underline pl-6">Unblock</a>
+                                <div class="action">
+                                <form action="{{ route('client.ban',['client'=>$c->id]) }}" method="post">
+                                    @method("PATCH")
+                                    @csrf
+                                    <button type="submit" class="text-blue-400 hover:text-blue-600 underline">Block</button>
+                                </form>
+                                <form action="{{ route('client.ban',['client'=>$c->id]) }}" method="POST">
+                                    @method("PATCH")
+                                    @csrf
+                                    <button type="submit" class="text-blue-400 hover:text-blue-600 underline pl-6">Unblock</button>
+                                </form>
+                                </div>
                             </td>
                         </tr>
-                        <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
-                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Company name</span>
-                                Youssef Hihi
-                            </td>
-                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Country</span>
-                                youssef@gmail.com
-                            </td>
-                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
-                                <span class="rounded bg-green-400 py-1 px-3 text-xs font-bold">Unblocked</span>
-                            </td>
-                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
-                                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
-                                <a href="#" class="text-blue-400 hover:text-blue-600 underline">Block</a>
-                                <a href="#" class="text-blue-400 hover:text-blue-600 underline pl-6">Unblock</a>
-                            </td>
-                        </tr>
-
+                        @endforeach
                     </tbody>
                 </table>
             </main>

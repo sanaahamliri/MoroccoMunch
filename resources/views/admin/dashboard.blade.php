@@ -103,24 +103,20 @@
                         <div class="col-span-12 sm:col-span-12 md:col-span-8 lg:col-span-8 xxl:col-span-8">
                             <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-4 mt-3">
                                 <div class="p-4">
-                                    <p class="text-xl font-bold">37,500</p>
+                                    <p class="text-xl font-bold">{{$clientCount}}</p>
                                     <p class="text-xs font-semibold text-gray-400">Total number of clients</p>
                                 </div>
                                 <div class="p-4">
-                                    <p class="text-xl font-bold">9,200</p>
+                                    <p class="text-xl font-bold">{{$chefCount}}</p>
                                     <p class="text-xs font-semibold text-gray-400">Total number of chefs</p>
                                 </div>
                                 <div class=" p-4">
-                                    <p class="text-xl font-bold">5,700</p>
+                                    <p class="text-xl font-bold">{{$categorieCount}}</p>
                                     <p class="text-xs font-semibold text-gray-400">Total number of categories</p>
                                 </div>
                                 <div class=" p-4">
-                                    <p class="text-xl font-bold">5,700</p>
+                                    <p class="text-xl font-bold">{{$plateCount}}</p>
                                     <p class="text-xs font-semibold text-gray-400">Total number of plates</p>
-                                </div>
-                                <div class=" p-4">
-                                    <p class="text-xl font-bold">5,700</p>
-                                    <p class="text-xs font-semibold text-gray-400">Total number of tags</p>
                                 </div>
 
                                 <div class="p-4">

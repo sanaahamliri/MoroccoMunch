@@ -118,12 +118,14 @@
             color: #666;
         }
 
-        .box{
+        .box {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            border-radius: 3px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -282,14 +284,15 @@
                             </div>
                             <a href="{{ route('singlePage', $plate->id) }}" class=" box tag tag-blue ml-5 mb-1">
                                 <p>view more</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                                <g fill="none" stroke="currentColor">
-                                    <circle cx="12" cy="12" r="3.5" />
-                                    <path d="M20.188 10.934c.388.472.582.707.582 1.066c0 .359-.194.594-.582 1.066C18.768 14.79 15.636 18 12 18c-3.636 0-6.768-3.21-8.188-4.934c-.388-.472-.582-.707-.582-1.066c0-.359.194-.594.582-1.066C5.232 9.21 8.364 6 12 6c3.636 0 6.768 3.21 8.188 4.934Z" />
-                                </g>
-                            </svg>
-                        </a>                        </div>
-                       
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                    <g fill="none" stroke="currentColor">
+                                        <circle cx="12" cy="12" r="3.5" />
+                                        <path d="M20.188 10.934c.388.472.582.707.582 1.066c0 .359-.194.594-.582 1.066C18.768 14.79 15.636 18 12 18c-3.636 0-6.768-3.21-8.188-4.934c-.388-.472-.582-.707-.582-1.066c0-.359.194-.594.582-1.066C5.232 9.21 8.364 6 12 6c3.636 0 6.768 3.21 8.188 4.934Z" />
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+
                         @endforeach
 
 

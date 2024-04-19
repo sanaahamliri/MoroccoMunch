@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChefController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PlateController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -52,13 +54,11 @@ Route::get('/chef', function () {
     return view('chef/dashboard');
 });
 
-Route::get('/validateChef', function () {
-    return view('admin/validate');
-});
+Route::get('/validateChef', [ChefController::class, 'index']); 
 
-Route::get('/validate', function () {
-    return view('admin/validateChef');
-});
+
+Route::get('/validate', [ClientController::class, 'index']); 
+
 
 Route::get('/plate', function () {
     return view('admin/plate');
@@ -72,6 +72,7 @@ Route::get('/plateAdd', function () {
 Route::get('/plate', function () {
     return view('chef.plateAdd');
 });
+
 Route::get('/plateDetails', function () {
     return view('chef.detailsPlate');
 });
@@ -93,6 +94,8 @@ Route::resource('plate', PlateController::class);
 Route::get('chef', [PlateController::class, 'showPlates']);
 
 Route::get('detailsPlate/{plate}', [PlateController::class, 'showPlatesDetails'])->name('singlePage');
+Route::patch('/admin/{client}/validate', [ClientController::class, 'ban'])->name('client.ban');
+Route::put('/admin/validateChef/{chef}', [ChefController::class, 'ban'])->name('chef.ban');
 
 
 

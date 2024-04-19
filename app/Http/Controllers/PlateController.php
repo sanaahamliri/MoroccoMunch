@@ -66,11 +66,9 @@ class PlateController extends Controller
         
         $plate->save();
         
-        // Handle file uploads
         if ($request->hasFile('image')) {
             foreach ($request->file('image') as $file) {
                 $imagePath = $this->storeImage($file);
-                // Créer un nouvel enregistrement d'image lié au plat
                 Image::create([
                     'url' => $imagePath,
                     'imageable_id' => $plate->id,
