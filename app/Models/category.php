@@ -9,4 +9,10 @@ class category extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
+
+
+    public function plates()
+    {
+        return $this->hasMany(plate::class,'IdCategory');
+    }
 }

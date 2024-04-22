@@ -129,53 +129,34 @@
                             </div>
 
                             <div class="row">
+                                @foreach($ValidPlates as $plat)
                                 <div class="col-md-6">
                                     <div class="blog-item">
                                         <div class="blog-img h-64">
                                             <img src="img/blog-1.jpg" alt="Blog">
                                         </div>
                                         <div class="blog-content">
-                                            <h2 class="blog-title">Lorem ipsum dolor sit amet</h2>
+                                            <h2 class="blog-title">{{$plat->name}}</h2>
                                             <div class="blog-meta">
-                                                <p><i class="far fa-user"></i>Admin</p>
-                                                <p><i class="far fa-list-alt"></i>Food</p>
-                                                <p><i class="far fa-calendar-alt"></i>01-Jan-2045</p>
+                                                <p><i class="far fa-user"></i> {{$plat->chefs->user->name}}</p>
+                                                <p><i class="far fa-list-alt"></i> {{$plat->categories->name}}</p>
+                                                <p><i class="far fa-calendar-alt"></i> {{$plat->created_at}}</p>
                                                 <p><i class="far fa-comments"></i>10</p>
                                             </div>
                                             <div class="blog-text">
                                                 <p>
                                                     Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor...
                                                 </p>
-                                                <a class="btn custom-btn" href="/single">Read More</a>
+                                                <div class="actions">
+                                                    <a class="btn custom-btn" href="/single">Read More</a>
+                                                    <a class="btn custom-btn" href="/personnalisation">Reserve</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="blog-item">
-                                        <div class="blog-img h-64">
-                                            <img src="img/blog-1.jpg" alt="Blog">
-                                        </div>
-                                        <div class="blog-content">
-                                            <h2 class="blog-title">Lorem ipsum dolor sit amet</h2>
-                                            <div class="blog-meta">
-                                                <p><i class="far fa-user"></i>Admin</p>
-                                                <p><i class="far fa-list-alt"></i>Food</p>
-                                                <p><i class="far fa-calendar-alt"></i>01-Jan-2045</p>
-                                                <p><i class="far fa-comments"></i>10</p>
-                                            </div>
-                                            <div class="blog-text">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor...
-                                                </p>
-                                                <a class="btn custom-btn" href="/single">Read More</a>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 48 48">
-                                                    <path fill="#f44336" d="M34 9c-4.2 0-7.9 2.1-10 5.4C21.9 11.1 18.2 9 14 9C7.4 9 2 14.4 2 21c0 11.9 22 24 22 24s22-12 22-24c0-6.6-5.4-12-12-12" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
@@ -397,12 +378,9 @@
                             <h2 class="widget-title">Categories</h2>
                             <div class="category-widget">
                                 <ul>
-                                    <li><a href="">Couscous</a><span>(98)</span></li>
-                                    <li><a href="">Briouate</a><span>(87)</span></li>
-                                    <li><a href="">Refissa</a><span>(76)</span></li>
-                                    <li><a href="">Bastilla</a><span>(65)</span></li>
-                                    <li><a href="">Tajine</a><span>(54)</span></li>
-
+                                    @foreach($categories as $cat)
+                                    <li><a href="">{{$cat->name}}</a><span>{{$cat->plates_count}}</span></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

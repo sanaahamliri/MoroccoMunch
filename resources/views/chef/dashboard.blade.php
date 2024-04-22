@@ -229,7 +229,7 @@
                         <div class="col-span-12 sm:col-span-12 md:col-span-8 lg:col-span-8 xxl:col-span-8">
                             <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-4 mt-3">
                                 <div class="p-4">
-                                    <p class="text-xl font-bold">37,500</p>
+                                    <p class="text-xl font-bold">{{$platesCount}}</p>
                                     <p class="text-xs font-semibold text-gray-400">Total number of plats added</p>
                                 </div>
                                 <div class="p-4">
@@ -294,8 +294,6 @@
                         </div>
 
                         @endforeach
-
-
                     </div>
 
                     <!-- End Content-->

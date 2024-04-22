@@ -30,6 +30,10 @@ Route::get('/single', function () {
     return view('single');
 });
 
+Route::get('/personnalisation', function () {
+    return view('personnalisation');
+});
+
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -41,6 +45,7 @@ Route::get('/booking', function () {
 Route::get('/client', function () {
     return view('client');
 });
+Route::get('/client', [ClientController::class, 'showValidPlates']);
 
 Route::get('/details', function () {
     return view('details');
@@ -54,24 +59,22 @@ Route::get('/chef', function () {
     return view('chef/dashboard');
 });
 
-Route::get('/validateChef', [ChefController::class, 'index']); 
+Route::get('/validateChef', [ChefController::class, 'index']);
 
 
-Route::get('/validate', [ClientController::class, 'index']); 
+Route::get('/validate', [ClientController::class, 'index']);
 
 
-Route::get('/plate', function () {
-    return view('admin/plate');
-});
+
+Route::get('/adminplate',[PlateController::class, 'showInvalidPlates']);
+ 
+Route::patch('/adminplate/{plate}', [PlateController::class, 'validation'])->name('admin.plate');
 
 Route::get('/plateAdd', function () {
-    return view('plateAdd');
-});
-
-
-Route::get('/plate', function () {
     return view('chef.plateAdd');
 });
+
+
 
 Route::get('/plateDetails', function () {
     return view('chef.detailsPlate');
@@ -81,11 +84,11 @@ Route::get('/Edit', function () {
     return view('chef.plateEdit');
 });
 
-Route::get('dashboard', [UserController::class, 'dashboard']); 
+Route::get('dashboard', [UserController::class, 'dashboard']);
 Route::get('login', [UserController::class, 'index'])->name('login');
-Route::post('custom-login', [UserController::class, 'customLogin'])->name('login.custom'); 
-Route::get('/register',[UserController::class,'create']);
-Route::post('register',[UserController::class,'store'])->name('register');
+Route::post('custom-login', [UserController::class, 'customLogin'])->name('login.custom');
+Route::get('/register', [UserController::class, 'create']);
+Route::post('register', [UserController::class, 'store'])->name('register');
 Route::get('signout', [UserController::class, 'signOut'])->name('signout');
 
 Route::resource('/categories', CategoryController::class);
@@ -93,22 +96,9 @@ Route::resource('/categories', CategoryController::class);
 Route::resource('plate', PlateController::class);
 Route::get('chef', [PlateController::class, 'showPlates']);
 
+
+
 Route::get('detailsPlate/{plate}', [PlateController::class, 'showPlatesDetails'])->name('singlePage');
+Route::get('admin/detailsPlate/{plate}', [PlateController::class, 'showPlatesDetailsAdmin'])->name('singlePageAdmin');
 Route::patch('/admin/{client}/validate', [ClientController::class, 'ban'])->name('client.ban');
 Route::put('/admin/validateChef/{chef}', [ChefController::class, 'ban'])->name('chef.ban');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

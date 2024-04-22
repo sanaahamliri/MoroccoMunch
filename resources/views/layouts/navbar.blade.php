@@ -9,6 +9,7 @@
 
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet"> 

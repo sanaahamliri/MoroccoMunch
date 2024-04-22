@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use App\Models\client;
+use App\Models\plate;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -17,19 +19,6 @@ class ClientController extends Controller
     }
 
 
-    public function showBlockedClients()
-    {
-        $blockedClients = client::where('status', '0')->get();
-        return view('admin.validate', compact('blockedClients'));
-    }
-
-    public function showUnBlockedClients()
-    {
-        $UnblockedClients = client::where('status', '1')->get();
-
-        return view('admin.validate', compact('UnblockedUsers'));
-    }
-
     public function ban(Request $request, client $client)
     {
         if (!$client->status) {
@@ -43,6 +32,15 @@ class ClientController extends Controller
             ]);
             return redirect()->back()->with('success', 'user Unbanned!');
         }
+    }
+
+
+    public function showValidPlates(){
+        $categories = category::withCount('plates')->OrderByDesc('plates_count')->limit(5)->get();
+        
+        $ValidPlates = plate::where('status', '1')->get();
+        return view('client', compact('ValidPlates','categories'));
+
     }
     /**
      * Show the form for creating a new resource.

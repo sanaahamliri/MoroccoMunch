@@ -105,11 +105,11 @@
                     <div class="col-span-12 sm:col-span-12 md:col-span-8 lg:col-span-8 xxl:col-span-8">
                         <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-4 mt-3">
                             <div class="p-4">
-                                <p class="text-xl font-bold">37,500</p>
+                                <p class="text-xl font-bold">{{$validPlatesCount}}</p>
                                 <p class="text-xs font-semibold text-gray-400">Total number of validated plates</p>
                             </div>
                             <div class="p-4">
-                                <p class="text-xl font-bold">9,200</p>
+                                <p class="text-xl font-bold">{{$unvalidPlatesCount}}</p>
                                 <p class="text-xs font-semibold text-gray-400">Total number of unvalidated plates</p>
                             </div>
                         </div>
@@ -156,19 +156,24 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody class="bg-white divide-y divide-gray-200">
+                                                                @foreach($InvalidPlates as $plato)
+
+                                            
                                                                 <tr>
-                                                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                        <img src="" alt="pic">
+
+                                                                    <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 w-5 ">
+                                                                        <img src="{{asset('storage/' . $plato->images[0]->url)}}" alt="pic">
                                                                     </td>
                                                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                        <p>Briouate</p>
+                                                                        <p> {{$plato->name}}
+                                                                        </p>
                                                                     </td>
                                                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                                                        <p>douae Chemenane</p>
+                                                                        <p> {{$plato->chefs->user->name}}</p>
                                                                     </td>
                                                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                                         <div class="flex space-x-4">
-                                                                            <form action="" method="get">
+                                                                            <form action="{{ route('singlePageAdmin', $plato->id) }}" method="get">
 
                                                                                 <button type="submit" class="cursor-pointer text-blue-500 hover:text-blue-600">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -181,8 +186,9 @@
                                                                     </td>
                                                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                                         <div class="flex space-x-4">
-                                                                            <form action="" method="post">
-
+                                                                            <form action="{{ route('admin.plate',['plate'=>$plato->id]) }}" method="post">
+                                                                                @method("PATCH")
+                                                                                @csrf
                                                                                 <button type="submit" class="cursor-pointer text-green-500 hover:text-green-600">
                                                                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -205,6 +211,7 @@
                                                                     </td>
 
                                                                 </tr>
+                                                                @endforeach
                                                             </tbody>
                                                         </table>
                                                     </div>

@@ -20,10 +20,12 @@ class PlateController extends Controller
         return view('chef.plateAdd', compact('plates', 'categories'));
     }
 
+
     public function showPlates()
     {
+        $platesCount = Plate::count();
         $plates = Plate::all();
-        return view('chef.dashboard', compact('plates'));
+        return view('chef.dashboard', compact('plates','platesCount'));
     }
 
     public function showPlatesDetails(Plate $plate)
@@ -31,7 +33,10 @@ class PlateController extends Controller
         return view('chef.detailsPlate', compact('plate'));
     }
 
-    
+    public function showPlatesDetailsAdmin(Plate $plate)
+    {
+        return view('admin.detailsPlate', compact('plate'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -54,18 +59,16 @@ class PlateController extends Controller
             'image.*' => 'required|image', // Ajoutez la validation pour les images
         ]);
 
-        
-        
-        // Créez un nouvel enregistrement de plat
+
+
         $plate = new Plate();
         $plate->name = $validatedData['name'];
         $plate->description = $validatedData['description'];
         $plate->ingredients = $validatedData['ingredients'];
         $plate->IdCategory = $validatedData['IdCategory'];
         $plate->IdChef = Auth::user()->chef->id;
-        
         $plate->save();
-        
+
         if ($request->hasFile('image')) {
             foreach ($request->file('image') as $file) {
                 $imagePath = $this->storeImage($file);
@@ -76,22 +79,22 @@ class PlateController extends Controller
                 ]);
             }
         }
-    
+
         return redirect('/chef')->with('success', 'Plate created successfully');
     }
-    
+
     private function storeImage($file)
     {
         // Générer un nom de fichier unique pour l'image
         $filename = uniqid() . '_' . $file->getClientOriginalName();
-    
+
         // Stockez l'image dans le répertoire 'public/images'
         $file->storeAs('public/images', $filename);
-    
+
         // Retournez le chemin à stocker dans la base de données
         return 'images/' . $filename;
     }
-    
+
 
 
 
@@ -111,7 +114,7 @@ class PlateController extends Controller
     {
         $categories = Category::all();
 
-        return view('chef.plateEdit', compact('plate','categories'));
+        return view('chef.plateEdit', compact('plate', 'categories'));
     }
 
     /**
@@ -139,5 +142,25 @@ class PlateController extends Controller
         $plate->delete();
 
         return redirect()->back()->with('success', 'Plate deleted successfully');
+    }
+
+
+
+    public function validation(Plate $plate)
+    {
+        if (!$plate->status) {
+            $plate->update([
+                'status' => 1,
+            ]);
+            return redirect()->back()->with('success', 'plate validated!');
+        }
+    }
+
+    public function showInvalidPlates()
+    {
+        $InvalidPlates = plate::where('status', '0')->get();
+        $unvalidPlatesCount =  plate::where('status', '0')->count();
+        $validPlatesCount =  plate::where('status', '1')->count();
+        return view('admin.plate', compact('InvalidPlates','unvalidPlatesCount','validPlatesCount'));
     }
 }

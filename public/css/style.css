@@ -1958,3 +1958,7 @@ a:focus {
 .register:hover{
     background-color: #fbae32b0;
 }
+.actions{
+    display: flex;
+    flex-direction: row;
+}
