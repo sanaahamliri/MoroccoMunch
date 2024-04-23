@@ -2,34 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\chef;
+use App\Models\commentaire;
 use Illuminate\Http\Request;
 
-class ChefController extends Controller
+class CommentaireController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $chefs = chef::all();
-        return view('admin.validateChef', compact('chefs'));
+        //
     }
 
-    public function ban(chef $chef)
-    {
-        if (!$chef->status) {
-            $chef->update([
-                'status' => 1,
-            ]);
-            return redirect()->back()->with('success', 'user Banned!');
-        } else {
-            $chef->update([
-                'status' => 0,
-            ]);
-            return redirect()->back()->with('success', 'user Unbanned!');
-        }
-    }
     /**
      * Show the form for creating a new resource.
      */
@@ -49,12 +34,15 @@ class ChefController extends Controller
     /**
      * Display the specified resource.
      */
-
+    public function show(commentaire $commentaire)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(chef $chef)
+    public function edit(commentaire $commentaire)
     {
         //
     }
@@ -62,7 +50,7 @@ class ChefController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, chef $chef)
+    public function update(Request $request, commentaire $commentaire)
     {
         //
     }
@@ -70,7 +58,7 @@ class ChefController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(chef $chef)
+    public function destroy(commentaire $commentaire)
     {
         //
     }

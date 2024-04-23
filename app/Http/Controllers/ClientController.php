@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\chef;
 use App\Models\client;
 use App\Models\plate;
 use Illuminate\Http\Request;
@@ -37,9 +38,10 @@ class ClientController extends Controller
 
     public function showValidPlates(){
         $categories = category::withCount('plates')->OrderByDesc('plates_count')->limit(5)->get();
-        
+        $categorie = category::all();
+        $chefs = chef::all();
         $ValidPlates = plate::where('status', '1')->get();
-        return view('client', compact('ValidPlates','categories'));
+        return view('client', compact('ValidPlates','categories', 'categorie', 'chefs'));
 
     }
     /**

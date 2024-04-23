@@ -26,7 +26,7 @@
                     <h1 class="text-2xl font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
                         Get your free account now.
                     </h1>
-                    <form action="{{ route('register') }}" method="post">
+                    <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
                         <div class="mt-6">
@@ -54,7 +54,7 @@
                                 </button> -->
                                 <div class="flex space-x-2  rounded-xl select-none">
                                     <label class="radio flex flex-grow items-center justify-center rounded-lg p-1 cursor-pointer">
-                                        <input type="radio" name="role" value="client" class="peer hidden"  />
+                                        <input type="radio" name="role" value="client" class="peer hidden" />
                                         <span class="tracking-widest peer-checked:bg-gradient-to-r peer-checked:from-[blueviolet] peer-checked:to-[violet] peer-checked:text-white text-gray-700 p-2 rounded-lg transition duration-150 ease-in-out">Client</span>
                                     </label>
 
@@ -68,6 +68,12 @@
                             </div>
                         </div>
                         <div class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
+
+                            <div>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Picture</label>
+                                <input type="file" name="image" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                            </div>
+
                             <div>
                                 <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
                                 <input type="text" placeholder="John" name="name" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
@@ -109,14 +115,7 @@
                             </div>
 
 
-                            <a href="/" class=" back register flex items-center justify-around px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform  rounded-md  focus:outline-none focus:ring focus:ring-opacity-50">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
-                                    <path fill="currentColor" d="M198.84 35.77a14 14 0 0 0-14.21.37L62 112.83V40a6 6 0 0 0-12 0v176a6 6 0 0 0 12 0v-72.84l122.63 76.7a14 14 0 0 0 14.21.37a13.69 13.69 0 0 0 7.16-12.11V47.88a13.69 13.69 0 0 0-7.16-12.11M194 208.12a1.79 1.79 0 0 1-1 1.62a2 2 0 0 1-2-.05L62.88 129.56a1.82 1.82 0 0 1 0-3.12L191 46.31a2 2 0 0 1 1-.31a2.1 2.1 0 0 1 1 .26a1.79 1.79 0 0 1 1 1.62Z" />
-                                </svg>
-                                <span>Back</span>
 
-
-                            </a>
                             <button type="submit" class="register flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform  rounded-md  focus:outline-none focus:ring focus:ring-opacity-50">
                                 <span>Sign Up </span>
 

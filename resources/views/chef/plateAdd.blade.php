@@ -152,7 +152,7 @@
 
                         <div class="mb-4 p-8">
                             <label class="text-xl text-gray-600">Ingredients... <span class="text-red-500">*</span></label><br>
-                            <textarea name="ingredients" class="border-2 border-gray-300 p-2 bg-[#E9ECEF] rounded-lg  w-full" required></textarea>
+                            <input type="text" name="ingredient" class="border-2 border-gray-300 p-2 bg-[#E9ECEF] rounded-lg  w-full" required></input>
                         </div>
 
                         <div class="mb-4 p-8">

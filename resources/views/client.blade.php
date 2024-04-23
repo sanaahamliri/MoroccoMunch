@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -119,21 +119,21 @@
                                 </div>
                             </div>
 
+                            <!-- categories -->
                             <div class="single-tags">
-                                <a href="">Couscous</a>
-                                <a href="">Briouate</a>
-                                <a href="">Bastilla</a>
-                                <a href="">Refissa</a>
-                                <a href="">Mechoui</a>
-
+                                @foreach($categorie as $categ)
+                                <a onclick="filterCategory({{$categ->id}})">{{$categ->name}}</a>
+                                @endforeach
                             </div>
+                            <!-- categories -->
 
-                            <div class="row">
+                            <!--***************start plates****************-->
+                            <div id="plates" class="row">
                                 @foreach($ValidPlates as $plat)
                                 <div class="col-md-6">
                                     <div class="blog-item">
-                                        <div class="blog-img h-64">
-                                            <img src="img/blog-1.jpg" alt="Blog">
+                                        <div class="blog-img h-20">
+                                            <img class="h-20" src="{{asset('storage/' . $plat->images[0]->url)}}" alt="Blog">
                                         </div>
                                         <div class="blog-content">
                                             <h2 class="blog-title">{{$plat->name}}</h2>
@@ -156,8 +156,8 @@
                                     </div>
                                 </div>
                                 @endforeach
-
                             </div>
+                            <!--***************end plates****************-->
                         </div>
                     </div>
 
@@ -401,6 +401,7 @@
                 <h2>Our Master Chef</h2>
             </div>
             <div class="row">
+            @foreach($chefs as $chef)
                 <div class="col-lg-3 col-md-6">
                     <div class="team-item">
                         <div class="team-img">
@@ -412,59 +413,13 @@
                             </div>
                         </div>
                         <div class="team-text">
-                            <h2>Adam Phillips</h2>
+                            <h2>{{$chef->user->name}}</h2>
                             <p>CEO, Co Founder</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="img/team-2.jpg" alt="Image">
-                            <div class="team-social">
-
-                                <a href="/details">-></i></a>
-
-                            </div>
-                        </div>
-                        <div class="team-text">
-                            <h2>Dylan Adams</h2>
-                            <p>Master Chef</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="img/team-3.jpg" alt="Image">
-                            <div class="team-social">
-
-                                <a href="/details">-></i></a>
-
-                            </div>
-                        </div>
-                        <div class="team-text">
-                            <h2>Jhon Doe</h2>
-                            <p>Master Chef</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="img/team-4.jpg" alt="Image">
-                            <div class="team-social">
-
-                                <a href="/details">-></i></a>
-
-                            </div>
-                        </div>
-                        <div class="team-text">
-                            <h2>Josh Dunn</h2>
-                            <p>Master Chef</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+              
             </div>
         </div>
     </div>
@@ -550,6 +505,59 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        function filterCategory(id) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            })
+
+            jQuery.ajax({
+                url: "{{ route('plate.filter', ':id') }}".replace(':id', id),
+                type: 'get',
+
+                success: function(result) {
+                    document.getElementById("plates").innerHTML = "";
+                    for (var i = 0; i < result.plates.length; i++) {
+                        createPlate(result.plates[i]);
+                    }
+                }
+            })
+        }
+
+        function createPlate(plate) {
+            const cardDiv = document.createElement("div");
+            cardDiv.setAttribute('class', 'col-md-6');
+            const cardContent = `
+                    <div class="blog-item">
+                        <div class="blog-img h-64">
+                            <img src="img/blog-1.jpg" alt="Blog">
+                        </div>
+                        <div class="blog-content">
+                            <h2 class="blog-title">${plate.name}</h2>
+                            <div class="blog-meta">
+                                <p><i class="far fa-user"></i> ${plate.chefs.user.name}</p>
+                                <p><i class="far fa-list-alt"></i> ${plate.categories.name}</p>
+                                <p><i class="far fa-calendar-alt"></i> ${plate.created_at}</p>
+                                <p><i class="far fa-comments"></i>10</p>
+                            </div>
+                            <div class="blog-text">
+                                <p>
+                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor...
+                                </p>
+                                <div class="actions">
+                                    <a class="btn custom-btn" href="/single">Read More</a>
+                                    <a class="btn custom-btn" href="/personnalisation">Reserve</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    `;
+            cardDiv.innerHTML = cardContent;
+            document.getElementById('plates').appendChild(cardDiv);
+        }
+    </script>
 </body>
 
 </html>

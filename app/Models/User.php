@@ -63,4 +63,9 @@ class User extends Authenticatable
         return $this->hasOne(chef::class,'IdUser');
 
     }
+
+    public function imageUser()
+    {
+        return $this->morphOne(image::class, 'imageable');
+    }
 }

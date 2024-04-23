@@ -132,7 +132,7 @@
                     </div>
                     <div class="form__group">
                         <input type="checkbox" id="berries_3" value="bananas" name="berries">
-                        <label for="berries_3">Bananas (yes, they are berries)</label>
+                        <label for="berries_3">Bananas</label>
                     </div>
                 </fieldset>
                 <fieldset class="border-2 border-black p-4">

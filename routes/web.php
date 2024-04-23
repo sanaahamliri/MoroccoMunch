@@ -42,9 +42,7 @@ Route::get('/booking', function () {
     return view('booking');
 });
 
-Route::get('/client', function () {
-    return view('client');
-});
+
 Route::get('/client', [ClientController::class, 'showValidPlates']);
 
 Route::get('/details', function () {
@@ -94,8 +92,12 @@ Route::get('signout', [UserController::class, 'signOut'])->name('signout');
 Route::resource('/categories', CategoryController::class);
 
 Route::resource('plate', PlateController::class);
-Route::get('chef', [PlateController::class, 'showPlates']);
 
+Route::get('/clientTeam', [ChefController::class, 'showTeam']);
+
+
+Route::get('chef', [PlateController::class, 'showPlates']);
+Route::get('/plates/filter/{id}', [PlateController::class, 'filter'])->name('plate.filter');
 
 
 Route::get('detailsPlate/{plate}', [PlateController::class, 'showPlatesDetails'])->name('singlePage');

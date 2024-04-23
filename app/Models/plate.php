@@ -25,4 +25,8 @@ class plate extends Model
     {
         return $this->morphMany(image::class, 'imageable');
     }
+
+    public function ingredients() {
+        return $this->belongsToMany(ingredient::class);
+    }
 }

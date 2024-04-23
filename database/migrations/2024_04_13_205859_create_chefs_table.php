@@ -16,6 +16,7 @@ return new class extends Migration
             $table->boolean('status')->default('0');    
             $table->foreignId('IdUser')->constrained('users');
             $table->string('bio')->nullable();
+            $table->integer('rate')->nullable();
             $table->string('description')->nullable();
             $table->integer('years_of_experience')->nullable();
             $table->integer('age')->nullable();

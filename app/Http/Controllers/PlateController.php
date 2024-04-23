@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\image;
 use App\Models\Plate;
+use App\Models\ingredient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,7 +57,7 @@ class PlateController extends Controller
             'description' => 'required',
             'ingredients' => 'required',
             'IdCategory' => 'required',
-            'image.*' => 'required|image', // Ajoutez la validation pour les images
+            'image.*' => 'required|image',
         ]);
 
 
@@ -68,6 +69,7 @@ class PlateController extends Controller
         $plate->IdCategory = $validatedData['IdCategory'];
         $plate->IdChef = Auth::user()->chef->id;
         $plate->save();
+        $plate->ingredients()->attach($validatedData['ingredients']);
 
         if ($request->hasFile('image')) {
             foreach ($request->file('image') as $file) {
@@ -162,5 +164,25 @@ class PlateController extends Controller
         $unvalidPlatesCount =  plate::where('status', '0')->count();
         $validPlatesCount =  plate::where('status', '1')->count();
         return view('admin.plate', compact('InvalidPlates','unvalidPlatesCount','validPlatesCount'));
+    }
+
+
+
+    public function filter(int $id)
+    {
+        if ($id == 0) {
+            $plates = Plate::all();
+            return response()->json([
+                'plates' => $plates,
+            ]);
+        } else {
+            $plates = Plate::where('IdCategory', $id)
+            ->with('categories')->with('chefs.user')
+            ->get()->where('status', '1');    
+
+            return response()->json([
+                'plates' => $plates,
+            ]);
+        }
     }
 }

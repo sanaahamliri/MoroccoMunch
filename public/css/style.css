@@ -1316,6 +1316,7 @@ a:focus {
     color: #fbaf32;
     border: 1px solid #dddddd;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .single .single-tags a:hover {
