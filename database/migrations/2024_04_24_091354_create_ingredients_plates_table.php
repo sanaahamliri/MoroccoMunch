@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('ingredients_plates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('IdPlate')->constrained('plates');

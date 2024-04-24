@@ -26,10 +26,6 @@ Route::get('/feature', function () {
 });
 
 
-Route::get('/single', function () {
-    return view('single');
-});
-
 Route::get('/personnalisation', function () {
     return view('personnalisation');
 });
@@ -99,6 +95,7 @@ Route::get('/clientTeam', [ChefController::class, 'showTeam']);
 Route::get('chef', [PlateController::class, 'showPlates']);
 Route::get('/plates/filter/{id}', [PlateController::class, 'filter'])->name('plate.filter');
 
+Route::get('detailsMore/{plate}', [PlateController::class, 'viewMore'])->name('more');
 
 Route::get('detailsPlate/{plate}', [PlateController::class, 'showPlatesDetails'])->name('singlePage');
 Route::get('admin/detailsPlate/{plate}', [PlateController::class, 'showPlatesDetailsAdmin'])->name('singlePageAdmin');

@@ -26,7 +26,7 @@
                     <h1 class="text-2xl font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
                         Get your free account now.
                     </h1>
-                    <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('register') }}" method="post" enctype="multipart/form-data"  >
                         @csrf
                         @method('POST')
                         <div class="mt-6">

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class plate extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','status','description','ingredients','IdCategory','IdChef'];
+    protected $fillable = ['name', 'status', 'description', 'ingredients', 'IdCategory', 'IdChef'];
 
     public function categories()
     {
@@ -26,7 +26,8 @@ class plate extends Model
         return $this->morphMany(image::class, 'imageable');
     }
 
-    public function ingredients() {
-        return $this->belongsToMany(ingredient::class);
+    public function ingredients()
+    {
+        return $this->belongsToMany(ingredient::class, "ingredients_plates", 'IdPlate', 'IdIngredients');
     }
 }

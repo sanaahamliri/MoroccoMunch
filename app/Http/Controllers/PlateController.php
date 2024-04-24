@@ -8,6 +8,7 @@ use App\Models\Plate;
 use App\Models\ingredient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\JsonDecoder;
 
 class PlateController extends Controller
 {
@@ -26,13 +27,27 @@ class PlateController extends Controller
     {
         $platesCount = Plate::count();
         $plates = Plate::all();
-        return view('chef.dashboard', compact('plates','platesCount'));
+        return view('chef.dashboard', compact('plates', 'platesCount'));
     }
 
     public function showPlatesDetails(Plate $plate)
     {
         return view('chef.detailsPlate', compact('plate'));
     }
+
+
+    public function viewMore(Plate $plate)
+    {
+        $plateCategory = $plate->IdCategory;
+
+        $relatedPlates = Plate::where('IdCategory', $plateCategory)
+            ->where('id', '!=', $plate->id)
+            ->limit(5)
+            ->get();
+
+        return view('single', compact('plate', 'relatedPlates', 'relatedPlates'));
+    }
+
 
     public function showPlatesDetailsAdmin(Plate $plate)
     {
@@ -61,7 +76,6 @@ class PlateController extends Controller
         ]);
 
 
-
         $plate = new Plate();
         $plate->name = $validatedData['name'];
         $plate->description = $validatedData['description'];
@@ -69,7 +83,11 @@ class PlateController extends Controller
         $plate->IdCategory = $validatedData['IdCategory'];
         $plate->IdChef = Auth::user()->chef->id;
         $plate->save();
-        $plate->ingredients()->attach($validatedData['ingredients']);
+
+        $result =  explode(" ", $validatedData["ingredients"]);
+
+        $plate->ingredients()->create(['name' => json_encode($result)]);
+
 
         if ($request->hasFile('image')) {
             foreach ($request->file('image') as $file) {
@@ -163,7 +181,7 @@ class PlateController extends Controller
         $InvalidPlates = plate::where('status', '0')->get();
         $unvalidPlatesCount =  plate::where('status', '0')->count();
         $validPlatesCount =  plate::where('status', '1')->count();
-        return view('admin.plate', compact('InvalidPlates','unvalidPlatesCount','validPlatesCount'));
+        return view('admin.plate', compact('InvalidPlates', 'unvalidPlatesCount', 'validPlatesCount'));
     }
 
 
@@ -177,8 +195,8 @@ class PlateController extends Controller
             ]);
         } else {
             $plates = Plate::where('IdCategory', $id)
-            ->with('categories')->with('chefs.user')
-            ->get()->where('status', '1');    
+                ->with('categories')->with('chefs.user')
+                ->get()->where('status', '1');
 
             return response()->json([
                 'plates' => $plates,

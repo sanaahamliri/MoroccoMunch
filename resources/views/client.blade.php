@@ -148,7 +148,7 @@
                                                     Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor...
                                                 </p>
                                                 <div class="actions">
-                                                    <a class="btn custom-btn" href="/single">Read More</a>
+                                                    <a class="btn custom-btn" href="{{ route('more', $plat->id) }}">Read More</a>
                                                     <a class="btn custom-btn" href="/personnalisation">Reserve</a>
                                                 </div>
                                             </div>
@@ -532,7 +532,7 @@
             const cardContent = `
                     <div class="blog-item">
                         <div class="blog-img h-64">
-                            <img src="img/blog-1.jpg" alt="Blog">
+                            <img src="{{asset('storage/' . $plat->images[0]->url)}}" alt="Blog">
                         </div>
                         <div class="blog-content">
                             <h2 class="blog-title">${plate.name}</h2>
@@ -547,7 +547,7 @@
                                     Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor...
                                 </p>
                                 <div class="actions">
-                                    <a class="btn custom-btn" href="/single">Read More</a>
+                                    <a class="btn custom-btn" href="{{ route('more', $plat->id) }}">Read More</a>
                                     <a class="btn custom-btn" href="/personnalisation">Reserve</a>
                                 </div>
                             </div>
