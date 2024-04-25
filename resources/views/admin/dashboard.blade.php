@@ -44,7 +44,7 @@
                 <!--Start Sidebar for open menu -->
                 <div class="grid grid-cols-1 gap-4 grid-cols-2 mt-6">
                     <!-- Start Navitem -->
-                    <a href="/admin">
+                    <a href="/categories">
                         <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
                             <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
                                 <i class="fas fa-chart-pie fa-sm text-indigo-600"></i>
@@ -74,7 +74,7 @@
                     </a>
                     <!-- End Navitem -->
                     <!-- Start Navitem -->
-                    <a href="/plate">
+                    <a href="/adminplate">
                         <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
                             <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
                                 <i class="fas fa-archive fa-sm text-indigo-600"></i>

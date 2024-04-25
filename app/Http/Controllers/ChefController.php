@@ -13,7 +13,9 @@ class ChefController extends Controller
     public function index()
     {
         $chefs = chef::all();
-        return view('admin.validateChef', compact('chefs'));
+        $BlockedChefs = chef::where('status', '1')->count();
+        $FreeChefs = chef::where('status', '0')->count();
+        return view('admin.validateChef', compact('chefs','FreeChefs','BlockedChefs'));
     }
 
     public function ban(chef $chef)

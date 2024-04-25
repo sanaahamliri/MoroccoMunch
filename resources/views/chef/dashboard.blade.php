@@ -138,7 +138,7 @@
                 <!--Start logo -->
                 <div class="flex justify-center">
                     <div class="w-14 h-14 rounded-full bg-gray-300 border-2 border-white mt-2">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVxhAxJ4D7MOeTTj6kR9PBeZonW5HM7giKjTbEmR-HMBwf3G1VqGnlwpO1kWrdyIZu8_U&usqp=CAU" class="rounded-full w-auto" />
+                        <img src="" class="rounded-full w-auto" />
                     </div>
                 </div>
                 <!--End logo -->
@@ -180,37 +180,22 @@
         <!-- Start Open Menu -->
         <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-gray-100 sm:block " x-show="openMenu ==  1" @click.away="openMenu = null" style="display: none;">
             <div class="mb-6">
-                <!--Start Sidebar for open menu -->
                 <div class="grid grid-cols-1 gap-4 grid-cols-2 mt-6">
-                    <!-- Start Navitem -->
                     <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
                         <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
                             <i class="fas fa-chart-pie fa-sm text-indigo-600"></i>
                         </div>
-                        <p class="text-xs mt-1 text-center font-semibold">Dashboard</p>
+                       <a href="/chef"> <p class="text-xs mt-1 text-center font-semibold">Dashboard</p></a>
                     </div>
-                    <!-- End Navitem -->
-                    <!-- Start Navitem -->
-                    <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                        <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                            <i class="fas fa-calculator fa-sm text-indigo-600"></i>
-                        </div>
-                        <p class="text-xs mt-1 text-center font-semibold">All Plates</p>
-                    </div>
-                    <!-- End Navitem -->
-                    <!-- Start Navitem -->
+                    
                     <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
                         <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
                             <i class="fas fa-wallet fa-sm text-indigo-600"></i>
                         </div>
-                        <p class="text-xs mt-1 text-center font-semibold">Reservations</p>
+                       <a href="/reservation_validation"> <p class="text-xs mt-1 text-center font-semibold">Reservations</p></a>
                     </div>
-                    <!-- End Navitem -->
-                    <!-- Start Navitem -->
-
-                    <!-- End Navitem -->
+                   
                 </div>
-                <!--End Sidebar for open menu -->
             </div>
         </aside>
         <!-- End Open Menu -->
@@ -233,7 +218,7 @@
                                     <p class="text-xs font-semibold text-gray-400">Total number of plats added</p>
                                 </div>
                                 <div class="p-4">
-                                    <p class="text-xl font-bold">9,200</p>
+                                    <p class="text-xl font-bold">{{$reservationsCount}}</p>
                                     <p class="text-xs font-semibold text-gray-400">Total number of reservations</p>
                                 </div>
 

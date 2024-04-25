@@ -92,6 +92,9 @@ Route::resource('plate', PlateController::class);
 
 Route::get('/clientTeam', [ChefController::class, 'showTeam']);
 
+Route::get('/reservation_validation', [ReservationController::class, 'index']);
+
+
 
 Route::get('chef', [PlateController::class, 'showPlates']);
 Route::get('/plates/filter/{id}', [PlateController::class, 'filter'])->name('plate.filter');

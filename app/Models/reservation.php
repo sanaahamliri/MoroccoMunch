@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use GuzzleHttp\Client;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,7 +19,7 @@ class reservation extends Model
     }
 
     public function plates(){
-        return $this->belongsTo(plate::class, 'eventID');
+        return $this->belongsTo(plate::class, 'plateID');
     }
 
 }

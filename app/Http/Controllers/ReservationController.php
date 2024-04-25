@@ -14,7 +14,10 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        $reservations = reservation::all();
+        $reservationsCount = reservation::count();
+
+        return view('chef.Reservation',compact('reservations','reservationsCount'));
     }
 
     /**

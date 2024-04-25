@@ -16,7 +16,10 @@ class ClientController extends Controller
     public function index()
     {
         $clients = client::all();
-        return view('admin.validate', compact('clients'));
+        $BlockedClients = client::where('status', '1')->count();
+        $FreeClients = client::where('status', '0')->count();
+
+        return view('admin.validate', compact('clients','BlockedClients','FreeClients'));
     }
 
 

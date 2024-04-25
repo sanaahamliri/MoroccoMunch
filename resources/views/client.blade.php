@@ -149,7 +149,10 @@
                                                 </p>
                                                 <div class="actions">
                                                     <a class="btn custom-btn" href="{{ route('more', $plat->id) }}">Read More</a>
-                                                    <a class="btn custom-btn" href="/personnalisation">Reserve</a>
+                                                    <form action="{{ route('plate.reserve') }}" method="post">
+                                                    <input type="hidden" value="{{ $plat->id }}">
+                                                    <button type="submit" class="btn custom-btn" href="">Reserve</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>

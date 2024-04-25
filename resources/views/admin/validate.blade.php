@@ -51,7 +51,7 @@
                 <!--Start Sidebar for open menu -->
                 <div class="grid grid-cols-1 gap-4 grid-cols-2 mt-6">
                     <!-- Start Navitem -->
-                    <a href="/admin">
+                    <a href="/categories">
                         <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
                             <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
                                 <i class="fas fa-chart-pie fa-sm text-indigo-600"></i>
@@ -81,7 +81,7 @@
                     </a>
                     <!-- End Navitem -->
                     <!-- Start Navitem -->
-                    <a href="/plate">
+                    <a href="/adminplate">
                         <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
                             <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
                                 <i class="fas fa-archive fa-sm text-indigo-600"></i>
@@ -111,11 +111,11 @@
                     <div class="col-span-12 sm:col-span-12 md:col-span-8 lg:col-span-8 xxl:col-span-8">
                         <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-4 mt-3">
                             <div class="p-4">
-                                <p class="text-xl font-bold">37,500</p>
+                                <p class="text-xl font-bold">{{$BlockedClients}}</p>
                                 <p class="text-xs font-semibold text-gray-400">Total number of blocked clients</p>
                             </div>
                             <div class="p-4">
-                                <p class="text-xl font-bold">9,200</p>
+                                <p class="text-xl font-bold">{{$FreeClients}}</p>
                                 <p class="text-xs font-semibold text-gray-400">Total number of unblocked clients</p>
                             </div>
                         </div>

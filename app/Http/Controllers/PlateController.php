@@ -6,6 +6,7 @@ use App\Models\category;
 use App\Models\image;
 use App\Models\Plate;
 use App\Models\ingredient;
+use App\Models\reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\JsonDecoder;
@@ -26,8 +27,10 @@ class PlateController extends Controller
     public function showPlates()
     {
         $platesCount = Plate::count();
+        $reservationsCount = reservation::count();
+
         $plates = Plate::all();
-        return view('chef.dashboard', compact('plates', 'platesCount'));
+        return view('chef.dashboard', compact('plates', 'platesCount','reservationsCount'));
     }
 
     public function showPlatesDetails(Plate $plate)
