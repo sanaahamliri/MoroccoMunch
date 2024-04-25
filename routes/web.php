@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChefController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PlateController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -101,3 +102,5 @@ Route::get('detailsPlate/{plate}', [PlateController::class, 'showPlatesDetails']
 Route::get('admin/detailsPlate/{plate}', [PlateController::class, 'showPlatesDetailsAdmin'])->name('singlePageAdmin');
 Route::patch('/admin/{client}/validate', [ClientController::class, 'ban'])->name('client.ban');
 Route::put('/admin/validateChef/{chef}', [ChefController::class, 'ban'])->name('chef.ban');
+
+Route::post('/reservation', [ReservationController::class, 'store'])->name('plate.reserve');

@@ -30,4 +30,9 @@ class plate extends Model
     {
         return $this->belongsToMany(ingredient::class, "ingredients_plates", 'IdPlate', 'IdIngredients');
     }
+
+
+    public function reservationPlate(){
+        return $this->hasMany(reservation::class, 'PlateID');
+    }
 }

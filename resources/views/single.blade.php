@@ -147,6 +147,14 @@
                             </p>
                         </div>
                     </div>
+                    <div class="">
+                        <form action="{{ route('plate.reserve') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="plateId" value="{{ $plate->id }}">
+                        <button type="submit">Reserver</button>
+                        </form>
+                    </div>
+
                     <div class="single-related">
                         <h2>Related Post</h2>
 
@@ -160,12 +168,14 @@
                                     <a href="">{{$relatedPlate->name}}</a>
                                     <div class="post-meta">
                                         <p>By<a href="">{{$relatedPlate->chefs->user->name}}</a></p>
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                         @endforeach
+
+
                     </div>
 
                     <div class="single-comment">
