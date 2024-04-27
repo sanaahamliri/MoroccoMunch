@@ -44,7 +44,7 @@ class ClientController extends Controller
         $categorie = category::all();
         $chefs = chef::all();
         $ValidPlates = plate::where('status', '1')->get();
-        return view('client', compact('ValidPlates','categories', 'categorie', 'chefs'));
+        return view('client.client', compact('ValidPlates','categories', 'categorie', 'chefs'));
 
     }
     /**

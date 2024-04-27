@@ -15,7 +15,7 @@ class plate extends Model
         return $this->belongsTo(category::class, 'IdCategory');
     }
 
-    public function chefs()
+    public function chef()
     {
         return $this->belongsTo(chef::class, 'IdChef');
     }
@@ -35,4 +35,10 @@ class plate extends Model
     public function reservationPlate(){
         return $this->hasMany(reservation::class, 'PlateID');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(commentaire::class,'plate_id');
+    }
 }
+

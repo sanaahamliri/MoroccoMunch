@@ -52,15 +52,15 @@
                                         worker
                                     </span>
                                 </button> -->
-                                <div class="flex space-x-2  rounded-xl select-none">
+                                <div class="flex space-x-2  rounded-xl ">
                                     <label class="radio flex flex-grow items-center justify-center rounded-lg p-1 cursor-pointer">
                                         <input type="radio" name="role" value="client" class="peer hidden" />
-                                        <span class="tracking-widest peer-checked:bg-gradient-to-r peer-checked:from-[blueviolet] peer-checked:to-[violet] peer-checked:text-white text-gray-700 p-2 rounded-lg transition duration-150 ease-in-out">Client</span>
+                                        <span class="tracking-widest peer-checked:bg-gradient-to-r peer-checked:from-red-600 peer-checked:to-yellow-800 peer-checked:text-white text-gray-700 p-2 rounded-lg transition duration-150 ease-in-out">Client</span>
                                     </label>
 
                                     <label class="radio flex flex-grow items-center justify-center rounded-lg p-1 cursor-pointer">
                                         <input type="radio" name="role" value="chef" class="peer hidden" />
-                                        <span class="tracking-widest peer-checked:bg-gradient-to-r peer-checked:from-[blueviolet] peer-checked:to-[violet] peer-checked:text-white text-gray-700 p-2 rounded-lg transition duration-150 ease-in-out">Chef</span>
+                                        <span class="tracking-widest peer-checked:bg-gradient-to-r peer-checked:from-red-600 peer-checked:to-yellow-800 peer-checked:text-white text-gray-700 p-2 rounded-lg transition duration-150 ease-in-out">Chef</span>
                                     </label>
 
                                 </div>

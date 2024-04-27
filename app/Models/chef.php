@@ -16,4 +16,10 @@ class chef extends Model
         return $this->belongsTo(User::class,'IdUser');
 
     }
+
+
+    public function plates()
+    {
+        return $this->hasMany(plate::class,'IdChef');
+    }
 }

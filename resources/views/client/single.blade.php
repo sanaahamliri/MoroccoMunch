@@ -138,7 +138,7 @@
 
                     <div class="single-bio">
                         <div class="single-bio-img">
-                            <img src="{{asset('storage/' . $plate->chefs->user->imageUser)}}" />
+                            <img src="{{asset('storage/' . $plate->chefs->user->imageUser->url)}}" />
                         </div>
                         <div class="single-bio-text">
                             <h3>{{$plate->chefs->user->name}}</h3>
@@ -179,48 +179,42 @@
                     </div>
 
                     <div class="single-comment">
-                        <h2>2 Comments</h2>
+                        <h2>{{$plate->comments->count()}} Comments</h2>
                         <ul class="comment-list">
+                            @foreach($comments as $comment)
                             <li class="comment-item">
                                 <div class="comment-body">
                                     <div class="comment-img">
-                                        <img src="img/user.jpg" />
+                                        <img src="{{asset('storage/' . $comment->client->user->imageUser->url)}}" />
                                     </div>
                                     <div class="comment-text">
-                                        <h3><a href="">Josh Dunn</a></h3>
-                                        <span>01 Jan 2045 at 12:00pm</span>
+                                        <h3><a href="">{{$comment->client->user->name}}</a></h3>
+                                        <span>{{$comment->created_at}}</span>
                                         <p>
-                                            Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea dictumst.
+                                            {{$comment->content}}
                                         </p>
-                                        <a class="btn" href="">Reply</a>
+                                        @if($comment->client->id == Auth::user()->client->id)
+                                        <form action="{{route('comment.destroy',$comment)}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn bg-red-600" >delete</button>
+                                        </form>
+                                        @endif
                                     </div>
                                 </div>
                             </li>
-                            <li class="comment-item">
-                                <div class="comment-body">
-                                    <div class="comment-img">
-                                        <img src="img/user.jpg" />
-                                    </div>
-                                    <div class="comment-text">
-                                        <h3><a href="">Josh Dunn</a></h3>
-                                        <p><span>01 Jan 2045 at 12:00pm</span></p>
-                                        <p>
-                                            Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea dictumst.
-                                        </p>
-                                        <a class="btn" href="">Reply</a>
-                                    </div>
-                                </div>
-
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="comment-form">
                         <h2>Leave a comment</h2>
-                        <form>
-
+                        <form action="{{route('comment.store')}}" method="post">
+                            @csrf
+                            @method('POST')
                             <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                                <label for="message">Comment *</label>
+                                <textarea name="content" id="message" cols="30" rows="5" class="form-control"></textarea>
+                                <input type="hidden" name="plate_id" value="{{$plate->id}}">
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Post Comment" class="btn custom-btn">

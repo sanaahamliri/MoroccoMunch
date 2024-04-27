@@ -60,7 +60,7 @@ class User extends Authenticatable
 
     public function admin()
     {
-        return $this->hasOne(chef::class,'IdUser');
+        return $this->hasOne(admin::class,'IdUser');
 
     }
 
@@ -68,4 +68,6 @@ class User extends Authenticatable
     {
         return $this->morphOne(image::class, 'imageable');
     }
+
+    
 }

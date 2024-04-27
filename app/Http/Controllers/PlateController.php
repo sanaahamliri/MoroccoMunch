@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\commentaire;
 use App\Models\image;
 use App\Models\Plate;
 use App\Models\ingredient;
@@ -16,6 +17,7 @@ class PlateController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
         $plates = Plate::all();
@@ -29,10 +31,11 @@ class PlateController extends Controller
         $platesCount = Plate::count();
         $reservationsCount = reservation::count();
 
-        $plates = Plate::all();
+        $plates = Plate::get();
         return view('chef.dashboard', compact('plates', 'platesCount','reservationsCount'));
     }
 
+    
     public function showPlatesDetails(Plate $plate)
     {
         return view('chef.detailsPlate', compact('plate'));
@@ -41,14 +44,16 @@ class PlateController extends Controller
 
     public function viewMore(Plate $plate)
     {
-        $plateCategory = $plate->IdCategory;
 
+        $plateCategory = $plate->IdCategory;
         $relatedPlates = Plate::where('IdCategory', $plateCategory)
             ->where('id', '!=', $plate->id)
             ->limit(5)
             ->get();
 
-        return view('single', compact('plate', 'relatedPlates', 'relatedPlates'));
+        $comments = commentaire::where('plate_id',$plate->id)->get();
+
+        return view('client.single', compact('plate', 'relatedPlates', 'relatedPlates','comments'));
     }
 
 
@@ -198,7 +203,7 @@ class PlateController extends Controller
             ]);
         } else {
             $plates = Plate::where('IdCategory', $id)
-                ->with('categories')->with('chefs.user')
+                ->with('categories')->with('chefs.user')->with('images')
                 ->get()->where('status', '1');
 
             return response()->json([

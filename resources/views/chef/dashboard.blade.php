@@ -131,16 +131,17 @@
 </head>
 
 <body>
+
     <div class="flex h-screen w-full bg-gray-800 " x-data="{openMenu:1}">
         <!--Start SideBar-->
         <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-indigo-600 sm:block">
             <div class="mb-6">
                 <!--Start logo -->
-                <div class="flex justify-center">
-                    <div class="w-14 h-14 rounded-full bg-gray-300 border-2 border-white mt-2">
-                        <img src="" class="rounded-full w-auto" />
+                <a href="/profileChef">
+                    <div class="w-14 h-14 rounded-full  mt-2">
+                        <img src="{{asset('storage/' . Auth::user()->imageUser->url)}}" class="rounded-full w-14 h-14 border-2 border-white " />
                     </div>
-                </div>
+                    </a>
                 <!--End logo -->
                 <!--Start NavItem -->
                 <div>

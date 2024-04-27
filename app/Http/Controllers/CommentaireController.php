@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommentRequest;
 use App\Models\commentaire;
+use Egulias\EmailValidator\Parser\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentaireController extends Controller
 {
@@ -20,15 +23,20 @@ class CommentaireController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CommentRequest $request)
     {
-        //
+        $data = $request->validated();
+        $data['client_id'] = Auth::user()->client->id;
+        
+        commentaire::create($data);
+        return redirect()->back()->with('success' ,'comment added with success');
+
     }
 
     /**
@@ -50,16 +58,16 @@ class CommentaireController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, commentaire $commentaire)
+    public function update(CommentRequest $request, commentaire $commentaire)
     {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(commentaire $commentaire)
+    public function destroy(commentaire $comment)
     {
-        //
+       $comment->delete();
+        return redirect()->back()->with('success', 'comment deleted with success');
     }
 }

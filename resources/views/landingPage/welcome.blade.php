@@ -64,21 +64,10 @@
     <!-- Carousel Start -->
     <div class="carousel">
         <div class="container-fluid">
-            <div class="owl-carousel">
+            <div class="owl-carousel"> 
                 <div class="carousel-item">
                     <div class="carousel-img">
-                        <img src="img/carousel-1.jpg" alt="Image">
-                    </div>
-                    <div class="carousel-text">
-                        <h1>Best <span>Quality</span> Ingredients</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
-                        </p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-img">
-                        <img src="img/carousel-2.jpg" alt="Image">
+                        <img src="img/carousel-3.jpg" alt="Image">
                     </div>
                     <div class="carousel-text">
                         <h1>Moroccan's <span>Best</span> Chef</h1>
@@ -87,17 +76,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="carousel-img">
-                        <img src="img/carousel-3.jpg" alt="Image">
-                    </div>
-                    <div class="carousel-text">
-                        <h1>Fastest Order <span>Delivery</span></h1>
-                        <p>
-                            Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
-                        </p>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -333,54 +312,7 @@
     <!-- Team End -->
 
 
-    <!-- Testimonial Start -->
-    <div class="testimonial">
-        <div class="container">
-            <div class="owl-carousel testimonials-carousel">
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <img src="img/testimonial-1.jpg" alt="Image">
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
-                    </p>
-                    <h2>Client Name</h2>
-                    <h3>Profession</h3>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <img src="img/testimonial-1.jpg" alt="Image">
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
-                    </p>
-                    <h2>Client Name</h2>
-                    <h3>Profession</h3>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <img src="img/testimonial-1.jpg" alt="Image">
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
-                    </p>
-                    <h2>Client Name</h2>
-                    <h3>Profession</h3>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <img src="img/testimonial-1.jpg" alt="Image">
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
-                    </p>
-                    <h2>Client Name</h2>
-                    <h3>Profession</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
+   
 
 
     <!-- Blog Start -->

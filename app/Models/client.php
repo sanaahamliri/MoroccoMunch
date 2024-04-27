@@ -19,4 +19,10 @@ class client extends Model
     public function reservationClient(){
         return $this->hasMany(reservation::class, 'clientID');
     }
+
+    public function comment()
+    {
+        return $this->hasMany(Commentaire::class,'client_id');
+
+    }
 }

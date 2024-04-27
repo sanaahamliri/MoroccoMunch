@@ -130,7 +130,6 @@
                                                             </thead>
                                                             <tbody class="bg-white divide-y divide-gray-200">
                                                                 @foreach($reservations as $reservation)
-
                                                                 <tr>
                                                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 w-5 ">
                                                                         <p> {{$reservation->plates->name}}

@@ -3,50 +3,36 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChefController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\PlateController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingPage.welcome');
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('landingPage.about');
 });
 
 
 Route::get('/team', function () {
-    return view('team');
+    return view('landingPage.team');
 });
-
+   
 
 Route::get('/feature', function () {
-    return view('feature');
-});
-
-
-Route::get('/personnalisation', function () {
-    return view('personnalisation');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::get('/booking', function () {
-    return view('booking');
+    return view('landingPage.feature');
 });
 
 
 Route::get('/client', [ClientController::class, 'showValidPlates']);
 
 Route::get('/details', function () {
-    return view('details');
+    return view('client.details');
 });
-
-
 
 
 
@@ -100,6 +86,7 @@ Route::get('chef', [PlateController::class, 'showPlates']);
 Route::get('/plates/filter/{id}', [PlateController::class, 'filter'])->name('plate.filter');
 
 Route::get('detailsMore/{plate}', [PlateController::class, 'viewMore'])->name('more');
+Route::resource('/comment',CommentaireController::class);
 
 Route::get('detailsPlate/{plate}', [PlateController::class, 'showPlatesDetails'])->name('singlePage');
 Route::get('admin/detailsPlate/{plate}', [PlateController::class, 'showPlatesDetailsAdmin'])->name('singlePageAdmin');
@@ -107,3 +94,6 @@ Route::patch('/admin/{client}/validate', [ClientController::class, 'ban'])->name
 Route::put('/admin/validateChef/{chef}', [ChefController::class, 'ban'])->name('chef.ban');
 
 Route::post('/reservation', [ReservationController::class, 'store'])->name('plate.reserve');
+
+
+Route::get('/profileChef', [ChefController::class, 'ChefInfos']);

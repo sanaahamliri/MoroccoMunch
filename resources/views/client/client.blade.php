@@ -20,6 +20,7 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -58,20 +59,10 @@
     <div class="carousel">
         <div class="container-fluid">
             <div class="owl-carousel">
+
                 <div class="carousel-item">
                     <div class="carousel-img">
-                        <img src="img/carousel-1.jpg" alt="Image">
-                    </div>
-                    <div class="carousel-text">
-                        <h1>Best <span>Quality</span> Ingredients</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
-                        </p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-img">
-                        <img src="img/carousel-2.jpg" alt="Image">
+                        <img src="img/carousel-3.jpg" alt="Image">
                     </div>
                     <div class="carousel-text">
                         <h1>Moroccan's <span>Best</span> Chef</h1>
@@ -80,17 +71,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="carousel-img">
-                        <img src="img/carousel-3.jpg" alt="Image">
-                    </div>
-                    <div class="carousel-text">
-                        <h1>Fastest Order <span>Delivery</span></h1>
-                        <p>
-                            Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
-                        </p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -132,8 +113,7 @@
                                 @foreach($ValidPlates as $plat)
                                 <div class="col-md-6">
                                     <div class="blog-item">
-                                        <div class="blog-img h-20">
-                                            <img class="h-20" src="{{asset('storage/' . $plat->images[0]->url)}}" alt="Blog">
+                                        <div class="blog-img h-56 w-56" style="background-image: url('{{asset('storage/' . $plat->images[0]->url)}}'); background-size:cover;  background-position:center; background-repeat:no-repeat">
                                         </div>
                                         <div class="blog-content">
                                             <h2 class="blog-title">{{$plat->name}}</h2>
@@ -150,8 +130,8 @@
                                                 <div class="actions">
                                                     <a class="btn custom-btn" href="{{ route('more', $plat->id) }}">Read More</a>
                                                     <form action="{{ route('plate.reserve') }}" method="post">
-                                                    <input type="hidden" value="{{ $plat->id }}">
-                                                    <button type="submit" class="btn custom-btn" href="">Reserve</button>
+                                                        <input type="hidden" value="{{ $plat->id }}">
+                                                        <button type="submit" class="btn custom-btn" href="">Reserve</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -388,7 +368,6 @@
                             </div>
                         </div>
 
-
                     </div>
                 </div>
             </div>
@@ -404,7 +383,7 @@
                 <h2>Our Master Chef</h2>
             </div>
             <div class="row">
-            @foreach($chefs as $chef)
+                @foreach($chefs as $chef)
                 <div class="col-lg-3 col-md-6">
                     <div class="team-item">
                         <div class="team-img">
@@ -422,61 +401,14 @@
                     </div>
                 </div>
                 @endforeach
-              
+
             </div>
         </div>
     </div>
     <!-- Team End -->
 
 
-    <!-- Testimonial Start -->
-    <div class="testimonial">
-        <div class="container">
-            <div class="owl-carousel testimonials-carousel">
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <img src="img/testimonial-1.jpg" alt="Image">
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
-                    </p>
-                    <h2>Client Name</h2>
-                    <h3>Profession</h3>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <img src="img/testimonial-1.jpg" alt="Image">
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
-                    </p>
-                    <h2>Client Name</h2>
-                    <h3>Profession</h3>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <img src="img/testimonial-1.jpg" alt="Image">
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
-                    </p>
-                    <h2>Client Name</h2>
-                    <h3>Profession</h3>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-img">
-                        <img src="img/testimonial-1.jpg" alt="Image">
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput
-                    </p>
-                    <h2>Client Name</h2>
-                    <h3>Profession</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
+
 
 
     <!-- Footer Start -->
@@ -535,7 +467,7 @@
             const cardContent = `
                     <div class="blog-item">
                         <div class="blog-img h-64">
-                            <img src="{{asset('storage/' . $plat->images[0]->url)}}" alt="Blog">
+                            <img src="/storage/${plate.images[0].url}"   alt="Blog">
                         </div>
                         <div class="blog-content">
                             <h2 class="blog-title">${plate.name}</h2>
@@ -550,7 +482,7 @@
                                     Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor...
                                 </p>
                                 <div class="actions">
-                                    <a class="btn custom-btn" href="{{ route('more', $plat->id) }}">Read More</a>
+                                    <a class="btn custom-btn" href="/detailsMore/${plate.id}">Read More</a>
                                     <a class="btn custom-btn" href="/personnalisation">Reserve</a>
                                 </div>
                             </div>
