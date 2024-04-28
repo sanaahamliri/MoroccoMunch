@@ -41,7 +41,7 @@
                     <a href="/about" class="nav-item nav-link">About</a>
                     <a href="/feature" class="nav-item nav-link">Feature</a>
                     <a href="/team" class="nav-item nav-link">Chef</a>
-                    <a href="#" class="nav-item nav-link">Log Out</a>
+                    <a href="signout" class="nav-item nav-link">Log Out</a>
                 </div>
             </div>
         </div>
@@ -155,78 +155,33 @@
                             <div class="tab-post">
                                 <ul class="nav nav-pills nav-justified">
                                     <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="pill" href="#featured">Featured</a>
+                                        <a class="nav-link active" data-toggle="pill" href="#featured">Latest</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" data-toggle="pill" href="#popular">Popular</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="pill" href="#latest">Latest</a>
+                                        <a class="nav-link" data-toggle="pill" href="#latest">Featured</a>
                                     </li>
                                 </ul>
 
                                 <div class="tab-content">
                                     <div id="featured" class="container tab-pane active">
+                                        @foreach($latestPlats as $last)
                                         <div class="post-item">
                                             <div class="post-img">
                                                 <img src="img/menu-snack.jpg" />
                                             </div>
                                             <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                <a href="">{{$last->name}}</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">sanaa</a></p>
+                                                    <p>By<a href=""></a></p>
                                                     <p>In<a href="">morocco Munch</a></p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="post-item">
-                                            <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
-                                            </div>
-                                            <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                <div class="post-meta">
-                                                    <p>By<a href="">sanaa</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="post-item">
-                                            <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
-                                            </div>
-                                            <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                <div class="post-meta">
-                                                    <p>By<a href="">sanaa</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="post-item">
-                                            <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
-                                            </div>
-                                            <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                <div class="post-meta">
-                                                    <p>By<a href="">sanaa</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="post-item">
-                                            <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
-                                            </div>
-                                            <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                <div class="post-meta">
-                                                    <p>By<a href="">sanaa</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
+
                                     </div>
                                     <div id="popular" class="container tab-pane fade">
                                         <div class="post-item">
@@ -396,7 +351,9 @@
                         </div>
                         <div class="team-text">
                             <h2>{{$chef->user->name}}</h2>
-                            <p>CEO, Co Founder</p>
+                            @if($chef->city && $chef->age)
+                            <p>{{ $chef->city }}, {{ $chef->age }} years old</p>
+                            @endif
                         </div>
                     </div>
                 </div>

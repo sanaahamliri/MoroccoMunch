@@ -31,9 +31,11 @@
                         <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-blue-400 cursor-pointer" @click="openMenu !== 1 ? openMenu = 1 : openMenu = null">
                             <i class="fas fa-align-left fa-sm text-white"></i>
                         </li>
+                        <a href="signout">
                         <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer">
                             <i class="fas fa-power-off fa-sm text-indigo-600"></i>
                         </li>
+                        </a>
                     </ul>
                 </div>
                 <!--End NavItem -->

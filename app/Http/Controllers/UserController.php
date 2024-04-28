@@ -48,7 +48,7 @@ class UserController extends Controller
         return view('auth.registration');
     }
 
-    
+
 
     public function store(Request $request)
     {
@@ -57,18 +57,16 @@ class UserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'role' => 'required|in:client,chef',
-            'lastName' => 'required|string',
             'image' => 'required|image',
         ]);
-        
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
-            'lastName' => $request->lastName,
         ]);
-        
+
         if ($request->hasFile('image')) {
             $imagePath = $this->storeImage($request->file('image')); // Corrected
             Image::create([
@@ -77,7 +75,7 @@ class UserController extends Controller
                 'imageable_type' => User::class,
             ]);
         }
-        
+
         if ($request->role == 'client') {
             $user->client()->create();
             Auth::login($user);
@@ -88,17 +86,17 @@ class UserController extends Controller
             return redirect('/chef');
         }
     }
-    
+
     private function storeImage($file)
     {
         // Check if $file exists and is a valid file object
         if ($file && !$file->getError()) {
             // Generate a unique filename for the image
             $filename = uniqid() . '_' . $file->getClientOriginalName();
-            
+
             // Store the image in the 'public/images' directory
             $file->storeAs('public/images', $filename);
-            
+
             // Return the path to store in the database
             return 'images/' . $filename;
         } else {
@@ -107,14 +105,14 @@ class UserController extends Controller
             return null;
         }
     }
-    
-        
-     
+
+
+
     public function signOut()
     {
         Auth::logout();
 
-        return redirect("login");
+        return redirect("/");
     }
 
 
@@ -124,62 +122,52 @@ class UserController extends Controller
     public function updateProfile(Request $request)
     {
         $user = Auth::user();
-    
-        $request->validate([
+
+      $dd =  $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'address' => 'nullable|string|max:255',
-            'phone' => 'nullable|string|max:255',
-            'description' => 'nullable|string',
+            'lastName' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'city' => 'nullable|string|max:255',
+            'bio' => 'nullable|string|max:255',
+            'age' => 'nullable|integer',
+            'years_of_experience' => 'nullable|integer',
+
+
+            
         ]);
-    
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->address = $request->address;
-        $user->phone = $request->phone;
-        $user->description = $request->description;
-    
+        User::create($dd);
+
         if ($request->hasFile('image')) {
-            // Delete the old image if it exists
-            if ($user->image) {
-                $imagePath = public_path('images') . '/' . $user->image;
-                if (file_exists($imagePath)) {
-                    unlink($imagePath);
-                }
-            }
-            // Upload and store the new image
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $user->image = $imageName;
+            $imagePath = $this->storeImage($request->file('image')); // Corrected
+            Image::create([
+                'url' => $imagePath,
+                'imageable_id' => $user->id,
+                'imageable_type' => User::class,
+            ]);
         }
-    
-        $user->save();
-    
+
         return redirect()->route('profile')->with('success', 'Profile updated successfully.');
     }
-    
 
 
-private function profileCompleteness(User $user)
-{
-    $totalFields = 0;
-    $filledFields = 0;
 
-    // Iterate over each attribute in the user model
-    foreach ($user->getAttributes() as $key => $value) {
-        // Increment the total fields count
-        $totalFields++;
+    private function profileCompleteness(User $user)
+    {
+        $totalFields = 0;
+        $filledFields = 0;
 
-        // Check if the field is filled (not null and not empty)
-        if (!is_null($value) && $value !== '') {
-            $filledFields++;
+        // Iterate over each attribute in the user model
+        foreach ($user->getAttributes() as $key => $value) {
+            // Increment the total fields count
+            $totalFields++;
+
+            // Check if the field is filled (not null and not empty)
+            if (!is_null($value) && $value !== '') {
+                $filledFields++;
+            }
         }
+
+        // Calculate the completeness percentage
+        return ($filledFields / $totalFields) * 100;
     }
-
-    // Calculate the completeness percentage
-    return ($filledFields / $totalFields) * 100;
-}
-
 }

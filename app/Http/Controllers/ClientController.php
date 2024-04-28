@@ -19,7 +19,7 @@ class ClientController extends Controller
         $BlockedClients = client::where('status', '1')->count();
         $FreeClients = client::where('status', '0')->count();
 
-        return view('admin.validate', compact('clients','BlockedClients','FreeClients'));
+        return view('admin.validate', compact('clients', 'BlockedClients', 'FreeClients'));
     }
 
 
@@ -39,13 +39,26 @@ class ClientController extends Controller
     }
 
 
-    public function showValidPlates(){
+    public function showValidPlates()
+    {
         $categories = category::withCount('plates')->OrderByDesc('plates_count')->limit(5)->get();
         $categorie = category::all();
         $chefs = chef::all();
         $ValidPlates = plate::where('status', '1')->get();
-        return view('client.client', compact('ValidPlates','categories', 'categorie', 'chefs'));
 
+        // $featuredPlats = plate::withCount('comments')
+        //     ->orderByDesc('comments_count')
+        //     ->take(5)
+        //     ->get();
+
+        // $popularPlats = plate::orderByDesc('reservation_count')
+        //     ->take(5)
+        //     ->get();
+
+        $latestPlats = plate::orderByDesc('created_at')
+            ->take(5)
+            ->get();
+        return view('client.client', compact('ValidPlates', 'categories', 'categorie', 'chefs','latestPlats'));
     }
     /**
      * Show the form for creating a new resource.

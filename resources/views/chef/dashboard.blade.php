@@ -141,7 +141,7 @@
                     <div class="w-14 h-14 rounded-full  mt-2">
                         <img src="{{asset('storage/' . Auth::user()->imageUser->url)}}" class="rounded-full w-14 h-14 border-2 border-white " />
                     </div>
-                    </a>
+                </a>
                 <!--End logo -->
                 <!--Start NavItem -->
                 <div>
@@ -168,10 +168,11 @@
                                 </g>
                             </svg>
                         </li>
-                        <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer">
-                            <i class="fas fa-power-off fa-sm text-indigo-600"></i>
-                        </li>
-
+                        <a href="signout">
+                            <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer">
+                                <i class="fas fa-power-off fa-sm text-indigo-600"></i>
+                            </li>
+                        </a>
 
                     </ul>
                 </div>
@@ -186,16 +187,20 @@
                         <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
                             <i class="fas fa-chart-pie fa-sm text-indigo-600"></i>
                         </div>
-                       <a href="/chef"> <p class="text-xs mt-1 text-center font-semibold">Dashboard</p></a>
+                        <a href="/chef">
+                            <p class="text-xs mt-1 text-center font-semibold">Dashboard</p>
+                        </a>
                     </div>
-                    
+
                     <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
                         <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
                             <i class="fas fa-wallet fa-sm text-indigo-600"></i>
                         </div>
-                       <a href="/reservation_validation"> <p class="text-xs mt-1 text-center font-semibold">Reservations</p></a>
+                        <a href="/reservation_validation">
+                            <p class="text-xs mt-1 text-center font-semibold">Reservations</p>
+                        </a>
                     </div>
-                   
+
                 </div>
             </div>
         </aside>

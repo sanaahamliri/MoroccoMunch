@@ -40,6 +40,11 @@ Route::get('/chef', function () {
     return view('chef/dashboard');
 });
 
+
+Route::get('/pp', function () {
+    return view('chef/editProfile');
+});
+
 Route::get('/validateChef', [ChefController::class, 'index']);
 
 

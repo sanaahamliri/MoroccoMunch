@@ -43,8 +43,7 @@
                     <a href="/client" class="nav-item nav-link">Home</a>
                     <a href="/about" class="nav-item nav-link">About</a>
                     <a href="/feature" class="nav-item nav-link">Feature</a>
-                    <a href="#" class="nav-item nav-link">Log Out</a>
-
+                    <a href="signout" class="nav-item nav-link">Log Out</a>
                 </div>
             </div>
         </div>
