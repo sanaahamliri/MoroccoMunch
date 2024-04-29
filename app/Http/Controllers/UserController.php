@@ -41,13 +41,15 @@ class UserController extends Controller
             if ($user->role == 'client') {
                 return redirect('/client');
             } elseif ($user->role == 'chef') {
-
                 return redirect('/chef');
+            } elseif ($user->role == 'admin') {
+                return redirect('/categories');
             }
         }
 
         return redirect("login")->withSuccess('Login details are not valid');
     }
+
 
     public function registration()
     {

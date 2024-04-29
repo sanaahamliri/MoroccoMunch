@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ChefProfileRequest;
+use App\Http\Requests\UserProfileRequest;
 use App\Models\chef;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ChefController extends Controller
@@ -22,6 +25,28 @@ class ChefController extends Controller
     {
         return view('client.details');
     }
+
+
+    public function ChefInfos(chef $chef)
+    {
+        return view('chef.profile');
+    }
+
+
+   public function UpdateProfile(){
+    return view('chef.editProfile');
+   }
+
+   public function editProfile(ChefProfileRequest $request,chef $chef)
+   {    
+        $chef->update($request->validated());  
+     return redirect('/profileChef')->with('success', 'your profile updatedwith success');
+   }
+   public function editUserProfile(UserProfileRequest $request,User $user)
+   {    
+        $user->update($request->validated());  
+     return redirect('/profileChef')->with('success', 'your profile updatedwith success');
+   }
 
     public function ban(chef $chef)
     {

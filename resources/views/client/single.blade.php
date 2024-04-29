@@ -73,13 +73,21 @@
         <div class="container">
             <div class="row">
                 <div class="container-fluid">
+                    @if(session('success'))
+                    <!-- Alert Success -->
+                    <div class="bg-green-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto max-w-2xl">
+                        <svg viewBox="0 0 24 24" class="text-green-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+                            <path fill="currentColor" d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z">
+                            </path>
+                        </svg>
+                        <span class="text-green-800">{{session('success')}}</span>
+                    </div>
+
+                 @endif
                     <div class="single-content">
-                        <div>
-                            <h2> {{$plate->name}}</h2>
-                        </div>
-                        <p>
-                            {{$plate->categories->name}}
-                        </p>
+
+                        <h1 class="text-5xl font-extrabold dark:text-white">{{$plate->name}}<small class="ms-3 font-semibold text-base text-gray-500 dark:text-gray-400">{{$plate->categories->name}}</small></h1>
+
                         <br>
 
                         <div>
@@ -122,11 +130,13 @@
                             </div>
                         </div>
                         <br>
-                        <p>
-                            {{$plate->description}}
-                        </p>
+                        <div class="flex justify-center items-center">
+                            <p>
+                                {{$plate->description}}
+                            </p>
+                        </div>
                         <br>
-                        <h4>Plate Ingredients</h4>
+                        <h4 style="color: #fbaf32;">Plate Ingredients : </h4>
                         <p>
                             @php
                             $array = explode(" ", $plate->ingredients);
@@ -146,13 +156,20 @@
                             </p>
                         </div>
                     </div>
-                    <div class="">
+
+
+
+                    <div class="actions">
                         <form action="{{ route('plate.reserve') }}" method="post">
-                        @csrf
-                        <input type="hidden" name="plateId" value="{{ $plate->id }}">
-                        <button type="submit">Reserver</button>
+                            @csrf
+                            <input type="hidden" name="plateId" value="{{ $plate->id }}">
+                            <button class="btn custom-btn flex gap-3" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 1024 1024" class="icon" version="1.1">
+                                    <path d="M359.8 368.7c-83.5 37-150 103.4-187.1 186.9-5.6 12.6 0.1 27.3 12.7 32.9 3.3 1.5 6.7 2.2 10.1 2.2 9.6 0 18.7-5.5 22.8-14.8 32.1-72.2 89.5-129.6 161.7-161.6 12.6-5.6 18.3-20.3 12.7-32.9-5.5-12.6-20.3-18.3-32.9-12.7z m214.6-108.5c7.2-11.8 11.6-25.5 11.6-40.3 0-42.8-34.7-77.4-77.4-77.4-42.8 0-77.4 34.7-77.4 77.4 0 14.8 4.4 28.6 11.6 40.3-216.7 31.9-383.5 219-383.5 444.4v54.1c0 13.8 11.2 25 25 25H933c13.8 0 25-11.2 25-25v-54.1c-0.1-225.4-167-412.4-383.6-444.4zM908 733.7H109.2v-29.1c0-220.2 179.2-399.3 399.4-399.3S908 484.4 908 704.6v29.1z m24.9 100.2H84.2c-13.8 0-25 11.2-25 25s11.2 25 25 25h848.7c13.8 0 25-11.2 25-25s-11.2-25-25-25z" fill="currentColor" />
+                                </svg>Reserver</button>
                         </form>
                     </div>
+                    <br>
 
                     <div class="single-related">
                         <h2>Related Post</h2>
@@ -196,7 +213,7 @@
                                         <form action="{{route('comment.destroy',$comment)}}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="btn bg-red-600" >delete</button>
+                                            <button type="submit" class="btn bg-red-600">delete</button>
                                         </form>
                                         @endif
                                     </div>

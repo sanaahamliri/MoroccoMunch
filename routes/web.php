@@ -104,3 +104,7 @@ Route::post('/reservation', [ReservationController::class, 'store'])->name('plat
 
 
 Route::get('/profileChef', [ChefController::class, 'ChefInfos']);
+
+Route::get('/editChef', [ChefController::class, 'UpdateProfile']);
+Route::patch('/editChef/{chef}', [ChefController::class, 'editProfile'])->name('editProfile');
+Route::patch('/editUser/{user}', [ChefController::class, 'editUserProfile'])->name('editUserProfile');

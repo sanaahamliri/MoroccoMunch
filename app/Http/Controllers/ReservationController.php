@@ -36,6 +36,7 @@ class ReservationController extends Controller
         // $request->validate([
         //     'plateId' => 'required|interger',
         // ]);
+        
 
         $user = Auth::user();
         $reservation = reservation::create([

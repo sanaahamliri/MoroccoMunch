@@ -57,33 +57,50 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center mt-12">
+                    <div class="flex justify-between">
+                        <form action="{{route('editProfile',Auth::user()->chef)}}" method="post" class="text-center mt-12">
+                            @csrf
+                            @method('PATCH')
+                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">bio : </label>
                             <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                                <input type="text" value="{{Auth::user()->name}}">
+                                <input type="text" name="bio" value="{{Auth::user()->chef->bio}}">
                             </h3>
-                            @if(Auth::user()->city)
+
+                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Ciy</label>
                             <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                                 <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
 
-                                {{Auth::user()->city}}
+                                <input type="text" name="city" value="{{Auth::user()->chef->city}}">
                             </div>
-                            @else
+                           
+                            <div class="mb-2 text-blueGray-600 mt-10">
+                                <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+                                <input type="number" name="age" value="{{Auth::user()->chef->age}}"> 
+                                <input type="number" name="years_of_experience" value="{{Auth::user()->chef->years_of_experience}}" >
+                            </div>
+                            <button type="submit" class="px-3 py-1 rounded-xl bg-black text-white"> Save</button>
+                           
+                        </form>
+
+                        <form action="{{route('editUserProfile',Auth::user())}}" method="post" class="text-center mt-12">
+                            @csrf
+                            @method('PATCH')
+                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">bio : </label>
+                            <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+                                <input type="text" name="name" value="{{Auth::user()->name}}">
+                            </h3>
+
+                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Ciy</label>
                             <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                                 <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
 
-                                complete you're profile and add you're city
+                                <input type="text" name="email" value="{{Auth::user()->email}}">
                             </div>
-                            @endif
-                            @if(Auth::user()->age)
-                            <div class="mb-2 text-blueGray-600 mt-10">
-                                <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>{{Auth::user()->age}} years old - {{Auth::user()->years_of_experience}} in Moroccan cuisine
-                            </div>
-                            @else
-                            <div class="mb-2 text-blueGray-600 mt-10">
-                                <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i> complete you're profile and add you're age and years_of_experience 
-                            </div>
-                            @endif
-                        </div>
+                        
+                            <button type="submit" class="px-3 py-1 rounded-xl bg-black text-white"> Save</button>
+                           
+                        </form>
+                    </div>
                         <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
                             <div class="flex flex-wrap justify-center">
                                 <div class="w-full lg:w-9/12 px-4">

@@ -9,7 +9,7 @@ class chef extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['status'];
+    protected $fillable = ['status','bio','years_of_experience','age','city'];
 
     public function user()
     {

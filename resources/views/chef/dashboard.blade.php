@@ -224,7 +224,7 @@
                                     <p class="text-xs font-semibold text-gray-400">Total number of plats added</p>
                                 </div>
                                 <div class="p-4">
-                                    <p class="text-xl font-bold">{{$reservationsCount}}</p>
+                                    <p class="text-xl font-bold">{{$count}}</p>
                                     <p class="text-xs font-semibold text-gray-400">Total number of reservations</p>
                                 </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PlateRequest;
 use App\Models\category;
 use App\Models\commentaire;
 use App\Models\image;
@@ -28,11 +29,14 @@ class PlateController extends Controller
 
     public function showPlates()
     {
-        $platesCount = Plate::count();
-        $reservationsCount = reservation::count();
         $chef = Auth::user()->chef->id;
+
+        $platesCount = Plate::where('IdChef',$chef)->count();
         $plates = Plate::where('IdChef', $chef)->get();
-        return view('chef.dashboard', compact('plates', 'platesCount', 'reservationsCount'));
+        $count = Reservation::whereHas('plates', function ($query) {
+        $query->where('IdChef', Auth::user()->chef->id); 
+        })->count();
+        return view('chef.dashboard', compact('plates', 'platesCount','count'));
     }
 
 
@@ -73,15 +77,9 @@ class PlateController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PlateRequest $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'ingredients' => 'required',
-            'IdCategory' => 'required',
-            'image.*' => 'required|image',
-        ]);
+        $validatedData = $request->validate();
 
 
         $plate = new Plate();
@@ -109,7 +107,9 @@ class PlateController extends Controller
         }
 
         return redirect('/chef')->with('success', 'Plate created successfully');
+
     }
+
 
     private function storeImage($file)
     {

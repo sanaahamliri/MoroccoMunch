@@ -61,11 +61,11 @@
                             <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
                                 {{Auth::user()->name}}
                             </h3>
-                            @if(Auth::user()->city)
+                            @if(Auth::user()->chef->city)
                             <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                                 <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
 
-                                {{Auth::user()->city}}
+                                {{Auth::user()->chef->city}}
                             </div>
                             @else
                             <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
@@ -74,9 +74,9 @@
                                 complete you're profile and add you're city
                             </div>
                             @endif
-                            @if(Auth::user()->age)
+                            @if(Auth::user()->chef->age)
                             <div class="mb-2 text-blueGray-600 mt-10">
-                                <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>{{Auth::user()->age}} years old - {{Auth::user()->years_of_experience}} in Moroccan cuisine
+                                <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>{{Auth::user()->chef->age}} years old - {{Auth::user()->chef->years_of_experience}} in Moroccan cuisine
                             </div>
                             @else
                             <div class="mb-2 text-blueGray-600 mt-10">
@@ -88,7 +88,7 @@
                             <div class="flex flex-wrap justify-center">
                                 <div class="w-full lg:w-9/12 px-4">
                                     <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-                                        {{Auth::user()->bio}}
+                                        {{Auth::user()->chef->bio}}
                                     </p>
                                 </div>
                             </div>

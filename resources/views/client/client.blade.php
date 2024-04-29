@@ -112,7 +112,7 @@
                             <div id="plates" class="row">
                                 @foreach($ValidPlates as $plat)
                                 <div class="col-md-6">
-                                    <div class="blog-item">
+                                    <div class="blog-item w-full">
                                         <div class="blog-img h-56 w-56" style="background-image: url('{{asset('storage/' . $plat->images[0]->url)}}'); background-size:cover;  background-position:center; background-repeat:no-repeat">
                                         </div>
                                         <div class="blog-content">
@@ -129,10 +129,6 @@
                                                 </p>
                                                 <div class="actions">
                                                     <a class="btn custom-btn" href="{{ route('more', $plat->id) }}">Read More</a>
-                                                    <form action="{{ route('plate.reserve') }}" method="post">
-                                                        <input type="hidden" value="{{ $plat->id }}">
-                                                        <button type="submit" class="btn custom-btn" href="">Reserve</button>
-                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -175,8 +171,10 @@
                                             <div class="post-text">
                                                 <a href="">{{$last->name}}</a>
                                                 <div class="post-meta">
+                                                    <div class="flex-column">
                                                     <p>By <a href="">{{$last->chefs->user->name}}</p></a>
-                                                 
+                                                    <p>At <a href="">{{$last->created_at}}</p></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

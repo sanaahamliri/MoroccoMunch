@@ -36,7 +36,6 @@ class CommentaireController extends Controller
         
         commentaire::create($data);
         return redirect()->back()->with('success' ,'comment added with success');
-
     }
 
     /**
