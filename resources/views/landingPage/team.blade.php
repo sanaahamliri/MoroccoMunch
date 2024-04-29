@@ -41,7 +41,7 @@
                         <a href="/feature" class="nav-item nav-link">Feature</a>
                         <a href="/team" class="nav-item nav-link active">Chef</a>
                         <a href="/register" class="nav-item nav-link">Sign Up</a>
-                        <a href="/register" class="nav-item nav-link">Log in</a>
+                        <a href="login" class="nav-item nav-link">Log in</a>
                     </div>
                 </div>
             </div>

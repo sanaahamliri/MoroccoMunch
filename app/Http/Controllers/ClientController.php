@@ -58,7 +58,13 @@ class ClientController extends Controller
         $latestPlats = plate::orderByDesc('created_at')
             ->take(5)
             ->get();
-        return view('client.client', compact('ValidPlates', 'categories', 'categorie', 'chefs','latestPlats'));
+
+        $featuredPlats = Plate::withCount('comments')->orderByDesc('comments_count')->take(5)->get();
+
+        $popularPlats = Plate::withCount('reservationPlate')->orderByDesc('reservation_Plate_count')->take(5)->get();
+
+
+        return view('client.client', compact('ValidPlates', 'categories', 'categorie', 'chefs','latestPlats','featuredPlats','popularPlats'));
     }
     /**
      * Show the form for creating a new resource.

@@ -15,7 +15,7 @@ class plate extends Model
         return $this->belongsTo(category::class, 'IdCategory');
     }
 
-    public function chef()
+    public function chefs()
     {
         return $this->belongsTo(chef::class, 'IdChef');
     }

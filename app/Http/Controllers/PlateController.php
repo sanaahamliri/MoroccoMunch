@@ -30,12 +30,12 @@ class PlateController extends Controller
     {
         $platesCount = Plate::count();
         $reservationsCount = reservation::count();
-
-        $plates = Plate::get();
-        return view('chef.dashboard', compact('plates', 'platesCount','reservationsCount'));
+        $chef = Auth::user()->chef->id;
+        $plates = Plate::where('IdChef', $chef)->get();
+        return view('chef.dashboard', compact('plates', 'platesCount', 'reservationsCount'));
     }
 
-    
+
     public function showPlatesDetails(Plate $plate)
     {
         return view('chef.detailsPlate', compact('plate'));
@@ -51,9 +51,9 @@ class PlateController extends Controller
             ->limit(5)
             ->get();
 
-        $comments = commentaire::where('plate_id',$plate->id)->get();
+        $comments = commentaire::where('plate_id', $plate->id)->get();
 
-        return view('client.single', compact('plate', 'relatedPlates', 'relatedPlates','comments'));
+        return view('client.single', compact('plate', 'relatedPlates', 'relatedPlates', 'comments'));
     }
 
 

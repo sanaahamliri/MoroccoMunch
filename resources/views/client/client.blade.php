@@ -170,13 +170,13 @@
                                         @foreach($latestPlats as $last)
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
+                                                <img src="{{asset('storage/' . $last->images[0]->url)}}" />
                                             </div>
                                             <div class="post-text">
                                                 <a href="">{{$last->name}}</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href=""></a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
+                                                    <p>By <a href="">{{$last->chefs->user->name}}</p></a>
+                                                 
                                                 </div>
                                             </div>
                                         </div>
@@ -184,128 +184,35 @@
 
                                     </div>
                                     <div id="popular" class="container tab-pane fade">
+                                    @foreach($popularPlats as $popular)
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
+                                                <img src="{{asset('storage/' .$popular->images[0]->url)}}" />
                                             </div>
                                             <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                <a href="">{{$popular->name}}</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">sanaa</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
+                                                    <p>By<a href="">{{$popular->chefs->user->name}}</a></p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="post-item">
-                                            <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
-                                            </div>
-                                            <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                <div class="post-meta">
-                                                    <p>By<a href="">sanaa</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="post-item">
-                                            <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
-                                            </div>
-                                            <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="post-item">
-                                            <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
-                                            </div>
-                                            <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                <div class="post-meta">
-                                                    <p>By<a href="">Admin</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="post-item">
-                                            <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
-                                            </div>
-                                            <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                <div class="post-meta">
-                                                    <p>By<a href="">Sanaa</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       @endforeach
+                                        
                                     </div>
                                     <div id="latest" class="container tab-pane fade">
+                                    @foreach($featuredPlats as $featured)
                                         <div class="post-item">
                                             <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
+                                                <img src="{{asset('storage/' . $featured->images[0]->url)}}" />
                                             </div>
                                             <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
+                                                <a href="">{{$featured->name}}</a>
                                                 <div class="post-meta">
-                                                    <p>By<a href="">Sanaa</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
+                                                    <p>By<a href="">{{$featured->chefs->user->name}}</a></p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="post-item">
-                                            <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
-                                            </div>
-                                            <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                <div class="post-meta">
-                                                    <p>By<a href="">Sanaa</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="post-item">
-                                            <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
-                                            </div>
-                                            <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                <div class="post-meta">
-                                                    <p>By<a href="">Sanaa</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="post-item">
-                                            <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
-                                            </div>
-                                            <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                <div class="post-meta">
-                                                    <p>By<a href="">Sanaa</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="post-item">
-                                            <div class="post-img">
-                                                <img src="img/menu-snack.jpg" />
-                                            </div>
-                                            <div class="post-text">
-                                                <a href="">Lorem ipsum dolor sit amet consec adipis elit</a>
-                                                <div class="post-meta">
-                                                    <p>By<a href="">Sanaa</a></p>
-                                                    <p>In<a href="">morocco Munch</a></p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -342,10 +249,10 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="team-item">
                         <div class="team-img">
-                            <img src="img/team-1.jpg" alt="Image">
+                            <img src="{{asset('storage/' . $chef->user->imageUser->url)}}" alt="Image">
                             <div class="team-social">
 
-                                <a href="/details">-></i></a>
+                                <a href="{{ route('moreChef', $chef->id) }}">-></i></a>
 
                             </div>
                         </div>

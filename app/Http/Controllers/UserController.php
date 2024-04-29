@@ -19,12 +19,12 @@ class UserController extends Controller
 
     public function index()
     {
-        return view('auth.login');
+        return view('Auth.login');
     }
 
     public function create()
     {
-        return view('register');
+        return view('Auth.registration');
     }
 
     public function customLogin(Request $request)
@@ -37,7 +37,13 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')->withSuccess('Signed in');
+            $user = Auth::user();
+            if ($user->role == 'client') {
+                return redirect('/client');
+            } elseif ($user->role == 'chef') {
+
+                return redirect('/chef');
+            }
         }
 
         return redirect("login")->withSuccess('Login details are not valid');
@@ -123,7 +129,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-      $dd =  $request->validate([
+        $dd =  $request->validate([
             'name' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
@@ -133,7 +139,7 @@ class UserController extends Controller
             'years_of_experience' => 'nullable|integer',
 
 
-            
+
         ]);
         User::create($dd);
 

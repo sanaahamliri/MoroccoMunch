@@ -37,14 +37,14 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
+
                         <a href="/" class="nav-item nav-link">Home</a>
                         <a href="/about" class="nav-item nav-link active">About</a>
                         <a href="/feature" class="nav-item nav-link">Feature</a>
                         <a href="/team" class="nav-item nav-link">Chef</a>
-                        <a href="#" class="nav-item nav-link">Sign Up</a>
-                        <a href="#" class="nav-item nav-link">Log in</a>
+                        <a href="/register" class="nav-item nav-link">Sign Up</a>
+                        <a href="login" class="nav-item nav-link">Log in</a>
 
-                       
                     </div>
                 </div>
             </div>

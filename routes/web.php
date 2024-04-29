@@ -91,6 +91,8 @@ Route::get('chef', [PlateController::class, 'showPlates']);
 Route::get('/plates/filter/{id}', [PlateController::class, 'filter'])->name('plate.filter');
 
 Route::get('detailsMore/{plate}', [PlateController::class, 'viewMore'])->name('more');
+Route::get('chef/{chef}', [ChefController::class, 'viewMoreChef'])->name('moreChef');
+
 Route::resource('/comment',CommentaireController::class);
 
 Route::get('detailsPlate/{plate}', [PlateController::class, 'showPlatesDetails'])->name('singlePage');

@@ -80,7 +80,7 @@
                             <img src="img/user.jpg" />
                         </div>
                         <div class="single-bio-text">
-                            <h3>Author Name</h3>
+                            <h3>{{chef}}</h3>
                             <p>
                                 Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea dictumst.
                             </p>

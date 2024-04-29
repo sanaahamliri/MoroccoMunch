@@ -18,9 +18,9 @@ class ChefController extends Controller
         return view('admin.validateChef', compact('chefs','FreeChefs','BlockedChefs'));
     }
 
-    public function ChefInfos(){
-        $chef = chef::all();
-        return view('chef.profile',compact('chef'));
+    public function viewMoreChef(chef $chef)
+    {
+        return view('client.details');
     }
 
     public function ban(chef $chef)
