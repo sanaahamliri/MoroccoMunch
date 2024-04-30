@@ -23,7 +23,6 @@
     <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <!-- Template Stylesheet -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 </head>
 

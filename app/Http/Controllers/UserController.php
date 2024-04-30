@@ -15,8 +15,6 @@ use Illuminate\Validation\Rules;
 class UserController extends Controller
 {
 
-
-
     public function index()
     {
         return view('Auth.login');
@@ -124,38 +122,6 @@ class UserController extends Controller
     }
 
 
-
-
-
-    public function updateProfile(Request $request)
-    {
-        $user = Auth::user();
-
-        $dd =  $request->validate([
-            'name' => 'required|string|max:255',
-            'lastName' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            'city' => 'nullable|string|max:255',
-            'bio' => 'nullable|string|max:255',
-            'age' => 'nullable|integer',
-            'years_of_experience' => 'nullable|integer',
-
-
-
-        ]);
-        User::create($dd);
-
-        if ($request->hasFile('image')) {
-            $imagePath = $this->storeImage($request->file('image')); // Corrected
-            Image::create([
-                'url' => $imagePath,
-                'imageable_id' => $user->id,
-                'imageable_type' => User::class,
-            ]);
-        }
-
-        return redirect()->route('profile')->with('success', 'Profile updated successfully.');
-    }
 
 
 

@@ -201,7 +201,9 @@
                                                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                                         <div class="flex space-x-4">
                                                                             <!-- delete pop-up trigger -->
-                                                                            <form action="" method="post">
+                                                                            <form action="{{ route('admin.plateRefuse',['plate'=>$plato->id]) }}" method="post">
+                                                                            @method("DELETE")
+                                                                                @csrf
                                                                                 <button type="submit" class=" cursor-pointer text-red-500 hover:text-red-600">
                                                                                     <i class="fa-solid fa-box-archive"></i>
                                                                                     <p>Refuse</p>

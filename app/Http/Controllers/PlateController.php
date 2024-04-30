@@ -31,12 +31,12 @@ class PlateController extends Controller
     {
         $chef = Auth::user()->chef->id;
 
-        $platesCount = Plate::where('IdChef',$chef)->count();
+        $platesCount = Plate::where('IdChef', $chef)->count();
         $plates = Plate::where('IdChef', $chef)->get();
         $count = Reservation::whereHas('plates', function ($query) {
-        $query->where('IdChef', Auth::user()->chef->id); 
+            $query->where('IdChef', Auth::user()->chef->id);
         })->count();
-        return view('chef.dashboard', compact('plates', 'platesCount','count'));
+        return view('chef.dashboard', compact('plates', 'platesCount', 'count'));
     }
 
 
@@ -79,20 +79,15 @@ class PlateController extends Controller
      */
     public function store(PlateRequest $request)
     {
-        $validatedData = $request->validate();
+        $validatedData = $request->validated();
+        $validatedData['IdChef'] = Auth::user()->chef->id;
+
+        $plate = Plate::create($validatedData);
 
 
-        $plate = new Plate();
-        $plate->name = $validatedData['name'];
-        $plate->description = $validatedData['description'];
-        $plate->ingredients = $validatedData['ingredients'];
-        $plate->IdCategory = $validatedData['IdCategory'];
-        $plate->IdChef = Auth::user()->chef->id;
-        $plate->save();
+        // $result =  explode(" ", $validatedData["ingredients"]);
 
-        $result =  explode(" ", $validatedData["ingredients"]);
-
-        $plate->ingredients()->create(['name' => json_encode($result)]);
+        // $plate->ingredients()->create(['name' => json_encode($result)]);
 
 
         if ($request->hasFile('image')) {
@@ -107,9 +102,7 @@ class PlateController extends Controller
         }
 
         return redirect('/chef')->with('success', 'Plate created successfully');
-
     }
-
 
     private function storeImage($file)
     {
@@ -183,6 +176,15 @@ class PlateController extends Controller
             return redirect()->back()->with('success', 'plate validated!');
         }
     }
+
+
+
+    public function Refuse(Plate $plate)
+    {
+            $plate->delete();
+            return redirect()->back()->with('success', 'plate deleted successfuly!');
+    }
+
 
     public function showInvalidPlates()
     {

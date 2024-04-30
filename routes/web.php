@@ -55,6 +55,7 @@ Route::get('/validate', [ClientController::class, 'index']);
 Route::get('/adminplate',[PlateController::class, 'showInvalidPlates']);
  
 Route::patch('/adminplate/{plate}', [PlateController::class, 'validation'])->name('admin.plate');
+Route::delete('/adminplate/{plate}', [PlateController::class, 'Refuse'])->name('admin.plateRefuse');
 
 Route::get('/plateAdd', function () {
     return view('chef.plateAdd');
