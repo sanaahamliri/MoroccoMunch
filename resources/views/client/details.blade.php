@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -55,7 +55,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2>Chef Detail</h2>
+                    <h2>{{$chef->user->name}} Detail</h2>
                 </div>
                 <div class="col-12">
                     <a href="">Home</a>
@@ -80,22 +80,28 @@
                             <img src="img/user.jpg" />
                         </div>
                         <div class="single-bio-text">
-                            <h3>{{chef}}</h3>
+                            <h3>{{$chef->user->name}}</h3>
+
                             <p>
-                                Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea dictumst.
+                                12 years old 
+                            </p>
+
+                            <p>
+                                
                             </p>
                         </div>
                     </div>
 
                     <div class="single-content">
                         <h2>Lorem ipsum dolor sit amet</h2>
-
+                        @if($chef->user->bio)
                         <p>
                             Vestibulum sit amet ullamcorper sem. Integer hendrerit elit eget purus sodales maximus. Quisque ac nulla arcu. Morbi venenatis arcu ac arcu cursus pharetra. Morbi sit amet viverra augue, ac ultricies libero. Praesent elementum lectus mi, eu elementum urna venenatis sed. Donec auctor purus ut mattis feugiat. Integer mi erat, consectetur sed tincidunt vitae, sagittis elementum libero. Vivamus a mauris consequat, hendrerit lectus in, fermentum libero. Integer mattis bibendum neque et porttitor.
                         </p>
                         <p>
                             Mauris quis arcu finibus, posuere dolor eu, viverra felis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In porta, ex vitae accumsan facilisis, nisi tellus dictum metus, quis fringilla dui tellus in tellus. Praesent pharetra orci at vehicula posuere. Sed molestie fringilla lorem, vel imperdiet tortor blandit at. Quisque non ultrices lorem, eget rhoncus orci. Fusce porttitor placerat diam et mattis. Nam laoreet, ex eu posuere sollicitudin, sem tortor pellentesque ipsum, quis mattis purus lectus ut lacus. Integer eu risus ac est interdum scelerisque.
                         </p>
+                        @endif
 
                     </div>
 

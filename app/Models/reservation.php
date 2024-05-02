@@ -12,6 +12,7 @@ class reservation extends Model
     protected $fillable = [
         'clientID',
         'plateID',
+        'status',
     ];
 
     public function clients(){

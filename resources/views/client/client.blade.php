@@ -250,7 +250,7 @@
                             <img src="{{asset('storage/' . $chef->user->imageUser->url)}}" alt="Image">
                             <div class="team-social">
 
-                                <a href="{{ route('moreChef', $chef->id) }}">-></i></a>
+                                <a href="{{route('moreChef', $chef->id) }}">-></i></a>
 
                             </div>
                         </div>

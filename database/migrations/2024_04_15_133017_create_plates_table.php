@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('description');
             $table->string('ingredients');
             $table->foreignId('IdChef')->constrained('chefs');
-            $table->foreignId('IdCategory')->constrained('categories');
+            $table->foreignId('IdCategory')->constrained('categories')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

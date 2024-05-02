@@ -23,7 +23,7 @@ class ChefController extends Controller
 
     public function viewMoreChef(chef $chef)
     {
-        return view('client.details');
+        return view('client.details',compact('chef'));
     }
 
 

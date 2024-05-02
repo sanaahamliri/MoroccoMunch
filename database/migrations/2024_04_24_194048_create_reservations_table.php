@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('clientID')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('plateID');
             $table->foreign('plateID')->references('id')->on('plates')->onDelete('cascade');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

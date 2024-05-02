@@ -9,14 +9,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-<style>
-    .action{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-</style>
+    <style>
+        .action {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -142,23 +142,33 @@
                                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Client Email</span>
                                 {{$c->user->email}}
                             </td>
+                            @if($c->status)
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
                                 <span class="rounded bg-red-400 py-1 px-3 text-xs font-bold">Blocked</span>
                             </td>
+                            @else
+                            <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
+                                <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Status</span>
+                                <span class="rounded bg-green-400 py-1 px-3 text-xs font-bold">UnBlocked</span>
+                            </td>
+                            @endif
                             <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static">
                                 <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase">Actions</span>
                                 <div class="action">
-                                <form action="{{ route('client.ban',['client'=>$c->id]) }}" method="post">
-                                    @method("PATCH")
-                                    @csrf
-                                    <button type="submit" class="text-blue-400 hover:text-blue-600 underline">Block</button>
-                                </form>
-                                <form action="{{ route('client.ban',['client'=>$c->id]) }}" method="POST">
-                                    @method("PATCH")
-                                    @csrf
-                                    <button type="submit" class="text-blue-400 hover:text-blue-600 underline pl-6">Unblock</button>
-                                </form>
+                                    @if($c->status)
+                                    <form action="{{ route('client.ban',['client'=>$c->id]) }}" method="post">
+                                        @method("PATCH")
+                                        @csrf
+                                        <button type="submit" class="text-blue-400 hover:text-blue-600 underline">UnBlock</button>
+                                    </form>
+                                    @else
+                                    <form action="{{ route('client.ban',['client'=>$c->id]) }}" method="post">
+                                        @method("PATCH")
+                                        @csrf
+                                        <button type="submit" class="text-blue-400 hover:text-blue-600 underline">Block</button>
+                                    </form>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

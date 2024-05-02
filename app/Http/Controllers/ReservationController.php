@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RefuseReservationMail;
+use App\Mail\ReservationMail;
 use App\Models\plate;
 use App\Models\reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ReservationController extends Controller
 {
@@ -13,11 +16,11 @@ class ReservationController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $reservations = reservation::all();
-        $reservationsCount = reservation::count();
-
-        return view('chef.Reservation',compact('reservations','reservationsCount'));
+    {      
+       $reservations = Reservation::whereHas('plates', function ($query) {
+        $query->where('IdChef', Auth::user()->chef->id);
+    })->where('status',false)->get();
+        return view('chef.Reservation',compact('reservations'));
     }
 
     /**
@@ -33,18 +36,22 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user()->client->id;
+        $plate = $request->input('plateId');
         // $request->validate([
         //     'plateId' => 'required|interger',
         // ]);
-        
+        $reservation_exist = reservation::where('clientID',$user)->where('plateID',$plate)->where('status',false)->exists();
+        if(!$reservation_exist){
+            $reservation = reservation::create([
+                'plateID' =>$plate,
+                'clientID' =>$user,
+            ]);
+            return redirect()->back()->with('success','plate reservation done');
+        }
+        return redirect()->back()->with('error','you alreday reserve this should accepted first');
 
-        $user = Auth::user();
-        $reservation = reservation::create([
-            'plateID' =>$request->input('plateId'),
-            'clientID' =>$user->id,
-        ]);
 
-        return redirect()->back()->with('success','plate reservation done');
     }
 
     /**
@@ -68,7 +75,14 @@ class ReservationController extends Controller
      */
     public function update(Request $request, reservation $reservation)
     {
-        //
+       $success =  $reservation->update([
+                    'status' => true,
+        ]);
+            // if($success){
+            //     Mail::to($reservation->clients->user->email)->send(new ReservationMail($reservation->id));
+            // }
+
+      return  redirect()->back()->with('success','accepted with success');
     }
 
     /**
@@ -76,6 +90,9 @@ class ReservationController extends Controller
      */
     public function destroy(reservation $reservation)
     {
-        //
+            Mail::to($reservation->clients->user->email)->send(new RefuseReservationMail($reservation->id));       
+                $reservation->delete();
+
+        return redirect()->back()->with('succes','reservation refused with success');
     }
 }

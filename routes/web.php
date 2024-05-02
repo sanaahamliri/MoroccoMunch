@@ -27,9 +27,10 @@ Route::get('/feature', function () {
     return view('landingPage.feature');
 });
 
+Route::middleware(['auth','role:client','clientbanned'])->group(function () {
 
 Route::get('/client', [ClientController::class, 'showValidPlates']);
-
+});
 Route::get('/details', function () {
     return view('client.details');
 });
@@ -86,9 +87,12 @@ Route::get('/clientTeam', [ChefController::class, 'showTeam']);
 
 Route::get('/reservation_validation', [ReservationController::class, 'index']);
 
+Route::middleware(['auth','role:chef','chefbanned'])->group(function () {
 
 
 Route::get('chef', [PlateController::class, 'showPlates']);
+
+});
 Route::get('/plates/filter/{id}', [PlateController::class, 'filter'])->name('plate.filter');
 
 Route::get('detailsMore/{plate}', [PlateController::class, 'viewMore'])->name('more');
@@ -102,6 +106,8 @@ Route::patch('/admin/{client}/validate', [ClientController::class, 'ban'])->name
 Route::put('/admin/validateChef/{chef}', [ChefController::class, 'ban'])->name('chef.ban');
 
 Route::post('/reservation', [ReservationController::class, 'store'])->name('plate.reserve');
+Route::patch('/reservation/{reservation}', [ReservationController::class, 'update'])->name('reservation.update');
+Route::delete('/reservation/{reservation}/delete', [ReservationController::class, 'destroy'])->name('reservation.destroy');
 
 
 Route::get('/profileChef', [ChefController::class, 'ChefInfos']);

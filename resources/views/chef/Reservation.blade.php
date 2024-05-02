@@ -83,7 +83,7 @@
                     <div class="col-span-12 sm:col-span-12 md:col-span-8 lg:col-span-8 xxl:col-span-8">
                         <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-4 mt-3">
                             <div class="p-4">
-                                <p class="text-xl font-bold">{{$reservationsCount}}</p>
+                                <p class="text-xl font-bold">123456</p>
                                 <p class="text-xs font-semibold text-gray-400">Total number of reservations</p>
                             </div>
 
@@ -148,7 +148,7 @@
                                                                     </td>
                                                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                                         <div class="flex space-x-4">
-                                                                            <form action="" method="post">
+                                                                            <form action="{{route('reservation.update',$reservation)}}" method="post">
                                                                                 @method("PATCH")
                                                                                 @csrf
                                                                                 <button type="submit" class="cursor-pointer text-green-500 hover:text-green-600">
@@ -163,7 +163,9 @@
                                                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                                                                         <div class="flex space-x-4">
                                                                             <!-- delete pop-up trigger -->
-                                                                            <form action="" method="post">
+                                                                            <form action="{{route('reservation.destroy',$reservation)}}" method="post">
+                                                                                @csrf
+                                                                                @method('DELETE')
                                                                                 <button type="submit" class=" cursor-pointer text-red-500 hover:text-red-600">
                                                                                     <i class="fa-solid fa-box-archive"></i>
                                                                                     <p>Refuse</p>
