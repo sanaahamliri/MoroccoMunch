@@ -55,7 +55,7 @@ class CategoryController extends Controller
 
         $category->update($request->all());
 
-        return redirect()->route('admin.dashboard')
+        return redirect()->back()
             ->with('success', 'Category updated successfully');
     }
 

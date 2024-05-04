@@ -35,10 +35,10 @@
                     <div class="my-2 bg-gray-600 h-[1px]"></div>
                 </div>
                 <a href="/categories">
-                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                    <i class="bi bi-house-door-fill"></i>
-                    <a href="/categories"><span class="text-[15px] ml-4 text-gray-200 font-bold">Dashboard</span></a>
-                </div>
+                    <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                        <i class="bi bi-house-door-fill"></i>
+                        <a href="/categories"><span class="text-[15px] ml-4 text-gray-200 font-bold">Dashboard</span></a>
+                    </div>
                 </a>
                 <a href="/validate">
                     <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
@@ -59,7 +59,7 @@
                         </div>
                     </a>
                 </div>
-               
+
                 <a href="/adminplate">
                     <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
                         <i class="bi bi-bookmark-fill"></i>
@@ -203,7 +203,7 @@
                                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                                             Edit Category
                                         </h3>
-                                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal-g" data-modal-target="#edit-modal{{ $category->id }}">
+                                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="edit-modal{{ $category->id }}" data-modal-target="edit-modal{{ $category->id }}">
                                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                                             </svg>
@@ -212,6 +212,8 @@
                                     </div>
 
                                     <form class="p-4 md:p-5" action="{{ route('categories.destroy', $category->id)}}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
                                         <div class="grid gap-4 mb-4 grid-cols-2">
                                             <div class="col-span-2">
                                                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New Name</label>
