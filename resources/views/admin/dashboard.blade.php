@@ -17,11 +17,15 @@
     <div class="flex h-screen w-full bg-gray-800">
         <!--Start SideBar-->
         <!-- Start Open Menu -->
+        <button class="text-center lg:hidden p-2 bg-gray-900" onclick="openSidebar()">
+            <svg class="text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                <path d="M4 5L16 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M4 12L20 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M4 19L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
         <aside>
-            <span class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900" onclick="openSidebar()">
-                <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
-            </span>
-            <div class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900">
+            <div class="sidebar hidden lg:block fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900 z-40">
                 <div class="text-gray-100 text-xl">
                     <div class="p-2.5 mt-1 flex items-center">
                         <i class="bi bi-app-indicator px-2 py-1 rounded-md bg-blue-600"></i>
@@ -30,72 +34,56 @@
                     </div>
                     <div class="my-2 bg-gray-600 h-[1px]"></div>
                 </div>
-                <div class="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 text-white">
-                    <i class="bi bi-search text-sm"></i>
-                    <input type="text" placeholder="Search" class="text-[15px] ml-4 w-full bg-transparent focus:outline-none" />
-                </div>
+                <a href="/categories">
                 <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
                     <i class="bi bi-house-door-fill"></i>
-                    <a href="/categories"><span class="text-[15px] ml-4 text-gray-200 font-bold">Home</span></a>
+                    <a href="/categories"><span class="text-[15px] ml-4 text-gray-200 font-bold">Dashboard</span></a>
                 </div>
+                </a>
                 <a href="/validate">
-                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                    <i class="bi bi-bookmark-fill"></i>
-                    <span class="text-[15px] ml-4 text-gray-200 font-bold">Bookmark</span>
-                </div>
+                    <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                        <i class="bi bi-bookmark-fill"></i>
+                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Client Access</span>
+                    </div>
                 </a>
 
                 <div class="my-4 bg-gray-600 h-[1px]"></div>
                 <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white" onclick="dropdown()">
                     <i class="bi bi-chat-left-text-fill"></i>
                     <a href="/validateChef">
-                    <div class="flex justify-between w-full items-center">
-                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Chatbox</span>
-                        <span class="text-sm rotate-180" id="arrow">
-                            <i class="bi bi-chevron-down"></i>
-                        </span>
-                    </div>
+                        <div class="flex justify-between w-full items-center">
+                            <span class="text-[15px] ml-4 text-gray-200 font-bold">Chef Access</span>
+                            <span class="text-sm rotate-180" id="arrow">
+                                <i class="bi bi-chevron-down"></i>
+                            </span>
+                        </div>
                     </a>
                 </div>
+               
                 <a href="/adminplate">
-                <div class="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold" id="submenu">
-                    <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                        Social
-                    </h1>
-                    <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                        Personal
-                    </h1>
-                    <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                        Friends
-                    </h1>
-                </div>
+                    <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                        <i class="bi bi-bookmark-fill"></i>
+                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Plate Validate</span>
+                    </div>
                 </a>
+
+
                 <a href="signout">
-                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                    <i class="bi bi-box-arrow-in-right"></i>
-                    <span class="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
-                </div>
+                    <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
+                    </div>
                 </a>
             </div>
         </aside>
-        <script type="text/javascript">
-            function dropdown() {
-                document.querySelector("#submenu").classList.toggle("hidden");
-                document.querySelector("#arrow").classList.toggle("rotate-0");
-            }
-            dropdown();
 
-            function openSidebar() {
-                document.querySelector(".sidebar").classList.toggle("hidden");
-            }
-        </script>
         <!-- End Open Menu -->
 
         <!-- End Sidebar -->
-        <div class="flex flex-col flex-1 w-full overflow-y-auto">
+        <div class="flex flex-col flex-1 overflow-y-auto lg:pl-60">
             <!--Start Topbar -->
             <!--End Topbar -->
-            <main class="relative z-0 flex-1 pb-8 px-6 bg-white">
+            <main class="relative flex-1 pb-8 px-6 bg-white">
                 <div class="grid pb-10  mt-4 ">
                     <!-- Start Content-->
                     <div class="mb-2">
@@ -237,8 +225,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                         @endforeach
 
 
@@ -250,7 +236,17 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script type="text/javascript">
+        function dropdown() {
+            document.querySelector("#submenu").classList.toggle("hidden");
+            document.querySelector("#arrow").classList.toggle("rotate-0");
+        }
+        dropdown();
 
+        function openSidebar() {
+            document.querySelector(".sidebar").classList.toggle("hidden");
+        }
+    </script>
     <script>
         const modal = document.querySelector('.animated');
         const closeButton = document.querySelectorAll('.modal-close');
