@@ -94,8 +94,10 @@
                             </div>
                             <div class="sidebar-widget">
                                 <div class="search-widget mb-5 ">
-                                    <form>
-                                        <input class="form-control" type="search" placeholder="Search Keyword">
+                                    <form id="searchForm">
+                                        @csrf
+                                        @method('GET')
+                                        <input class="form-control" id="search" name="search" type="search" placeholder="Search Keyword">
                                     </form>
                                 </div>
                             </div>
@@ -302,6 +304,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
         function filterCategory(id) {
             $.ajaxSetup({
@@ -354,6 +357,31 @@
             cardDiv.innerHTML = cardContent;
             document.getElementById('plates').appendChild(cardDiv);
         }
+
+        document.getElementById('search').addEventListener('keyup', function() {
+            var searchValue = this.value;
+            var form = document.getElementById('searchForm');
+
+            jQuery.ajax({
+                url: "{{ route('plate.search')}}",
+                data: jQuery(form).serialize(),
+                type: 'get',
+
+                success: function(result) {
+                    console.log(result.plates);
+                    if (result.plates.length > 0) {
+                        document.getElementById("plates").innerHTML = "";
+                        for (var i = 0; i < result.plates.length; i++) {
+                            createPlate(result.plates[i]);
+                        }
+                    } else {
+                        document.getElementById("plates").innerHTML = `No results found `;
+                    }
+                }
+            })
+        })
+
+
     </script>
 </body>
 

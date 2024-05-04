@@ -45,6 +45,32 @@ class PlateController extends Controller
         return view('chef.detailsPlate', compact('plate'));
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->search;
+
+        if ($query != '') {
+            $plates = Plate::where('name', 'like', '%' . $query . '%')
+                ->with('categories')
+                ->with('chefs.user')
+                ->with('images')
+                ->orderBy('id', 'desc')
+                ->get();
+
+            return response()->json([
+                'plates' => $plates,
+            ]);
+        } else {
+            $plates = Plate::with('categories')
+                ->with('chefs.user')
+                ->with('images')
+                ->get();
+            return response()->json([
+                'plates' => $plates,
+            ]);
+        }
+    }
+
 
     public function viewMore(Plate $plate)
     {
@@ -181,8 +207,8 @@ class PlateController extends Controller
 
     public function Refuse(Plate $plate)
     {
-            $plate->delete();
-            return redirect()->back()->with('success', 'plate deleted successfuly!');
+        $plate->delete();
+        return redirect()->back()->with('success', 'plate deleted successfuly!');
     }
 
 

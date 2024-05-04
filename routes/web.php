@@ -45,6 +45,7 @@ Route::middleware(['auth', 'role:client', 'clientbanned'])->group(function () {
     Route::get('/plates/filter/{id}', [PlateController::class, 'filter'])->name('plate.filter');
     Route::get('detailsMore/{plate}', [PlateController::class, 'viewMore'])->name('more');
     Route::get('chef/{chef}', [ChefController::class, 'viewMoreChef'])->name('moreChef');
+    Route::get('/plate/search', [PlateController::class, 'search'])->name('plate.search');
 });
 
 // *******************end Client Pge***************************************
