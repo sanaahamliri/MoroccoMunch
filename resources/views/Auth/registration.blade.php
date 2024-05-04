@@ -17,7 +17,7 @@
     <!-- component -->
     <section class="bg-white dark:bg-gray-900">
         <div class="flex justify-center h-screen">
-            <div class="h-full bg-cover lg:block lg:w-2/5">
+            <div class="h-full bg-cover lg:block lg:w-2/5 hidden md:block">
                 <img src="img/register.jpeg" alt="" class="h-full">
             </div>
 
@@ -82,15 +82,6 @@
                             </div>
 
                             <div>
-                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label>
-                                <input type="password" name="password" placeholder="Enter your password" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                                @if ($errors->has('password'))
-                                <span class="text-danger">{{ $errors->first('password') }}</span>
-                                @endif
-                            </div>
-
-
-                            <div>
                                 <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full Name</label>
                                 <input type="text" placeholder="John" name="name" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                                 @if ($errors->has('name'))
@@ -98,13 +89,15 @@
                                 @endif
                             </div>
 
+
                             <div>
-                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Confirm password</label>
-                                <input type="password" name="password_confirmation" placeholder="Enter your password" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-                                @if ($errors->has('password_confirmation'))
-                                <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label>
+                                <input type="password" name="password" placeholder="Enter your password" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                @if ($errors->has('password'))
+                                <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
                             </div>
+
 
 
                             <div>
@@ -117,6 +110,23 @@
 
 
 
+                            <div>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Confirm password</label>
+                                <input type="password" name="password_confirmation" placeholder="Enter your password" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                @if ($errors->has('password_confirmation'))
+                                <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
+                                @endif
+                            </div>
+
+
+                            <div>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Phone</label>
+                                <input type="text" name="phone" placeholder="Enter your phone" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                @if ($errors->has('phone'))
+                                <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                @endif
+                            </div>
+
                             <div class="flex items-end justify-center w-full">
                                 <button type="submit" class="register flex items-center justify-between w-full px-6 py-3.5 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform  rounded-md  focus:outline-none focus:ring focus:ring-opacity-50">
                                     Sign Up
@@ -125,6 +135,9 @@
                                         <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
                                     </svg>
                                 </button>
+                            </div>
+                            <div>
+                                already have an account? <a class="text-blue-500" href="/login">Log in</a>
                             </div>
                         </div>
                     </form>

@@ -33,6 +33,9 @@ class ChefController extends Controller
     }
 
 
+   
+
+
    public function UpdateProfile(){
     return view('chef.editProfile');
    }

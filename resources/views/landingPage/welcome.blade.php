@@ -18,8 +18,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+   
     <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
@@ -63,7 +62,7 @@
     <!-- Carousel Start -->
     <div class="carousel">
         <div class="container-fluid">
-            <div class="owl-carousel"> 
+            <div class="owl-carousel">
                 <div class="carousel-item">
                     <div class="carousel-img">
                         <img src="img/carousel-3.jpg" alt="Image">
@@ -75,7 +74,7 @@
                         </p>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -89,9 +88,6 @@
                 <div class="col-lg-6">
                     <div class="about-img">
                         <img src="img/about.jpg" alt="Image">
-                        <button type="button" class="btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
-                            <span></span>
-                        </button>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -242,95 +238,33 @@
                 <h2>Our Master Chef</h2>
             </div>
             <div class="row">
+                @foreach($chefs as $chef)
                 <div class="col-lg-3 col-md-6">
                     <div class="team-item">
                         <div class="team-img">
-                            <img src="img/team-1.jpg" alt="Image">
-                           
+                            <img src="{{asset('storage/' . $chef->user->imageUser->url)}}" alt="Image">
                         </div>
                         <div class="team-text">
-                            <h2>Lorem, ipsum.</h2>
-                            <p>Lorem, ipsum dolor.</p>
+                            <h2>{{$chef->user->name}}</h2>
+                            @if($chef->city && $chef->age)
+                            <p>{{ $chef->city }}, {{ $chef->age }} years old</p>
+                            @endif
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="img/team-2.jpg" alt="Image">
-                            <!-- <div class="team-social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                            </div> -->
-                        </div>
-                        <div class="team-text">
-                            <h2>Lorem, ipsum.</h2>
-                            <p>Lorem, ipsum dolor.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="img/team-3.jpg" alt="Image">
-                            <!-- <div class="team-social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                            </div> -->
-                        </div>
-                        <div class="team-text">
-                            <h2>Lorem, ipsum.</h2>
-                            <p>Lorem, ipsum dolor.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="img/team-4.jpg" alt="Image">
-                            <!-- <div class="team-social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                            </div> -->
-                        </div>
-                        <div class="team-text">
-                            <h2>Lorem, ipsum.</h2>
-                            <p>Lorem, ipsum dolor.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
     <!-- Team End -->
 
 
-   
+
 
 
     <!-- Blog Start -->
 
 
-    <form action="" class=" max-w-2xl p-2 flex bg-white mx-auto border border-black rounded-xl">
-        <input type="search" name="" id="" class="w-full focus:outline-none px-2" placeholder="search ...">
-        <button class="bg-green-600 rounded-xl hover:bg-green-800 w-28 h-10 text-white py-2 px-2">
-            search
-        </button>
-    </form>
-
-    <div class="d-flex flex-row justify-content-center gap-3   mt-5">
-        <button type="button" class="btn btn-outline-warning">Tajine</button>
-        <button type="button" class="btn btn-outline-warning">Couscous</button>
-        <button type="button" class="btn btn-outline-warning">Pastilla</button>
-        <button type="button" class="btn btn-outline-warning">Briouates</button>
-        <button type="button" class="btn btn-outline-warning">Rfissa</button>
-    </div>
 
     <div class="blog">
         <div class="container">
@@ -339,50 +273,30 @@
                 <h2>Latest From Food Blog</h2>
             </div>
             <div class="row">
+                @foreach($plates as $plate)
                 <div class="col-md-6">
                     <div class="blog-item">
                         <div class="blog-img h-64">
-                            <img src="img/blog-1.jpg" alt="Blog">
+                            <img src="{{asset('storage/' . $plate->images[0]->url)}}" alt="Blog">
                         </div>
                         <div class="blog-content">
-                            <h2 class="blog-title">Lorem ipsum dolor sit amet</h2>
+                            <h2 class="blog-title">{{$plate->name}}</h2>
                             <div class="blog-meta">
-                                <p><i class="far fa-user"></i>Admin</p>
-                                <p><i class="far fa-list-alt"></i>Food</p>
-                                <p><i class="far fa-calendar-alt"></i>01-Jan-2045</p>
-                                <p><i class="far fa-comments"></i>10</p>
+                                <p><i class="far fa-user"></i>{{$plate->chefs->user->name}}</p>
+                                <p><i class="far fa-calendar-alt"></i>{{$plate->created_at}}</p>
+                                <p><i class="far fa-comments"></i>{{$plate->comments->count()}}</p>
                             </div>
                             <div class="blog-text">
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor. Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte
+                                    {{$plate->description}}
                                 </p>
                                 <a class="btn custom-btn" href="/register">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img h-64">
-                            <img src="img/blog-3.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-content">
-                            <h2 class="blog-title">Lorem ipsum dolor sit amet</h2>
-                            <div class="blog-meta">
-                                <p><i class="far fa-user"></i>Admin</p>
-                                <p><i class="far fa-list-alt"></i>Food</p>
-                                <p><i class="far fa-calendar-alt"></i>01-Jan-2045</p>
-                                <p><i class="far fa-comments"></i>10</p>
-                            </div>
-                            <div class="blog-text">
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor. Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte
-                                </p>
-                                <a class="btn custom-btn" href="/register">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                
             </div>
         </div>
     </div>
@@ -400,9 +314,6 @@
         </div>
     </div>
     <!-- Footer End -->
-
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>

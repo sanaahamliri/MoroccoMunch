@@ -19,6 +19,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'password',
         'role'
     ];
@@ -54,12 +55,6 @@ class User extends Authenticatable
     public function client()
     {
         return $this->hasOne(client::class,'IdUser');
-
-    }
-
-    public function admin()
-    {
-        return $this->hasOne(admin::class,'IdUser');
 
     }
 

@@ -12,20 +12,18 @@
 </head>
 
 <body>
-
-
     <!-- component -->
     <section class="bg-white dark:bg-gray-900">
         <div class="flex justify-center h-screen">
-
             <div class="h-full bg-cover lg:block lg:w-2/5 hidden md:block">
                 <img src="img/register.jpeg" alt="" class="h-full">
             </div>
 
             <div class="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5">
+
                 <div class="w-full">
                     <h1 class="text-2xl font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
-                        Welcome To your account 
+                        Welcome To your account
                     </h1>
                     <form action="{{ route('login.custom') }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -62,8 +60,12 @@
                                     </svg>
                                 </button>
                             </div>
+                            <div class="text-center"> No account? <a class="text-blue-500" href="/register">Create one</a> </div>
+
                         </div>
+
                     </form>
+
 
                 </div>
             </div>

@@ -9,86 +9,86 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="/dist/tailwind.css" rel="stylesheet" />
 
 </head>
 
 <body>
-    <div class="flex h-screen w-full bg-gray-800 " x-data="{openMenu:1}">
+    <div class="flex h-screen w-full bg-gray-800">
         <!--Start SideBar-->
-        <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-indigo-600 sm:block">
-            <div class="mb-6">
-                <!--Start logo -->
-                <div class="flex justify-center">
-                    <div class="w-14 h-14 rounded-full bg-gray-300 border-2 border-white mt-2">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVxhAxJ4D7MOeTTj6kR9PBeZonW5HM7giKjTbEmR-HMBwf3G1VqGnlwpO1kWrdyIZu8_U&usqp=CAU" class="rounded-full w-auto" />
-                    </div>
-                </div>
-                <!--End logo -->
-                <!--Start NavItem -->
-                <div>
-                    <ul class="mt-6 leading-10 px-4">
-                        <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-blue-400 cursor-pointer" @click="openMenu !== 1 ? openMenu = 1 : openMenu = null">
-                            <i class="fas fa-align-left fa-sm text-white"></i>
-                        </li>
-                        <a href="signout">
-                            <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer">
-                                <i class="fas fa-power-off fa-sm text-indigo-600"></i>
-                            </li>
-                        </a>
-                    </ul>
-                </div>
-                <!--End NavItem -->
-            </div>
-        </aside>
         <!-- Start Open Menu -->
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-gray-100 sm:block " x-show="openMenu ==  1" @click.away="openMenu = null" style="display: none;">
-            <div class="mb-6">
-                <!--Start Sidebar for open menu -->
-                <div class="grid grid-cols-1 gap-4 grid-cols-2 mt-6">
-                    <!-- Start Navitem -->
-                    <a href="/categories">
-                        <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                            <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                                <i class="fas fa-chart-pie fa-sm text-indigo-600"></i>
-                            </div>
-                            <p class="text-xs mt-1 text-center font-semibold">Dashboard</p>
-                        </div>
-                    </a>
-                    <!-- End Navitem -->
-                    <!-- Start Navitem -->
-                    <a href="/validate">
-                        <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                            <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                                <i class="fas fa-calculator fa-sm text-indigo-600"></i>
-                            </div>
-                            <p class="text-xs mt-1 text-center font-semibold">Clients Access</p>
-                        </div>
-                    </a>
-                    <!-- End Navitem -->
-                    <!-- Start Navitem -->
-                    <a href="/validateChef">
-                        <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                            <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                                <i class="fas fa-wallet fa-sm text-indigo-600"></i>
-                            </div>
-                            <p class="text-xs mt-1 text-center font-semibold">Chef Access</p>
-                        </div>
-                    </a>
-                    <!-- End Navitem -->
-                    <!-- Start Navitem -->
-                    <a href="/adminplate">
-                        <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                            <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                                <i class="fas fa-archive fa-sm text-indigo-600"></i>
-                            </div>
-                            <p class="text-xs mt-1 text-center font-semibold">Plates Validate</p>
-                        </div>
-                    </a>
-                    <!-- End Navitem -->
+        <aside>
+            <span class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900" onclick="openSidebar()">
+                <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
+            </span>
+            <div class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900">
+                <div class="text-gray-100 text-xl">
+                    <div class="p-2.5 mt-1 flex items-center">
+                        <i class="bi bi-app-indicator px-2 py-1 rounded-md bg-blue-600"></i>
+                        <h1 class="font-bold text-gray-200 text-[15px] ml-3">MoroccoMunch</h1>
+                        <i class="bi bi-x cursor-pointer ml-28 lg:hidden" onclick="openSidebar()"></i>
+                    </div>
+                    <div class="my-2 bg-gray-600 h-[1px]"></div>
                 </div>
-                <!--End Sidebar for open menu -->
+                <div class="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 text-white">
+                    <i class="bi bi-search text-sm"></i>
+                    <input type="text" placeholder="Search" class="text-[15px] ml-4 w-full bg-transparent focus:outline-none" />
+                </div>
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                    <i class="bi bi-house-door-fill"></i>
+                    <a href="/categories"><span class="text-[15px] ml-4 text-gray-200 font-bold">Home</span></a>
+                </div>
+                <a href="/validate">
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                    <i class="bi bi-bookmark-fill"></i>
+                    <span class="text-[15px] ml-4 text-gray-200 font-bold">Bookmark</span>
+                </div>
+                </a>
+
+                <div class="my-4 bg-gray-600 h-[1px]"></div>
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white" onclick="dropdown()">
+                    <i class="bi bi-chat-left-text-fill"></i>
+                    <a href="/validateChef">
+                    <div class="flex justify-between w-full items-center">
+                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Chatbox</span>
+                        <span class="text-sm rotate-180" id="arrow">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                    </div>
+                    </a>
+                </div>
+                <a href="/adminplate">
+                <div class="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold" id="submenu">
+                    <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+                        Social
+                    </h1>
+                    <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+                        Personal
+                    </h1>
+                    <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+                        Friends
+                    </h1>
+                </div>
+                </a>
+                <a href="signout">
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    <span class="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
+                </div>
+                </a>
             </div>
         </aside>
+        <script type="text/javascript">
+            function dropdown() {
+                document.querySelector("#submenu").classList.toggle("hidden");
+                document.querySelector("#arrow").classList.toggle("rotate-0");
+            }
+            dropdown();
+
+            function openSidebar() {
+                document.querySelector(".sidebar").classList.toggle("hidden");
+            }
+        </script>
         <!-- End Open Menu -->
 
         <!-- End Sidebar -->
@@ -168,7 +168,7 @@
                                 <!-- Modal toggle -->
 
 
-                            
+
                                 <!-- Modal body -->
 
 
@@ -191,7 +191,7 @@
                                     <div class="flex space-x-4 mt-4">
                                         <button data-modal-target="edit-modal{{ $category->id }}" data-modal-toggle="edit-modal{{ $category->id }}" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" class="block uppercase mx-auto shadow bg-white text-indigo-600 focus:shadow-outline 
                                             focus:outline-none text-white text-xs py-3 px-4 rounded font-bold">
-                                                        Edit
+                                            Edit
                                         </button>
                                         <form action="{{ route('categories.destroy', $category->id) }}" method="post">
                                             @csrf
@@ -205,38 +205,39 @@
                                 </div>
                             </div>
                         </div>
-                                <!-- Main modal -->
-                                <div id="edit-modal{{ $category->id }}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                                    <div class="relative p-4 w-full max-w-md max-h-full">
-                                        <!-- Modal content -->
-                                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                            <!-- Modal header -->
-                                            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                                                    Edit Category
-                                                </h3>
-                                                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal-g">
-                                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                                    </svg>
-                                                    <span class="sr-only">Close modal</span>
-                                                </button>
-                                            </div>
-
-                                            <form class="p-4 md:p-5"  action="" method="">
-                                                <div class="grid gap-4 mb-4 grid-cols-2">
-                                                    <div class="col-span-2">
-                                                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New Name</label>
-                                                            <input type="text" name="name" value="{{ $category->name }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type category name">
-                                                    </div>
-                                                </div>
-                                                <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                                    Edit
-                                                </button>
-                                            </form>
-                                        </div>
+                        <!-- Main modal -->
+                        <div id="edit-modal{{ $category->id }}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                            <div class="relative p-4 w-full max-w-md max-h-full">
+                                <!-- Modal content -->
+                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                    <!-- Modal header -->
+                                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                            Edit Category
+                                        </h3>
+                                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal-g" data-modal-target="#edit-modal{{ $category->id }}">
+                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                            </svg>
+                                            <span class="sr-only">Close modal</span>
+                                        </button>
                                     </div>
+
+                                    <form class="p-4 md:p-5" action="{{ route('categories.destroy', $category->id)}}" method="POST">
+                                        <div class="grid gap-4 mb-4 grid-cols-2">
+                                            <div class="col-span-2">
+                                                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New Name</label>
+                                                <input type="text" name="name" value="{{ $category->name }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type category name">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            Edit
+                                        </button>
+                                    </form>
                                 </div>
+                            </div>
+                        </div>
+
 
                         @endforeach
 
