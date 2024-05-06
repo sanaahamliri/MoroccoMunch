@@ -4,85 +4,61 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-
 </head>
 
 <body>
-    <div class="flex h-screen w-full bg-gray-800 " x-data="{openMenu:1}">
-        <!--Start SideBar-->
-        <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-indigo-600 sm:block">
-            <div class="mb-6">
-                <!--Start logo -->
-                <div class="flex justify-center">
-                    <div class="w-14 h-14 rounded-full bg-gray-300 border-2 border-white mt-2">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVxhAxJ4D7MOeTTj6kR9PBeZonW5HM7giKjTbEmR-HMBwf3G1VqGnlwpO1kWrdyIZu8_U&usqp=CAU" class="rounded-full w-auto" />
-                    </div>
+    <button class="text-center lg:hidden p-2  text-black" onclick="openSidebar()">
+        <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+            <path d="M4 5L16 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M4 12L20 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M4 19L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
+    <aside>
+        <div class="sidebar hidden lg:block fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900 z-40">
+            <div class="text-gray-100 text-xl">
+                <div class="p-2.5 mt-1 flex items-center">
+                    <i class="bi bi-app-indicator px-2 py-1 rounded-md bg-blue-600"></i>
+                    <h1 class="font-bold text-gray-200 text-[15px] ml-3">MoroccoMunch</h1>
+                    <i class=" bi bi-x cursor-pointer ml-28 lg:hidden text-white bg-white p-1 rounded-full " onclick="openSidebar()"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4.70711 3.29289C4.31658 2.90237 3.68342 2.90237 3.29289 3.29289C2.90237 3.68342 2.90237 4.31658 3.29289 4.70711L10.5858 12L3.29289 19.2929C2.90237 19.6834 2.90237 20.3166 3.29289 20.7071C3.68342 21.0976 4.31658 21.0976 4.70711 20.7071L12 13.4142L19.2929 20.7071C19.6834 21.0976 20.3166 21.0976 20.7071 20.7071C21.0976 20.3166 21.0976 19.6834 20.7071 19.2929L13.4142 12L20.7071 4.70711C21.0976 4.31658 21.0976 3.68342 20.7071 3.29289C20.3166 2.90237 19.6834 2.90237 19.2929 3.29289L12 10.5858L4.70711 3.29289Z" fill="#000000" />
+                        </svg></i>
                 </div>
-                <!--End logo -->
-                <!--Start NavItem -->
-                <div>
-                    <ul class="mt-6 leading-10 px-4">
-                        <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-blue-400 cursor-pointer" @click="openMenu !== 1 ? openMenu = 1 : openMenu = null">
-                            <i class="fas fa-align-left fa-sm text-white"></i>
-                        </li>
-                        <li class="mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2">
-                                    <g>
-                                        <path stroke-dasharray="4" stroke-dashoffset="4" d="M12 3V5">
-                                            <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="4;0" />
-                                        </path>
-                                        <path stroke-dasharray="28" stroke-dashoffset="28" d="M12 5C8.68629 5 6 7.68629 6 11L6 17C5 17 4 18 4 19H12M12 5C15.3137 5 18 7.68629 18 11L18 17C19 17 20 18 20 19H12">
-                                            <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.2s" dur="0.4s" values="28;0" />
-                                        </path>
-                                        <animateTransform attributeName="transform" begin="0.8s" dur="6s" keyTimes="0;0.05;0.15;0.2;1" repeatCount="indefinite" type="rotate" values="0 12 3;3 12 3;-3 12 3;0 12 3;0 12 3" />
-                                    </g>
-                                    <path stroke-dasharray="8" stroke-dashoffset="8" d="M10 20C10 21.1046 10.8954 22 12 22C13.1046 22 14 21.1046 14 20">
-                                        <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="8;0" />
-                                        <animateTransform attributeName="transform" begin="1s" dur="6s" keyTimes="0;0.05;0.15;0.2;1" repeatCount="indefinite" type="rotate" values="0 12 8;6 12 8;-6 12 8;0 12 8;0 12 8" />
-                                    </path>
-                                </g>
-                            </svg>
-                        </li>
-                        <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer">
-                          <a href="signout">  <i class="fas fa-power-off fa-sm text-indigo-600"></i></a>
-                        </li>
-
-
-                    </ul>
-                </div>
-                <!--End NavItem -->
+                <div class="my-2 bg-gray-600 h-[1px]"></div>
             </div>
-        </aside>
-        <!-- Start Open Menu -->
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-gray-100 sm:block " x-show="openMenu ==  1" @click.away="openMenu = null" style="display: none;">
-            <div class="mb-6">
-                <div class="grid grid-cols-1 gap-4 grid-cols-2 mt-6">
-                    <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                        <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                            <i class="fas fa-chart-pie fa-sm text-indigo-600"></i>
-                        </div>
-                        <a href="/chef">
-                            <p class="text-xs mt-1 text-center font-semibold">Dashboard</p>
-                        </a>
-                    </div>
-
-                    <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                        <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                            <i class="fas fa-wallet fa-sm text-indigo-600"></i>
-                        </div>
-                        <a href="/reservation_validation">
-                            <p class="text-xs mt-1 text-center font-semibold">Reservations</p>
-                        </a>
-                    </div>
-
+            <a href="/categories">
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                    <i class="bi bi-house-door-fill"></i>
+                    <a href="/chef"><span class="text-[15px] ml-4 text-gray-200 font-bold">Dashboard</span></a>
                 </div>
-            </div>
-        </aside>
-        <!-- End Open Menu -->
-        @yield('contentB')
+            </a>
+            <a href="/reservation_validation">
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                    <i class="bi bi-bookmark-fill"></i>
+                    <span class="text-[15px] ml-4 text-gray-200 font-bold">Reservations</span>
+                </div>
+            </a>
+            
+
+
+            <a href="signout">
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    <span class="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
+                </div>
+            </a>
+        </div>
+    </aside>
+    <script type="text/javascript">
+        function dropdown() {
+            document.querySelector("#submenu").classList.toggle("hidden");
+            document.querySelector("#arrow").classList.toggle("rotate-0");
+        }
+        dropdown();
+
+        function openSidebar() {
+            document.querySelector(".sidebar").classList.toggle("hidden");
+        }
+    </script>
+    @yield('contentB')

@@ -19,11 +19,11 @@
         <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-indigo-600 sm:block">
             <div class="mb-6">
                 <!--Start logo -->
-                <div class="flex justify-center">
-                    <div class="w-14 h-14 rounded-full bg-gray-300 border-2 border-white mt-2">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVxhAxJ4D7MOeTTj6kR9PBeZonW5HM7giKjTbEmR-HMBwf3G1VqGnlwpO1kWrdyIZu8_U&usqp=CAU" class="rounded-full w-auto" />
+                <a href="/profileChef">
+                    <div class="w-14 h-14 rounded-full  mt-2">
+                        <img src="{{asset('storage/' . Auth::user()->imageUser->url)}}" class="rounded-full w-14 h-14 border-2 border-white " />
                     </div>
-                </div>
+                </a>
                 <!--End logo -->
                 <!--Start NavItem -->
                 <div>
@@ -31,11 +31,24 @@
                         <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-blue-400 cursor-pointer" @click="openMenu !== 1 ? openMenu = 1 : openMenu = null">
                             <i class="fas fa-align-left fa-sm text-white"></i>
                         </li>
+
+                        <div class=" md:hidden">
+                            <a href="/chef" class="rounded-full p-2 bg-white flex flex-col items-center">
+                                <i class="fas fa-chart-pie fa-sm text-indigo-600"></i>
+                            </a>
+                        </div>
+                        <div class="md:hidden">
+                            <a href="/reservation_validation" class="rounded-full mt-3 p-2 bg-white flex flex-col items-center">
+                                <i class="fas fa-wallet fa-sm text-indigo-600"></i>
+                            </a>
+
+                        </div>
                         <a href="signout">
-                        <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer">
-                            <i class="fas fa-power-off fa-sm text-indigo-600"></i>
-                        </li>
+                            <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer">
+                                <i class="fas fa-power-off fa-sm text-indigo-600"></i>
+                            </li>
                         </a>
+
                     </ul>
                 </div>
                 <!--End NavItem -->

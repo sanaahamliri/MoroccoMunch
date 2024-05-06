@@ -83,8 +83,8 @@
                         <span class="text-green-800">{{session('success')}}</span>
                     </div>
 
-                 @endif
-                 @if(session('error'))
+                    @endif
+                    @if(session('error'))
                     <!-- Alert Success -->
                     <div class="bg-red-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto max-w-2xl">
                         <svg viewBox="0 0 24 24" class="text-red-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
@@ -94,7 +94,7 @@
                         <span class="text-green-800">{{session('error')}}</span>
                     </div>
 
-                 @endif
+                    @endif
                     <div class="single-content">
 
                         <h1 class="text-5xl font-extrabold dark:text-white">{{$plate->name}}<small class="ms-3 font-semibold text-base text-gray-500 dark:text-gray-400">{{$plate->categories->name}}</small></h1>
@@ -162,9 +162,11 @@
                         </div>
                         <div class="single-bio-text">
                             <h3>{{$plate->chefs->user->name}}</h3>
+                            @if($plate->chefs->bio)
                             <p>
-                                Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea dictumst.
+                                {{$plate->chefs->bio}}
                             </p>
+                            @endif
                         </div>
                     </div>
 
@@ -271,22 +273,9 @@
     </div>
     <!-- Footer End -->
 
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-    <!-- JavaScript Libraries -->
+   
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
+   
     <script src="/public/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>

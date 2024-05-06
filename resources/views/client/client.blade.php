@@ -71,10 +71,11 @@
                         <img src="img/carousel-3.jpg" alt="Image">
                     </div>
                     <div class="carousel-text">
-                        <h1>Moroccan's <span>Best</span> Chef</h1>
+                        <h1>Explore<span> culinary</span> delights</h1>
                         <p>
-                            Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
+                            Revolutionizing Moroccan cuisine. Amateurs showcase talents, enthusiasts explore. Join our vibrant culinary journey!
                         </p>
+
                     </div>
                 </div>
 
@@ -110,6 +111,7 @@
 
                             <!-- categories -->
                             <div class="single-tags">
+
                                 @foreach($categorie as $categ)
                                 <a onclick="filterCategory('{{$categ->id}}')">{{$categ->name}}</a>
                                 @endforeach
@@ -180,8 +182,8 @@
                                                 <a href="">{{$last->name}}</a>
                                                 <div class="post-meta">
                                                     <div class="flex-column">
-                                                    <p>By <a href="">{{$last->chefs->user->name}}</p></a>
-                                                    <p>At <a href="">{{$last->created_at}}</p></a>
+                                                        <p>By <a href="">{{$last->chefs->user->name}}</p></a>
+                                                        <p>At <a href="">{{$last->created_at}}</p></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -190,7 +192,7 @@
 
                                     </div>
                                     <div id="popular" class="container tab-pane fade">
-                                    @foreach($popularPlats as $popular)
+                                        @foreach($popularPlats as $popular)
                                         <div class="post-item">
                                             <div class="post-img">
                                                 <img src="{{asset('storage/' .$popular->images[0]->url)}}" />
@@ -202,11 +204,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                       @endforeach
-                                        
+                                        @endforeach
+
                                     </div>
                                     <div id="latest" class="container tab-pane fade">
-                                    @foreach($featuredPlats as $featured)
+                                        @foreach($featuredPlats as $featured)
                                         <div class="post-item">
                                             <div class="post-img">
                                                 <img src="{{asset('storage/' . $featured->images[0]->url)}}" />
@@ -293,22 +295,8 @@
     </div>
     <!-- Footer End -->
 
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
+  
     <script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
@@ -385,8 +373,6 @@
                 }
             })
         })
-
-
     </script>
 </body>
 

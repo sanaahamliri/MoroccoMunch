@@ -41,7 +41,7 @@
                     <a href="/client" class="nav-item nav-link">Home</a>
                     <a href="/about" class="nav-item nav-link">About</a>
                     <a href="/feature" class="nav-item nav-link">Feature</a>
-                    <a href="signout" class="nav-item nav-link">Log Out</a>
+                    <a href="/signout" class="nav-item nav-link">Log Out</a>
 
                 </div>
             </div>
@@ -81,11 +81,11 @@
                         </div>
                         <div class="single-bio-text">
                             <h3>{{$chef->user->name}}</h3>
-
+                            @if($chef->age)
                             <p>
-                                12 years old
+                                {{$chef->age}}
                             </p>
-
+                            @endif
                         </div>
                     </div>
 
@@ -148,22 +148,9 @@
     </div>
     <!-- Footer End -->
 
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-    <!-- JavaScript Libraries -->
+   
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
+    
     <script src="js/main.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

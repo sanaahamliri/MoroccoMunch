@@ -31,25 +31,23 @@
 
         .card {
             background-color: white;
-            max-width: 960px;
+            max-width: 900px;
             border-radius: var(--border-radius-primary);
             box-shadow: 24px 24px 80px rgba(0, 0, 0, 0.1);
             padding: 20px 20px 28px 20px;
             box-sizing: border-box;
-            margin: 20px;
             display: flex;
             flex-direction: column;
 
         }
 
         .card__image {
-            width: 100%;
             max-height: 300px;
             border-radius: var(--border-radius-primary);
             object-fit: cover;
             margin-bottom: 18px;
 
-        }
+        }   
 
 
         .card__date {
@@ -79,14 +77,14 @@
         }
     </style>
 
-    <div class="card">
+    <div class="card ml-56">
 
 
         <div id="default-carousel" class="relative w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 @foreach($plate->images as $image)
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="hidden w-full duration-700 ease-in-out" data-carousel-item>
                     <img src="{{asset('storage/' . $image->url)}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 @endforeach
@@ -124,9 +122,8 @@
 
         <div class="card__content">
             <time datetime="2021-03-30" class="card__date">Add at {{$plate->created_at}}</time>
-            <h2 class="card__title">Duis autem vel eum iriure dolor in hend </h2>
-            <span class="card__title">Duis autem vel eum <span>
-                    <span class="card__title">Duis autem <span>
+            <h2 class="card__title">{{$plate->description}} </h2>
+            <span class="card__title">by {{$plate->chefs->user->name}} <span>
 
 
         </div>

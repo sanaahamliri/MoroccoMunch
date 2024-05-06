@@ -24,15 +24,12 @@
                 <a href="/index" class="navbar-brand">Morocco <span>Munch</span></a>
             </div>
             <div class="flex items-center mt-4 gap-8 ml-[38vw]">
-                <a href="#" class="flex flex-col items-center mt-4 md:mt-0">
+                <a href="/chef" class="flex flex-col items-center mt-4 md:mt-0">
                     <img src="images/iconamoon_news-thin.png" alt="">
                     <span class="text-black text-center hover:text-blue-500 px-3 py-2 border-b-2 border-transparent transition-all duration-300 md:border-none md:hover:border-blue-900">dashboard</span>
                 </a>
-                <a href="#" class="flex flex-col items-center mt-4 md:mt-0">
-                    <img src="images/bi_book.png" alt="">
-                    <span class="text-black text-center hover:text-blue-500 px-3 py-2 border-b-2 border-transparent transition-all duration-300 md:border-none md:hover:border-blue-900">All plates</span>
-                </a>
-                <a href="#" class="flex flex-col items-center mt-4 md:mt-0">
+               
+                <a href="/reservation_validation" class="flex flex-col items-center mt-4 md:mt-0">
                     <img src="images/jam_write.png" alt="">
                     <span class="text-black text-center hover:text-blue-500 px-3 py-2 border-b-2 border-transparent transition-all duration-300 md:border-none md:hover:border-blue-900">Reservation</span>
                 </a>
