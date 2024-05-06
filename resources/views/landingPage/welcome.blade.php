@@ -5,65 +5,65 @@
     <meta charset="utf-8">
     <title>MoroccoMunch</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    
     <link href="img/favicon.ico" rel="icon">
-
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet">
-
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-
-    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Nav Bar Start -->
-    <div class="navbar navbar-expand-lg bg-light navbar-light">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light ">
         <div class="container-fluid">
             <a href="/index" class="navbar-brand">Morocco <span>Munch</span></a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav ml-auto">
-                   
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
                     @auth
-                    <a href="/client" class="nav-item nav-link active">Home</a>
-                    <a href="/about" class="nav-item nav-link">About</a>
-                    <a href="/feature" class="nav-item nav-link">Feature</a>
-                    <a href="/team" class="nav-item nav-link">Chef</a>
-                    <a href="signout" class="nav-item nav-link">Log Out</a>
+                    <li class="nav-item">
+                        <a href="/client" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/feature" class="nav-link">Feature</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/team" class="nav-link">Chef</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="signout" class="nav-link">Log Out</a>
+                    </li>
                     @else
-                    <a href="/" class="nav-item nav-link active">Home</a>
-                    <a href="/about" class="nav-item nav-link">About</a>
-                    <a href="/feature" class="nav-item nav-link">Feature</a>
-                    <a href="/team" class="nav-item nav-link">Chef</a>
-                    <a href="/register" class="nav-item nav-link">Sign Up</a>
-                    <a href="login" class="nav-item nav-link">Log in</a>
+                    <li class="nav-item">
+                        <a href="/" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/feature" class="nav-link">Feature</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/team" class="nav-link">Chef</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/register" class="nav-link">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login" class="nav-link">Log in</a>
+                    </li>
                     @endauth
-                </div>
-
+                </ul>
             </div>
         </div>
-    </div>
-    <!-- Nav Bar End -->
+    </nav>
 
-
-
-
-
-
-
-
-
-
-
-    <!-- Carousel Start -->
     <div class="carousel">
         <div class="container-fluid">
             <div class="owl-carousel">
@@ -77,14 +77,10 @@
                             Revolutionizing Moroccan cuisine. Amateurs showcase talents, enthusiasts explore. Join our vibrant culinary journey! </p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-    <!-- Carousel End -->
 
-
-    <!-- About Start -->
     <div id="dd" class="about">
         <div class="container">
             <div class="row align-items-center">
@@ -109,10 +105,7 @@
             </div>
         </div>
     </div>
-    <!-- About End -->
 
-
-    <!-- Video Modal Start-->
     <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -120,7 +113,6 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <!-- 16:9 aspect ratio -->
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
                     </div>
@@ -128,10 +120,7 @@
             </div>
         </div>
     </div>
-    <!-- Video Modal End -->
 
-
-    <!-- Feature Start -->
     <div class="feature">
         <div class="container">
             <div class="row">
@@ -157,14 +146,12 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="feature-item">
-                                <i class="flaticon-cooking"></i>
                                 <h3> Morocco's Finest Chef Selections</h3>
                                 <p>
                                     Indulge in the exquisite culinary creations crafted by our esteemed Moroccan chefs. Each dish is a masterpiece, meticulously prepared using authentic recipes passed down through generations. </p>
@@ -172,7 +159,6 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="feature-item">
-                                <i class="flaticon-vegetable"></i>
                                 <h3>Natural ingredients</h3>
                                 <p>
                                     Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
@@ -183,7 +169,6 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="feature-item">
-                                <i class="flaticon-meat"></i>
                                 <h3>Premium Quality Products</h3>
                                 <p>
                                     We pride ourselves on delivering only the highest quality products to our customers. From premium cuts of meat to hand-picked vegetables, we ensure that every ingredient meets our rigorous standards of excellence </p>
@@ -191,22 +176,17 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="feature-item">
-                                <i class="flaticon-courier"></i>
                                 <h3>Fresh Vegetables & Meats</h3>
                                 <p>
                                     Experience the unparalleled freshness of our vegetables and meats, hand-selected to guarantee optimal taste and texture. From vibrant produce to succulent cuts of meat, every ingredient is chosen with care to enhance your dining experience. </p>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-    <!-- Feature End -->
 
-
-    <!-- Team Start -->
     <div class="team">
         <div class="container">
             <div class="section-header text-center">
@@ -235,15 +215,6 @@
             </div>
         </div>
     </div>
-    <!-- Team End -->
-
-
-
-
-
-    <!-- Blog Start -->
-
-
 
     <div class="blog">
         <div class="container">
@@ -278,12 +249,8 @@
             </div>
         </div>
     </div>
-    <!-- Blog End -->
 
-
-    <!-- Footer Start -->
     <div class="footer">
-
         <div class="copyright">
             <div class="container">
                 <p>Copyright &copy; <a href="#">Morocco Munch</a>, All Right Reserved.</p>
@@ -291,12 +258,10 @@
             </div>
         </div>
     </div>
-    <!-- Footer End -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-   
-    <script src="js/main.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

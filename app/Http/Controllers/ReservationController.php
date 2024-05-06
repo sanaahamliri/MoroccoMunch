@@ -49,7 +49,7 @@ class ReservationController extends Controller
             ]);
             return redirect()->back()->with('success','plate reservation done');
         }
-        return redirect()->back()->with('error','you alreday reserve this should accepted first');
+        return redirect()->back()->with('error','you alreday reserve this plate, should accepted first to add one');
 
 
     }

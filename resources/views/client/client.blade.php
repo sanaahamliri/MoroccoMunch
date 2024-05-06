@@ -3,65 +3,68 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Morocco Munch</title>
+    <title>MoroccoMunch</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet">
-    <!-- CSS Libraries -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Nav Bar Start -->
-    <div class="navbar navbar-expand-lg bg-light navbar-light">
+    
+<nav class="navbar navbar-expand-lg bg-light navbar-light ">
         <div class="container-fluid">
-            <a href="/index" class="navbar-brand">Morocco <span>Munch</span></a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <a href="#" class="navbar-brand">Morocco <span>Munch</span></a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav ml-auto">
-                    <a href="/index" class="nav-item nav-link active">Home</a>
-                    <a href="/about" class="nav-item nav-link">About</a>
-                    <a href="/feature" class="nav-item nav-link">Feature</a>
-                    <a href="/team" class="nav-item nav-link">Chef</a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
                     @auth
-
-                    <a href="signout" class="nav-item nav-link">Log Out</a>
+                    <li class="nav-item">
+                        <a href="/client" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/feature" class="nav-link">Feature</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/team" class="nav-link">Chef</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="signout" class="nav-link">Log Out</a>
+                    </li>
                     @else
-                    <a href="/register" class="nav-item nav-link">Sign Up</a>
-                    <a href="login" class="nav-item nav-link">Log in</a>
+                    <li class="nav-item">
+                        <a href="/" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/feature" class="nav-link">Feature</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/team" class="nav-link">Chef</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/register" class="nav-link">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login" class="nav-link">Log in</a>
+                    </li>
                     @endauth
-                </div>
+                </ul>
             </div>
         </div>
-    </div>
-    <!-- Nav Bar End -->
-
-
-
-
-
-
-
-
-    <!-- Carousel Start -->
+    </nav>
+    
     <div class="carousel">
         <div class="container-fluid">
             <div class="owl-carousel">
@@ -82,13 +85,7 @@
             </div>
         </div>
     </div>
-    <!-- Carousel End -->
-
-
-
-
-
-    <!-- Single Post Start-->
+    
     <div class="single">
         <div class="container">
             <div class="row">
@@ -243,9 +240,7 @@
             </div>
         </div>
     </div>
-    <!-- Single Post End-->
-
-    <!-- Team Start -->
+   
     <div class="team">
         <div class="container">
             <div class="section-header text-center">
@@ -277,13 +272,7 @@
             </div>
         </div>
     </div>
-    <!-- Team End -->
-
-
-
-
-
-    <!-- Footer Start -->
+    
     <div class="footer">
 
         <div class="copyright">
@@ -293,7 +282,7 @@
             </div>
         </div>
     </div>
-    <!-- Footer End -->
+    
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   
@@ -374,6 +363,20 @@
             })
         })
     </script>
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  
+  <script src="js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+ 
 </body>
 
 </html>

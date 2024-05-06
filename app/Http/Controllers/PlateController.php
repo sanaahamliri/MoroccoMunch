@@ -132,13 +132,10 @@ class PlateController extends Controller
 
     private function storeImage($file)
     {
-        // Générer un nom de fichier unique pour l'image
         $filename = uniqid() . '_' . $file->getClientOriginalName();
 
-        // Stockez l'image dans le répertoire 'public/images'
         $file->storeAs('public/images', $filename);
 
-        // Retournez le chemin à stocker dans la base de données
         return 'images/' . $filename;
     }
 

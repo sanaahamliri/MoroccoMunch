@@ -2,7 +2,7 @@
 
 @section('content')
 
-<!-- Page Header Start -->
+
 <div class="page-header mb-0">
     <div class="container">
         <div class="row">
@@ -16,13 +16,13 @@
         </div>
     </div>
 </div>
-<!-- Page Header End -->
 
 
 
 
 
-<!-- About Start -->
+
+
 <div id="dd" class="about">
     <div class="container">
         <div class="row align-items-center">
@@ -49,10 +49,9 @@
         </div>
     </div>
 </div>
-<!-- About End -->
 
 
-<!-- Video Modal Start-->
+
 <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -60,7 +59,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <!-- 16:9 aspect ratio -->
+                
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
                 </div>
@@ -68,10 +67,7 @@
         </div>
     </div>
 </div>
-<!-- Video Modal End -->
 
-
-<!-- Footer Start -->
 <div class="footer">
 
     <div class="copyright">
@@ -81,7 +77,6 @@
         </div>
     </div>
 </div>
-<!-- Footer End -->
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
