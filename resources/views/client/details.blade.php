@@ -77,30 +77,22 @@
 
                     <div class="single-bio">
                         <div class="single-bio-img">
-                            <img src="img/user.jpg" />
+                            <img src="{{asset('storage/' . $chef->user->imageUser->url)}}" />
                         </div>
                         <div class="single-bio-text">
                             <h3>{{$chef->user->name}}</h3>
 
                             <p>
-                                12 years old 
+                                12 years old
                             </p>
 
-                            <p>
-                                
-                            </p>
                         </div>
                     </div>
 
-                    <div class="single-content">
-                        <h2>Lorem ipsum dolor sit amet</h2>
-                        @if($chef->user->bio)
-                        <p>
-                            Vestibulum sit amet ullamcorper sem. Integer hendrerit elit eget purus sodales maximus. Quisque ac nulla arcu. Morbi venenatis arcu ac arcu cursus pharetra. Morbi sit amet viverra augue, ac ultricies libero. Praesent elementum lectus mi, eu elementum urna venenatis sed. Donec auctor purus ut mattis feugiat. Integer mi erat, consectetur sed tincidunt vitae, sagittis elementum libero. Vivamus a mauris consequat, hendrerit lectus in, fermentum libero. Integer mattis bibendum neque et porttitor.
-                        </p>
-                        <p>
-                            Mauris quis arcu finibus, posuere dolor eu, viverra felis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In porta, ex vitae accumsan facilisis, nisi tellus dictum metus, quis fringilla dui tellus in tellus. Praesent pharetra orci at vehicula posuere. Sed molestie fringilla lorem, vel imperdiet tortor blandit at. Quisque non ultrices lorem, eget rhoncus orci. Fusce porttitor placerat diam et mattis. Nam laoreet, ex eu posuere sollicitudin, sem tortor pellentesque ipsum, quis mattis purus lectus ut lacus. Integer eu risus ac est interdum scelerisque.
-                        </p>
+                    <div class="single-content"> @if($chef->user->bio)
+
+                        <h2> {{$chef->bio}}</h2>
+
                         @endif
 
                     </div>
@@ -108,136 +100,40 @@
 
 
                     <div class="single-comment">
-                        <h2>2 Comments</h2>
                         <ul class="comment-list">
                             <li class="comment-item">
                                 <div class="comment-body">
                                     <div class="comment-img">
-                                        <img src="img/user.jpg" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none">
+                                            <path d="M5.11596 12.7268L8.15456 9.08666C8.46255 8.69067 8.61655 8.49267 8.69726 8.27061C8.76867 8.07411 8.79821 7.86486 8.784 7.65628C8.76793 7.42055 8.67477 7.18766 8.48846 6.72187L7.77776 4.94513C7.50204 4.25581 7.36417 3.91116 7.12635 3.68525C6.91678 3.48618 6.65417 3.3519 6.37009 3.29856C6.0477 3.23803 5.68758 3.32806 4.96733 3.50812L3 4.00002C3 14 9.99969 21 20 21L20.4916 19.0324C20.6717 18.3122 20.7617 17.952 20.7012 17.6297C20.6478 17.3456 20.5136 17.083 20.3145 16.8734C20.0886 16.6356 19.7439 16.4977 19.0546 16.222L17.4691 15.5878C16.9377 15.3752 16.672 15.2689 16.4071 15.2608C16.1729 15.2536 15.9404 15.3013 15.728 15.4002C15.4877 15.512 15.2854 15.7144 14.8807 16.1191L11.7943 19.1569" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
                                     </div>
                                     <div class="comment-text">
-                                        <h3><a href="">Josh Dunn</a></h3>
-                                        <span>01 Jan 2045 at 12:00pm</span>
-                                        <p>
-                                            Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea dictumst.
-                                        </p>
-                                        <a class="btn" href="">Reply</a>
+                                        <h3><a href="">Get in touch with him</a></h3>
+                                        <span>{{$chef->user->phone}}</span>
+
                                     </div>
                                 </div>
                             </li>
-                            <li class="comment-item">
-                                <div class="comment-body">
-                                    <div class="comment-img">
-                                        <img src="img/user.jpg" />
-                                    </div>
-                                    <div class="comment-text">
-                                        <h3><a href="">Josh Dunn</a></h3>
-                                        <p><span>01 Jan 2045 at 12:00pm</span></p>
-                                        <p>
-                                            Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea dictumst.
-                                        </p>
-                                        <a class="btn" href="">Reply</a>
-                                    </div>
-                                </div>
+
 
                             </li>
                         </ul>
                     </div>
                     <div class="comment-form">
-                        <h2>Leave a comment</h2>
-                        <form>
 
-                            <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Post Comment" class="btn custom-btn">
-                            </div>
-                        </form>
                     </div>
+
+
                 </div>
-
-
             </div>
         </div>
-    </div>
     </div>
     </div>
     <!-- Single Post End-->
 
 
 
-    <div class="blog">
-        <div class="container">
-            <div class="section-header text-center">
-                <p>Food Blog</p>
-                <h2>foods he made</h2>
-            </div>
-
-            <form action="" class=" max-w-2xl p-2 flex bg-white mx-auto border border-black rounded-xl h-10">
-                <input type="search" name="" id="" class="w-full focus:outline-none px-2" placeholder="search ...">
-                <button class="btn"><i class="fa fa-search"></i></button>
-            </form>
-
-
-            <div class="d-flex flex-row justify-content-center gap-3 mt-5  mb-5">
-                <button type="button" class="btn btn-outline-warning">Tajine</button>
-                <button type="button" class="btn btn-outline-warning">Couscous</button>
-                <button type="button" class="btn btn-outline-warning">Pastilla</button>
-                <button type="button" class="btn btn-outline-warning">Briouates</button>
-                <button type="button" class="btn btn-outline-warning">Rfissa</button>
-                <button type="button" class="btn btn-outline-warning">Pastilla</button>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img h-64">
-                            <img src="img/blog-1.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-content">
-                            <h2 class="blog-title">Lorem ipsum dolor sit amet</h2>
-                            <div class="blog-meta">
-                                <p><i class="far fa-user"></i>Admin</p>
-                                <p><i class="far fa-list-alt"></i>Food</p>
-                                <p><i class="far fa-calendar-alt"></i>01-Jan-2045</p>
-                                <p><i class="far fa-comments"></i>10</p>
-                            </div>
-                            <div class="blog-text">
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor. Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte
-                                </p>
-                                <a class="btn custom-btn" href="">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="blog-item">
-                        <div class="blog-img h-64">
-                            <img src="img/blog-3.jpg" alt="Blog">
-                        </div>
-                        <div class="blog-content">
-                            <h2 class="blog-title">Lorem ipsum dolor sit amet</h2>
-                            <div class="blog-meta">
-                                <p><i class="far fa-user"></i>Admin</p>
-                                <p><i class="far fa-list-alt"></i>Food</p>
-                                <p><i class="far fa-calendar-alt"></i>01-Jan-2045</p>
-                                <p><i class="far fa-comments"></i>10</p>
-                            </div>
-                            <div class="blog-text">
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor. Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte
-                                </p>
-                                <a class="btn custom-btn" href="">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <!-- Footer Start -->

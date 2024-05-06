@@ -41,7 +41,13 @@
                     <a href="/about" class="nav-item nav-link">About</a>
                     <a href="/feature" class="nav-item nav-link">Feature</a>
                     <a href="/team" class="nav-item nav-link">Chef</a>
+                    @auth
+
                     <a href="signout" class="nav-item nav-link">Log Out</a>
+                    @else
+                    <a href="/register" class="nav-item nav-link">Sign Up</a>
+                    <a href="login" class="nav-item nav-link">Log in</a>
+                    @endauth
                 </div>
             </div>
         </div>
@@ -105,7 +111,7 @@
                             <!-- categories -->
                             <div class="single-tags">
                                 @foreach($categorie as $categ)
-                                <a onclick="filterCategory({{$categ->id}})">{{$categ->name}}</a>
+                                <a onclick="filterCategory('{{$categ->id}}')">{{$categ->name}}</a>
                                 @endforeach
                             </div>
                             <!-- categories -->
@@ -123,7 +129,7 @@
                                                 <p><i class="far fa-user"></i> {{$plat->chefs->user->name}}</p>
                                                 <p><i class="far fa-list-alt"></i> {{$plat->categories->name}}</p>
                                                 <p><i class="far fa-calendar-alt"></i> {{$plat->created_at}}</p>
-                                                <p><i class="far fa-comments"></i>10</p>
+                                                <p><i class="far fa-comments"></i>{{$plat->comments->count()}}</p>
                                             </div>
                                             <div class="blog-text">
                                                 <p>
@@ -348,7 +354,6 @@
                                 </p>
                                 <div class="actions">
                                     <a class="btn custom-btn" href="/detailsMore/${plate.id}">Read More</a>
-                                    <a class="btn custom-btn" href="/personnalisation">Reserve</a>
                                 </div>
                             </div>
                         </div>

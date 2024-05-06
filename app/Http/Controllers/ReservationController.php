@@ -78,9 +78,9 @@ class ReservationController extends Controller
        $success =  $reservation->update([
                     'status' => true,
         ]);
-            // if($success){
-            //     Mail::to($reservation->clients->user->email)->send(new ReservationMail($reservation->id));
-            // }
+            if($success){
+                Mail::to($reservation->clients->user->email)->send(new ReservationMail($reservation->id));
+            }
 
       return  redirect()->back()->with('success','accepted with success');
     }

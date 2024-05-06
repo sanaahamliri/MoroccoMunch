@@ -16,7 +16,7 @@
 
     <!-- component -->
     <section class="bg-white dark:bg-gray-900">
-        <div class="flex justify-center h-screen">
+        <div class="flex justify-center lg:h-screen">
             <div class="h-full bg-cover lg:block lg:w-2/5 hidden md:block">
                 <img src="img/register.jpeg" alt="" class="h-full">
             </div>

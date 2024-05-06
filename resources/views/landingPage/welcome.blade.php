@@ -18,7 +18,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-   
+
     <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
@@ -36,12 +36,21 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
+                   
+                    @auth
+                    <a href="/client" class="nav-item nav-link active">Home</a>
+                    <a href="/about" class="nav-item nav-link">About</a>
+                    <a href="/feature" class="nav-item nav-link">Feature</a>
+                    <a href="/team" class="nav-item nav-link">Chef</a>
+                    <a href="signout" class="nav-item nav-link">Log Out</a>
+                    @else
                     <a href="/" class="nav-item nav-link active">Home</a>
                     <a href="/about" class="nav-item nav-link">About</a>
                     <a href="/feature" class="nav-item nav-link">Feature</a>
                     <a href="/team" class="nav-item nav-link">Chef</a>
                     <a href="/register" class="nav-item nav-link">Sign Up</a>
                     <a href="login" class="nav-item nav-link">Log in</a>
+                    @endauth
                 </div>
 
             </div>
@@ -68,10 +77,9 @@
                         <img src="img/carousel-3.jpg" alt="Image">
                     </div>
                     <div class="carousel-text">
-                        <h1>Moroccan's <span>Best</span> Chef</h1>
+                        <h1>Explore<span> culinary</span> delights</h1>
                         <p>
-                            Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
-                        </p>
+                            Revolutionizing Moroccan cuisine. Amateurs showcase talents, enthusiasts explore. Join our vibrant culinary journey! </p>
                     </div>
                 </div>
 
@@ -94,15 +102,12 @@
                     <div class="about-content">
                         <div class="section-header">
                             <p>About Us</p>
-                            <h2>Cooking Since 1990</h2>
+                            <h2>traditional Moroccan dishes</h2>
                         </div>
                         <div class="about-text">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus. Aenean consectetur convallis porttitor. Aliquam interdum at lacus non blandit.
-                            </p>
+                                MoroccoMunch aims to revolutionize the Moroccan culinary scene by providing an innovative platform where amateur chefs can freely showcase their talents, while food enthusiasts discover a diverse array of authentic dishes. Join our vibrant online community today and indulge in a culinary journey that celebrates the richness of Moroccan gastronomy while supporting local economy. </p>
+
                         </div>
                     </div>
                 </div>
@@ -157,9 +162,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet consec adipis elit. Phasel nec preti mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor, auctor id gravida condime, viverra quis sem. Curabit non nisl nec nisi sceleri maximus
-                        </p>
+
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -167,10 +170,9 @@
                         <div class="col-sm-6">
                             <div class="feature-item">
                                 <i class="flaticon-cooking"></i>
-                                <h3> best moroccan’s best Chef</h3>
+                                <h3> Morocco's Finest Chef Selections</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
-                                </p>
+                                    Indulge in the exquisite culinary creations crafted by our esteemed Moroccan chefs. Each dish is a masterpiece, meticulously prepared using authentic recipes passed down through generations. </p>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -186,43 +188,22 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="feature-item">
-                                <i class="flaticon-medal"></i>
-                                <h3>Best quality products</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="feature-item">
                                 <i class="flaticon-meat"></i>
-                                <h3>Fresh vegetables & Meet</h3>
+                                <h3>Premium Quality Products</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
-                                </p>
+                                    We pride ourselves on delivering only the highest quality products to our customers. From premium cuts of meat to hand-picked vegetables, we ensure that every ingredient meets our rigorous standards of excellence </p>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-sm-6">
                             <div class="feature-item">
                                 <i class="flaticon-courier"></i>
-                                <h3>Fastest door delivery</h3>
+                                <h3>Fresh Vegetables & Meats</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="feature-item">
-                                <i class="flaticon-fruits-and-vegetables"></i>
-                                <h3>Ground beef & Low fat</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
-                                </p>
+                                    Experience the unparalleled freshness of our vegetables and meats, hand-selected to guarantee optimal taste and texture. From vibrant produce to succulent cuts of meat, every ingredient is chosen with care to enhance your dining experience. </p>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -253,6 +234,9 @@
                     </div>
                 </div>
                 @endforeach
+                <div class="my-4 ">
+                    {{ $chefs->links() }}
+                </div>
             </div>
         </div>
     </div>
@@ -296,7 +280,6 @@
                     </div>
                 </div>
                 @endforeach
-                
             </div>
         </div>
     </div>
@@ -309,7 +292,7 @@
         <div class="copyright">
             <div class="container">
                 <p>Copyright &copy; <a href="#">Morocco Munch</a>, All Right Reserved.</p>
-                <p>Designed By <a href="https://htmlcodex.com">Hamliri Sanae</a></p>
+                <p>Designed By <a>Hamliri Sanae</a></p>
             </div>
         </div>
     </div>

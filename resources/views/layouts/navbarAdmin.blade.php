@@ -4,95 +4,80 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <style>
-        .action {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="flex h-screen w-full bg-gray-800 " x-data="{openMenu:1}">
-        <!--Start SideBar-->
-        <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-indigo-600 sm:block">
-            <div class="mb-6">
-                <!--Start logo -->
-                <div class="flex justify-center">
-                    <div class="w-14 h-14 rounded-full bg-gray-300 border-2 border-white mt-2">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVxhAxJ4D7MOeTTj6kR9PBeZonW5HM7giKjTbEmR-HMBwf3G1VqGnlwpO1kWrdyIZu8_U&usqp=CAU" class="rounded-full w-auto" />
+    <button class="text-center lg:hidden p-2  text-black" onclick="openSidebar()">
+        <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+            <path d="M4 5L16 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M4 12L20 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M4 19L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
+    <aside>
+        <div class="sidebar hidden lg:block fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center bg-gray-900 z-40">
+            <div class="text-gray-100 text-xl">
+                <div class="p-2.5 mt-1 flex items-center">
+                    <i class="bi bi-app-indicator px-2 py-1 rounded-md bg-blue-600"></i>
+                    <h1 class="font-bold text-gray-200 text-[15px] ml-3">MoroccoMunch</h1>
+                    <i class=" bi bi-x cursor-pointer ml-28 lg:hidden text-white bg-white p-1 rounded-full " onclick="openSidebar()"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4.70711 3.29289C4.31658 2.90237 3.68342 2.90237 3.29289 3.29289C2.90237 3.68342 2.90237 4.31658 3.29289 4.70711L10.5858 12L3.29289 19.2929C2.90237 19.6834 2.90237 20.3166 3.29289 20.7071C3.68342 21.0976 4.31658 21.0976 4.70711 20.7071L12 13.4142L19.2929 20.7071C19.6834 21.0976 20.3166 21.0976 20.7071 20.7071C21.0976 20.3166 21.0976 19.6834 20.7071 19.2929L13.4142 12L20.7071 4.70711C21.0976 4.31658 21.0976 3.68342 20.7071 3.29289C20.3166 2.90237 19.6834 2.90237 19.2929 3.29289L12 10.5858L4.70711 3.29289Z" fill="#000000" />
+                        </svg></i>
+                </div>
+                <div class="my-2 bg-gray-600 h-[1px]"></div>
+            </div>
+            <a href="/categories">
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                    <i class="bi bi-house-door-fill"></i>
+                    <a href="/categories"><span class="text-[15px] ml-4 text-gray-200 font-bold">Dashboard</span></a>
+                </div>
+            </a>
+            <a href="/validate">
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                    <i class="bi bi-bookmark-fill"></i>
+                    <span class="text-[15px] ml-4 text-gray-200 font-bold">Client Access</span>
+                </div>
+            </a>
+
+            <div class="my-4 bg-gray-600 h-[1px]"></div>
+            <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white" onclick="dropdown()">
+                <i class="bi bi-chat-left-text-fill"></i>
+                <a href="/validateChef">
+                    <div class="flex justify-between w-full items-center">
+                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Chef Access</span>
+                        <span class="text-sm rotate-180" id="arrow">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
                     </div>
-                </div>
-                <!--End logo -->
-                <!--Start NavItem -->
-                <div>
-                    <ul class="mt-6 leading-10 px-4">
-                        <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-blue-400 cursor-pointer" @click="openMenu !== 1 ? openMenu = 1 : openMenu = null">
-                            <i class="fas fa-align-left fa-sm text-white"></i>
-                        </li>
-                        <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer">
-                            <i class="fas fa-power-off fa-sm text-indigo-600"></i>
-                        </li>
-                    </ul>
-                </div>
-                <!--End NavItem -->
+                </a>
             </div>
-        </aside>
-        <!-- Start Open Menu -->
-        <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-gray-100 sm:block " x-show="openMenu ==  1" @click.away="openMenu = null" style="display: none;">
-            <div class="mb-6">
-                <!--Start Sidebar for open menu -->
-                <div class="grid grid-cols-1 gap-4 grid-cols-2 mt-6">
-                    <!-- Start Navitem -->
-                    <a href="/admin">
-                        <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                            <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                                <i class="fas fa-chart-pie fa-sm text-indigo-600"></i>
-                            </div>
-                            <p class="text-xs mt-1 text-center font-semibold">Dashboard</p>
-                        </div>
-                    </a>
-                    <!-- End Navitem -->
-                    <!-- Start Navitem -->
-                    <a href="/validate">
-                        <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                            <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                                <i class="fas fa-calculator fa-sm text-indigo-600"></i>
-                            </div>
-                            <p class="text-xs mt-1 text-center font-semibold">Clients Access</p>
-                        </div>
-                    </a>
-                    <!-- End Navitem -->
-                    <!-- Start Navitem -->
-                    <a href="/validateChef">
-                        <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                            <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                                <i class="fas fa-wallet fa-sm text-indigo-600"></i>
-                            </div>
-                            <p class="text-xs mt-1 text-center font-semibold">Chef Access</p>
-                        </div>
-                    </a>
-                    <!-- End Navitem -->
-                    <!-- Start Navitem -->
-                    <a href="/adminplate">
-                        <div class="p-2 flex flex-col items-center bg-white rounded-md justify-center shadow-xl cursor-pointer">
-                            <div class="rounded-full p-2 bg-indigo-200 flex flex-col items-center">
-                                <i class="fas fa-archive fa-sm text-indigo-600"></i>
-                            </div>
-                            <p class="text-xs mt-1 text-center font-semibold">Plates Validate</p>
-                        </div>
-                    </a>
-                    <!-- End Navitem -->
+
+            <a href="/adminplate">
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                    <i class="bi bi-bookmark-fill"></i>
+                    <span class="text-[15px] ml-4 text-gray-200 font-bold">Plate Validate</span>
                 </div>
-                <!--End Sidebar for open menu -->
-            </div>
-        </aside>
-        <!-- End Open Menu -->
-        @yield('contentC')
+            </a>
+
+
+            <a href="signout">
+                <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    <span class="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
+                </div>
+            </a>
+        </div>
+    </aside>
+    <script type="text/javascript">
+        function dropdown() {
+            document.querySelector("#submenu").classList.toggle("hidden");
+            document.querySelector("#arrow").classList.toggle("rotate-0");
+        }
+        dropdown();
+
+        function openSidebar() {
+            document.querySelector(".sidebar").classList.toggle("hidden");
+        }
+    </script>
+    @yield('contentC')

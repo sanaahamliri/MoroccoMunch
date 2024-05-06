@@ -15,15 +15,11 @@ use Illuminate\Support\Facades\Route;
 // ***********Landing Page*******************
 
 Route::get('/', [LandingPageController::class, 'landingChefs']);
+Route::get('/team', [LandingPageController::class, 'landingChefs_Team']);
 
 Route::get('/about', function () {
     return view('landingPage.about');
 });
-
-Route::get('/team', function () {
-    return view('landingPage.team');
-});
-
 Route::get('/feature', function () {
     return view('landingPage.feature');
 });
@@ -80,26 +76,26 @@ Route::middleware(['auth', 'role:chef', 'chefbanned'])->group(function () {
     Route::get('/editChef', [ChefController::class, 'UpdateProfile']);
     Route::get('detailsPlate/{plate}', [PlateController::class, 'showPlatesDetails'])->name('singlePage');
     Route::get('chef', [PlateController::class, 'showPlates']);
+    Route::patch('/reservation/{reservation}', [ReservationController::class, 'update'])->name('reservation.update');
+    Route::delete('/reservation/{reservation}/delete', [ReservationController::class, 'destroy'])->name('reservation.destroy');
+    Route::get('/reservation_validation', [ReservationController::class, 'index']);
+
 });
 // ************************************Chef End***********************************************************
 
 // *********************************Admin*****************************************************************
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
-Route::get('/validateChef', [ChefController::class, 'index']);
-Route::get('/validate', [ClientController::class, 'index']);
-Route::get('/adminplate', [PlateController::class, 'showInvalidPlates']);
-Route::patch('/adminplate/{plate}', [PlateController::class, 'validation'])->name('admin.plate');
-Route::delete('/adminplate/{plate}', [PlateController::class, 'Refuse'])->name('admin.plateRefuse');
-Route::resource('/categories', CategoryController::class);
-Route::get('/reservation_validation', [ReservationController::class, 'index']);
-Route::get('admin/detailsPlate/{plate}', [PlateController::class, 'showPlatesDetailsAdmin'])->name('singlePageAdmin');
-Route::patch('/admin/{client}/validate', [ClientController::class, 'ban'])->name('client.ban');
-Route::put('/admin/validateChef/{chef}', [ChefController::class, 'ban'])->name('chef.ban');
-Route::patch('/reservation/{reservation}', [ReservationController::class, 'update'])->name('reservation.update');
-Route::delete('/reservation/{reservation}/delete', [ReservationController::class, 'destroy'])->name('reservation.destroy');
-
-});
+    Route::get('/validateChef', [ChefController::class, 'index']);
+    Route::get('/validate', [ClientController::class, 'index']);
+    Route::get('/adminplate', [PlateController::class, 'showInvalidPlates']);
+    Route::patch('/adminplate/{plate}', [PlateController::class, 'validation'])->name('admin.plate');
+    Route::delete('/adminplate/{plate}', [PlateController::class, 'Refuse'])->name('admin.plateRefuse');
+    Route::resource('/categories', CategoryController::class);
+    Route::get('admin/detailsPlate/{plate}', [PlateController::class, 'showPlatesDetailsAdmin'])->name('singlePageAdmin');
+    Route::patch('/admin/{client}/validate', [ClientController::class, 'ban'])->name('client.ban');
+    Route::put('/admin/validateChef/{chef}', [ChefController::class, 'ban'])->name('chef.ban');
+    });
 // *************************************Admin End*************************************************************
 
 
@@ -110,7 +106,7 @@ Route::delete('/reservation/{reservation}/delete', [ReservationController::class
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [UserController::class, 'index'])->name('login');
-    Route::post('custom-login', [UserController::class, 'customLogin'])->name('login.custom');
+    Route::post('/login', [UserController::class, 'customLogin'])->name('login.custom');
     Route::get('/register', [UserController::class, 'create']);
     Route::post('register', [UserController::class, 'store'])->name('register');
 });
@@ -121,7 +117,5 @@ Route::middleware('guest')->group(function () {
 
 
 Route::middleware(['auth'])->group(function () {
-Route::get('signout', [UserController::class, 'signOut'])->name('signout');
+    Route::get('signout', [UserController::class, 'signOut'])->name('signout');
 });
-
-

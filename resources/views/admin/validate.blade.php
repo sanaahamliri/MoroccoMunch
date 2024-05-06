@@ -1,50 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.navbarAdmin')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <style>
-        .action {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
-</head>
-
+@section('contentC')
 <body>
     <div class="flex h-screen w-full bg-gray-800 " x-data="{openMenu:1}">
         <!--Start SideBar-->
-        <aside class="w-20 relative z-20 flex-shrink-0  px-2 overflow-y-auto bg-indigo-600 sm:block">
-            <div class="mb-6">
-                <!--Start logo -->
-                <div class="flex justify-center">
-                    <div class="w-14 h-14 rounded-full bg-gray-300 border-2 border-white mt-2">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVxhAxJ4D7MOeTTj6kR9PBeZonW5HM7giKjTbEmR-HMBwf3G1VqGnlwpO1kWrdyIZu8_U&usqp=CAU" class="rounded-full w-auto" />
-                    </div>
-                </div>
-                <!--End logo -->
-                <!--Start NavItem -->
-                <div>
-                    <ul class="mt-6 leading-10 px-4">
-                        <li class="mb-3 p-2 rounded-md flex items-center justify-center bg-blue-400 cursor-pointer" @click="openMenu !== 1 ? openMenu = 1 : openMenu = null">
-                            <i class="fas fa-align-left fa-sm text-white"></i>
-                        </li>
-                        <li class="absolute bottom-0 mb-3 p-2 rounded-full flex items-center mx-auto bg-white cursor-pointer">
-                            <i class="fas fa-power-off fa-sm text-indigo-600"></i>
-                        </li>
-                    </ul>
-                </div>
-                <!--End NavItem -->
-            </div>
-        </aside>
+      
         <!-- Start Open Menu -->
         <aside class="animate__animated animate__fadeInLeft w-52 relative z-0 flex-shrink-0 hidden px-4 overflow-y-auto bg-gray-100 sm:block " x-show="openMenu ==  1" @click.away="openMenu = null" style="display: none;">
             <div class="mb-6">
@@ -101,7 +61,7 @@
         <div class="flex flex-col flex-1 w-full overflow-y-auto">
             <!--Start Topbar -->
             <!--End Topbar -->
-            <main class="relative z-0 flex-1 pb-8 px-6 bg-white">
+            <main class="relative z-0 flex-1 pb-8 px-6 ml-0 lg:ml-56 bg-white">
 
 
                 <div class="mb-2">
@@ -183,3 +143,4 @@
 </body>
 
 </html>
+@endsection
