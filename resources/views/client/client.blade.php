@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    
-<nav class="navbar navbar-expand-lg bg-light navbar-light ">
+
+    <nav class="navbar navbar-expand-lg bg-light navbar-light ">
         <div class="container-fluid">
             <a href="#" class="navbar-brand">Morocco <span>Munch</span></a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -64,7 +64,7 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="carousel">
         <div class="container-fluid">
             <div class="owl-carousel">
@@ -85,7 +85,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="single">
         <div class="container">
             <div class="row">
@@ -240,7 +240,7 @@
             </div>
         </div>
     </div>
-   
+
     <div class="team">
         <div class="container">
             <div class="section-header text-center">
@@ -272,7 +272,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="footer">
 
         <div class="copyright">
@@ -282,10 +282,10 @@
             </div>
         </div>
     </div>
-    
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  
+
     <script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
@@ -372,11 +372,12 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  
-  <script src="js/main.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
- 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

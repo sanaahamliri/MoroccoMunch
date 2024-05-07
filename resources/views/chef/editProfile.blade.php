@@ -81,24 +81,6 @@
                            
                         </form>
 
-                        <form action="{{route('editUserProfile',Auth::user())}}" method="post" class="text-center mt-12">
-                            @csrf
-                            @method('PATCH')
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">bio : </label>
-                            <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                                <input type="text" name="name" value="{{Auth::user()->name}}">
-                            </h3>
-
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Ciy</label>
-                            <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-                                <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-
-                                <input type="text" name="email" value="{{Auth::user()->email}}">
-                            </div>
-                        
-                            <button type="submit" class="px-3 py-1 rounded-xl bg-black text-white"> Save</button>
-                           
-                        </form>
                     </div>
                         <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
                             <div class="flex flex-wrap justify-center">
